@@ -29,9 +29,5 @@ public class LoginpageTest extends TestBase{
 	public void Verify_login_functionality() throws InterruptedException 
 	{
 		Testutils.logindetails("maxwell@yopmail.com", "Test@123");
-	}
-	
-	
-	
-	
+	}	
 }
