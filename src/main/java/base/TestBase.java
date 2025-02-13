@@ -55,8 +55,8 @@ public class TestBase {
         // Browser Settings
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Testutils.PAGE_LOAD_TIMEOUT));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Testutils.IMPLICIT_WAIT));
+        driver.manage().timeouts().pageLoadTimeout(Testutils.PAGE_LOAD_TIMEOUT);
+        driver.manage().timeouts().implicitlyWait(Testutils.IMPLICIT_WAIT);
 
         // Open the test URL
         String testUrl = prop.getProperty("testurl");

@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="LoginModuleTest.LoginpageTest">
+      <class name="MentorPanelTest.Usecase_ManagementTest">
         <methods>
           <include name="Verify_login_functionality"/>
+          <include name="Verify_buttons_mandatoryfields"/>
+          <include name="verify_addusecase_functionality"/>
           <include name="setup"/>
-          <include name="browserclose"/>
         </methods>
-      </class> <!-- LoginModuleTest.LoginpageTest -->
+      </class> <!-- MentorPanelTest.Usecase_ManagementTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
