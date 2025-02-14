@@ -182,13 +182,15 @@ public class Testutils<switchToFrame> extends TestBase {
 
 	// scrolling top section of page
 	public static void scroll_top() {
-		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("window.scrollTo(0, 0);");
 
 	}
 
 	// Scrolling bottom of the page
 	public static void scroll_bottom() {
-		((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight);");
 	}
 
 	// Scrolling to particular element

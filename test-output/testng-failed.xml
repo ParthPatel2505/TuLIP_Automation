@@ -5,10 +5,10 @@
     <classes>
       <class name="MentorPanelTest.Usecase_ManagementTest">
         <methods>
-          <include name="Verify_login_functionality"/>
-          <include name="Verify_buttons_mandatoryfields"/>
-          <include name="verify_addusecase_functionality"/>
+          <include name="verify_toggle_functionality"/>
+          <include name="verify_edit_functionality"/>
           <include name="setup"/>
+          <include name="verify_pagination_functionality"/>
         </methods>
       </class> <!-- MentorPanelTest.Usecase_ManagementTest -->
     </classes>
