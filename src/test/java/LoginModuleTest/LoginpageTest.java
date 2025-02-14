@@ -28,6 +28,6 @@ public class LoginpageTest extends TestBase{
 	@Test(priority = 1)
 	public void Verify_login_functionality() throws InterruptedException 
 	{
-		Testutils.logindetails("maxwell@yopmail.com", "Test@123");
+		loginpage.Login_verify();
 	}	
 }

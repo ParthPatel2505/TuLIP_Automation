@@ -1,5 +1,6 @@
 package LoginModule;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,36 +10,28 @@ import base.TestBase;
 
 public class Loginpage extends TestBase{
 
-	@FindBy(xpath = "//span[normalize-space()='My Account']")
-	WebElement Myaccount;
+	@FindBy(xpath = "//input[@id='email']")
+	WebElement Tulipid;
 	
-	@FindBy(xpath = "//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Login']")
-	WebElement Login;
+	@FindBy(xpath = "//input[@id='password']")
+	WebElement Tulippass;
 	
-	@FindBy(xpath = "//input[@id='input-email']")
-	WebElement Email;
+	@FindBy(xpath = "//button[@type='submit']")
+	WebElement Tuliplogin;
 	
-	@FindBy(xpath = "//input[@id='input-password']")
-	WebElement Passward;
-	
-	@FindBy(xpath = "//input[@value='Login']")
-	WebElement Button;
-	
-	@FindBy(xpath = "//h2[normalize-space()='My Account']")
-	WebElement Element;
+	@FindBy(xpath = "//div[@role='status']")
+	WebElement Successmessage;
 	
 	public Loginpage() {
 		PageFactory.initElements(driver, this);
 	}
 	
 	public void Login_verify() throws InterruptedException {
-		Myaccount.click(); Thread.sleep(500);
-		Login.click(); Thread.sleep(500);
-		Email.sendKeys(prop.getProperty("Emailadress")); Thread.sleep(500);
-		Passward.sendKeys(prop.getProperty("Pass")); Thread.sleep(500);
-		Button.click(); Thread.sleep(500);
-		
-		Assert.assertEquals(Element.getText(), "My Account");
+		driver.findElement(By.xpath("//span[normalize-space()='Login']")).click();
+		Tulipid.sendKeys(prop.getProperty("username"));
+		Tulippass.sendKeys(prop.getProperty("passward"));
+		Tuliplogin.click();Thread.sleep(2000);
+		Assert.assertEquals(Successmessage.getText(), "Success! You have Logged-In.");
 		System.out.println("Login Successfully");
 		
 	}
