@@ -9,7 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.Testutils;
 
@@ -31,6 +33,7 @@ public class TestBase {
         }
     }
 
+    @BeforeSuite
     // Browser Initialization
     public static void initialization() {
         if (prop == null) {
@@ -69,8 +72,10 @@ public class TestBase {
 
     // Close Browser
 
+   //@AfterSuite
     public static void browserclose() {
         if (driver != null) {
+        	driver.close();
             driver.quit();
         }
     }

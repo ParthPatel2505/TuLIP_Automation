@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="LoginModuleTest.LoginpageTest">
+      <class name="AutomationAccelerationTest.InnovationDetailsTest">
         <methods>
-          <include name="Verify_login_functionality"/>
-          <include name="setup"/>
+          <include name="openInnovationForm"/>
           <include name="browserclose"/>
+          <include name="initialization"/>
+          <include name="fillForm"/>
         </methods>
-      </class> <!-- LoginModuleTest.LoginpageTest -->
+      </class> <!-- AutomationAccelerationTest.InnovationDetailsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

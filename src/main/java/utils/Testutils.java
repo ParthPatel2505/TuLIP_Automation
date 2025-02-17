@@ -1,10 +1,16 @@
 package utils;
 
+import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
@@ -13,8 +19,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 import org.openqa.selenium.support.ui.Select;
-
-
 import base.TestBase;
 import com.github.javafaker.Faker;
 
@@ -22,12 +26,15 @@ public class Testutils<switchToFrame> extends TestBase {
 	
 	//Here TestUtils class extends some properties from TestBase class;
 	
+	static Testutils<Object> testutil = new Testutils<Object>();
+	
 	public static final long PAGE_LOAD_TIMEOUT = 30;
 	public static final long IMPLICIT_WAIT = 30;
 	public static String TESTDATA_SHEET_PATH = " write path of excel sheet";
 
 	static Workbook book;
 	static Sheet sheet;
+	
 	
 	public Testutils()
 	{
@@ -43,17 +50,13 @@ public class Testutils<switchToFrame> extends TestBase {
 	
 	//It is used for dynamic user login
 	
-	public static void logindetails(String username, String passward) {
-		
-		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(username);
-		driver.findElement(By.xpath("//input[@id='password']")).sendKeys(passward);
-		driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
-	}
+	
 	
 	// Method to perform mouse hover
-    public static void mouseHover(WebElement element) {
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element).perform();
+    public static void mouseHover(WebElement element) 
+    {
+    	Actions action = new Actions(driver);
+        action.moveToElement(element).perform();
     }
 		
 	//press enter with element
@@ -98,7 +101,6 @@ public class Testutils<switchToFrame> extends TestBase {
 		// It is used forhorizontal scroll
 		public static void horizontalbar(WebElement E1) throws InterruptedException
 		{
-			
 			Actions action = new Actions(driver);
 			Actions moveToElement = action.moveToElement(E1);
 			for (int i = 0; i < 5; i++) {
@@ -116,8 +118,32 @@ public class Testutils<switchToFrame> extends TestBase {
 		}
 		
 		
+		//Fetching the list from menu which is open as dropdown using ul or li tag
+		public void selectFromMenuList(String xPath, String value)
+		{
+			List<WebElement> liList = driver.findElements(By.xpath(xPath));
+			//liList.add(plusIconListinUL);
+			
+			for(int i=0; i < liList.size();)
+			{
+				String fetchValue = liList.get(i).getText();
+				//System.out.println(fetchValue);
+				if(fetchValue.equals(value))
+				{
+					String makingxPath = xPath + "[" + (i+1) + "]/span";
+					driver.findElement(By.xpath(makingxPath)).click();
+					break;
+				}
+				else
+				{
+					i++;
+				}
+			}
+		}
+		
+		
 		// It is used for click on element
-		public static void ElementOnClick(WebElement click_element)
+		public void ElementOnClick(WebElement click_element)
 		{
 			click_element.click();
 		}
@@ -174,19 +200,17 @@ public class Testutils<switchToFrame> extends TestBase {
 		}
 		
 		//scrolling top section of page
-		public static void scroll_top() 
-		{
-			((JavascriptExecutor) driver)
-			.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-			
-		}
+		public static void scroll_top() {
+	        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+	        jsExecutor.executeScript("window.scrollTo(0, 0);");
+
+	    }
 		
 		//Scrolling bottom of the page
-		public static void scroll_bottom() 
-		{
-			((JavascriptExecutor) driver)
-			.executeScript("window.scrollTo(document.body.scrollHeight, 0)");
-		}
+		 public static void scroll_bottom() {
+		        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		        jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		    }
 		
 		
 		//Scrolling to particular element
@@ -246,6 +270,31 @@ public class Testutils<switchToFrame> extends TestBase {
 			String random_number =  faker.phoneNumber().cellPhone(); 
 			return random_number;
 		}
+		
+		//wait until element or screen loading
+		public void waitForElement(long l) throws Exception
+		{
+			Thread.sleep(TimeUnit.SECONDS.toMillis(l));
+			//System.out.println(TimeUnit.MILLISECONDS.toMillis(l));
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(l));
+		}
+		
+		//check redirection properly
+		public boolean checkRedirection(String word)
+		{
+			String url = driver.getCurrentUrl().toString();
+			String fetchURL = url.toLowerCase();
+			//System.out.println(fetchURL);
+			if(fetchURL.contains(word))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
 		
 }
 
