@@ -1,6 +1,8 @@
 package utils;
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
@@ -272,4 +274,19 @@ public class Testutils<switchToFrame> extends TestBase {
 		}
 		return new String(chars);
 	}
+	
+	public static String fillCurrentDateTime(WebDriver driver, String formate , WebElement Element) {
+        // Get current date and time and format it in the required format
+        String currentDateTime = new SimpleDateFormat(formate).format(new Date()); // Format: "DD/MM/YYYY hh:mm aa"
+        
+        // Locate the input field by its placeholder
+        WebElement inputField = Element;
+
+        // Clear any existing value in the input field (if necessary)
+        inputField.clear();
+
+        // Enter the current date and time into the input field
+        inputField.sendKeys(currentDateTime);
+		return currentDateTime;
+    }
 }
