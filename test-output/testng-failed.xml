@@ -3,14 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="MentorPanelTest.Usecase_ManagementTest">
+      <class name="MentorPanelTest.ThemesTest">
         <methods>
-          <include name="verify_toggle_functionality"/>
-          <include name="verify_edit_functionality"/>
           <include name="setup"/>
-          <include name="verify_pagination_functionality"/>
+          <include name="verify_addthemes_functionality"/>
         </methods>
-      </class> <!-- MentorPanelTest.Usecase_ManagementTest -->
+      </class> <!-- MentorPanelTest.ThemesTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
