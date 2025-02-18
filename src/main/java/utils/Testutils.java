@@ -26,8 +26,8 @@ public class Testutils<switchToFrame> extends TestBase {
 	// Here TestUtils class extends some properties from TestBase class;
 
 	public static final Duration PAGE_LOAD_TIMEOUT = Duration.ofSeconds(30);
-    public static final Duration IMPLICIT_WAIT = Duration.ofSeconds(30);
-    public static final Duration EXPLICIT_WAIT = Duration.ofSeconds(30);
+	public static final Duration IMPLICIT_WAIT = Duration.ofSeconds(30);
+	public static final Duration EXPLICIT_WAIT = Duration.ofSeconds(30);
 	public static String TESTDATA_SHEET_PATH = " write path of excel sheet";
 
 	static Workbook book;
@@ -53,14 +53,13 @@ public class Testutils<switchToFrame> extends TestBase {
 		driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
 	}
 
+	// Method to wait for an element to be visible and then click it
+	public static void waitForElementAndClick(WebDriver driver, WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT);
+		wait.until(ExpectedConditions.visibilityOf(element));
+		element.click();
+	}
 
-    // Method to wait for an element to be visible and then click it
-    public static void waitForElementAndClick(WebDriver driver, WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT);
-        wait.until(ExpectedConditions.visibilityOf(element));
-        element.click();
-    }
-    
 	// Method to perform mouse hover
 	public static void mouseHover(WebElement element) {
 		Actions actions = new Actions(driver);
@@ -83,6 +82,8 @@ public class Testutils<switchToFrame> extends TestBase {
 		action.moveToElement(menu).sendKeys(Keys.ENTER).perform();
 		Thread.sleep(3000);
 	}
+
+	
 
 	// press enter
 	public static void PressEnter() throws InterruptedException {
@@ -180,21 +181,33 @@ public class Testutils<switchToFrame> extends TestBase {
 		act.doubleClick(element).perform();
 	}
 
+	// scrolling using px
+	public static void Scroll_px() {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("window.scrollBy(0,5000)", "");
+		System.out.println(jsExecutor.executeScript("return window.pageYOffset;"));
+	}
+
+	public static void scrollUsingAction(WebElement Element) {
+		Actions actions = new Actions(driver);
+		actions.moveToElement(Element).perform();
+	}
+
 	// scrolling top section of page
 	public static void scroll_top() {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("window.scrollTo(0, 0);");
+		jsExecutor.executeScript("window.scrollTo(0, 0);");
 
 	}
 
 	// Scrolling bottom of the page
 	public static void scroll_bottom() {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight);");
 	}
 
 	// Scrolling to particular element
-	public void Scroll_to_element(WebElement element) {
+	public static void Scroll_to_element(WebElement element) {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
 	}
 
@@ -271,5 +284,29 @@ public class Testutils<switchToFrame> extends TestBase {
 			chars[j] = temp;
 		}
 		return new String(chars);
+	}
+
+	// press All with element
+	public static void selectAllValue(WebElement menu) throws InterruptedException {
+		Actions action = new Actions(driver);
+		action.moveToElement(menu).keyDown(Keys.CONTROL).sendKeys("A").keyUp(Keys.CONTROL).build().perform();
+		Thread.sleep(3000);
+	}
+
+	// press All with element
+	public static void removeAllValue(WebElement menu) throws InterruptedException {
+		Actions action = new Actions(driver);
+		action.moveToElement(menu).sendKeys(Keys.BACK_SPACE).build().perform();
+		Thread.sleep(3000);
+	}
+
+	public static void bottomScrollUsingJS() {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("window.scrollTo(200, document.body.scrollHeight);");
+	}
+
+	public static void topScrollUsingJS() {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("window.scrollTo(-100, document.body.scrollHeight);");
 	}
 }
