@@ -6,59 +6,32 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import utils.Testutils;
+import base.TestBase;
 
-public class Loginpage extends Testutils<Object>
-{
-	
-	static Testutils<Object> testutil = new Testutils<Object>();
+public class Loginpage extends TestBase{
 
-	@FindBy(xpath = "//span[normalize-space()='My Account']")
-	WebElement Myaccount;
+	@FindBy(xpath = "//input[@id='email']")
+	WebElement Tulipid;
 	
-	@FindBy(xpath = "//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Login']")
-	WebElement Login;
+	@FindBy(xpath = "//input[@id='password']")
+	WebElement Tulippass;
 	
-	@FindBy(xpath = "//input[@id='input-email']")
-	WebElement Email;
+	@FindBy(xpath = "//button[@type='submit']")
+	WebElement Tuliplogin;
 	
-	@FindBy(xpath = "//input[@id='input-password']")
-	WebElement Passward;
-	
-	@FindBy(xpath = "//input[@value='Login']")
-	WebElement Button;
-	
-	@FindBy(xpath = "//h2[normalize-space()='My Account']")
-	WebElement Element;
+	@FindBy(xpath = "//div[@role='status']")
+	WebElement Successmessage;
 	
 	public Loginpage() {
 		PageFactory.initElements(driver, this);
 	}
 	
-	
-/*	public void Login_verify() throws Exception {
-		Myaccount.click(); 
-		Login.click(); 
-		Email.sendKeys(prop.getProperty("username")); 
-		Passward.sendKeys(prop.getProperty("passward")); 
-		Button.click(); 
-		
-		testutil.waitForElement(3);
-		
-		Assert.assertEquals(Element.getText(), "My Account");
-		//Assert.assertTrue(testutil.checkRedirection("Dashboard"), "User is redirected on wrong URL after logged in.");
-		//System.out.println("Login Successfully");
-		
-	}*/
-	
-	public static void logindetails(String username, String passward) throws Exception 
-	{
-		
-		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(username);
-		driver.findElement(By.xpath("//input[@id='password']")).sendKeys(passward);
-		driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
-		testutil.waitForElement(5);
-		Assert.assertTrue(testutil.checkRedirection("dashboard"), "User is redirected on wrong URL after logged in.");
+	public void Login_verify() throws InterruptedException {
+		driver.findElement(By.xpath("//span[normalize-space()='Login']")).click();
+		Tulipid.sendKeys(prop.getProperty("username"));
+		Tulippass.sendKeys(prop.getProperty("passward"));
+		Tuliplogin.click();Thread.sleep(2000);
+		Assert.assertEquals(Successmessage.getText(), "Success! You have Logged-In.");
 		System.out.println("Login Successfully");
 		
 	}

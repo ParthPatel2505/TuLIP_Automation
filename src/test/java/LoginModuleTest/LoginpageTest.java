@@ -2,13 +2,15 @@ package LoginModuleTest;
 
 import java.io.IOException;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import base.TestBase;
+import utils.Testutils;
 import LoginModule.Loginpage;
 
 
-public class LoginpageTest extends Loginpage
-{
+public class LoginpageTest extends TestBase{
 
 	Loginpage loginpage;
 	
@@ -17,20 +19,15 @@ public class LoginpageTest extends Loginpage
 		// TODO Auto-generated constructor stub
 	}
 
-	//@BeforeClass
+	@BeforeClass
 	public void setup() {
 		super.initialization();
 		loginpage = new Loginpage();
 	}
 	
-	@Test
-	public void Verify_login_functionality() throws Exception 
+	@Test(priority = 1)
+	public void Verify_login_functionality() throws InterruptedException 
 	{
-		logindetails(prop.getProperty("username"), prop.getProperty("passward"));
-		//loginpage.Login_verify();
-	}
-	
-	
-	
-	
+		loginpage.Login_verify();
+	}	
 }

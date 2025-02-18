@@ -9,9 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-
+import org.testng.annotations.AfterClass;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.Testutils;
 
@@ -33,7 +31,6 @@ public class TestBase {
         }
     }
 
-    @BeforeSuite
     // Browser Initialization
     public static void initialization() {
         if (prop == null) {
@@ -58,8 +55,8 @@ public class TestBase {
         // Browser Settings
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Testutils.PAGE_LOAD_TIMEOUT));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Testutils.IMPLICIT_WAIT));
+        driver.manage().timeouts().pageLoadTimeout(Testutils.PAGE_LOAD_TIMEOUT);
+        driver.manage().timeouts().implicitlyWait(Testutils.IMPLICIT_WAIT);
 
         // Open the test URL
         String testUrl = prop.getProperty("testurl");
@@ -72,10 +69,8 @@ public class TestBase {
 
     // Close Browser
 
-   //@AfterSuite
     public static void browserclose() {
         if (driver != null) {
-        	driver.close();
             driver.quit();
         }
     }
