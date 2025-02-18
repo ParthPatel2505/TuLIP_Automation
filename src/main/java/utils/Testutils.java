@@ -1,11 +1,15 @@
 package utils;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.openqa.selenium.By;
@@ -289,4 +293,51 @@ public class Testutils<switchToFrame> extends TestBase {
         inputField.sendKeys(currentDateTime);
 		return currentDateTime;
     }
+
+			//Fetching the list from menu which is open as dropdown using ul or li tag
+		public void selectFromMenuList(String xPath, String value)
+		{
+			List<WebElement> liList = driver.findElements(By.xpath(xPath));
+			//liList.add(plusIconListinUL);
+			
+			for(int i=0; i < liList.size();)
+			{
+				String fetchValue = liList.get(i).getText();
+				//System.out.println(fetchValue);
+				if(fetchValue.equals(value))
+				{
+					String makingxPath = xPath + "[" + (i+1) + "]/span";
+					driver.findElement(By.xpath(makingxPath)).click();
+					break;
+				}
+				else
+				{
+					i++;
+				}
+			}
+		}
+		
+		//check redirection properly
+		public static boolean checkRedirection(String word)
+		{
+			String url = driver.getCurrentUrl().toString();
+			String fetchURL = url.toLowerCase();
+			//System.out.println(fetchURL);
+			if(fetchURL.contains(word))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
+		//wait until element or screen loading
+        public static void waitForElement(long l) throws Exception
+        {
+            Thread.sleep(TimeUnit.SECONDS.toMillis(l));
+            //System.out.println(TimeUnit.MILLISECONDS.toMillis(l));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(l));
+        }
 }
