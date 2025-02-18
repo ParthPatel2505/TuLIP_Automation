@@ -11,10 +11,11 @@ import org.testng.Assert;
 
 import LoginModule.Loginpage;
 import MenuOrHeaderPanel.MenuOrHeaderPanel;
+import base.TestBase;
 import utils.Testutils;
 
 
-public class InnovationDetails extends Loginpage
+public class InnovationDetails extends TestBase
 {
 	Testutils<Object> testutil = new Testutils<Object>();
 	Loginpage lp = new Loginpage();
@@ -109,8 +110,8 @@ public class InnovationDetails extends Loginpage
 
 	public void checkValidation() throws Exception
 	{
-		testutil.waitForElement(5);
-		ElementOnClick(saveBtn);
+		Testutils.waitForElement(5);
+		Testutils.waitForElementAndClick(driver, saveBtn);
 	
 	}
 	
@@ -130,13 +131,13 @@ public class InnovationDetails extends Loginpage
 	public void validationCheck()throws Exception
 	{
 		PageFactory.initElements(driver, this);
-		waitForElement(3);
-		scroll_bottom();
-		waitForElement(1);
+		Testutils.waitForElement(3);
+		Testutils.scroll_bottom();
+		Testutils.waitForElement(1);
 		checkValidation();
-		waitForElement(1);
-		scroll_top();
-		waitForElement(3);
+		Testutils.waitForElement(1);
+		Testutils.scroll_top();
+		Testutils.waitForElement(3);
 		Assert.assertTrue(validationMessage(validationOnInnovationTitle), "Validation is not get display on field");
 		Assert.assertTrue(validationMessage(validationOnInnovationDomain), "Validation is not get display on field");
 		Assert.assertTrue(validationMessage(validationOnInnovationCountry), "Validation is not get display on field");
@@ -149,13 +150,13 @@ public class InnovationDetails extends Loginpage
 		Assert.assertTrue(validationMessage(validationOnInnovationCompliance), "Validation is not get display on field");
 		Assert.assertTrue(validationMessage(validationOnInnovationBusiness), "Validation is not get display on field");
 		
-		waitForElement(3);
-		scroll_bottom();
-		waitForElement(1);
-		ElementOnClick(resetBtn);
-		waitForElement(1);
-		scroll_top();
-		waitForElement(3);
+		Testutils.waitForElement(3);
+		Testutils.scroll_bottom();
+		Testutils.waitForElement(1);
+		Testutils.ElementOnClick(resetBtn);
+		Testutils.waitForElement(1);
+		Testutils.scroll_top();
+		Testutils.waitForElement(3);
 	}
 	
 	public void selectDropdownOption(String value)
@@ -168,45 +169,45 @@ public class InnovationDetails extends Loginpage
 	public void fillAllFieldsValue() throws Exception
 	{
 		PageFactory.initElements(driver, this);
-		waitForElement(15);
-		scroll_top();
-		waitForElement(5);
+		Testutils.waitForElement(15);
+		Testutils.scroll_top();
+		Testutils.waitForElement(5);
 		innovationTitle.sendKeys(prop.getProperty("InnovationTitle"));
 		
 		innovationTheme.click();
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		selectDropdownOption(prop.getProperty("Theme"));
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		
 		innovationDomain.click();
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		selectDropdownOption(prop.getProperty("Domain"));
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		
 		innovationRefLink.sendKeys(prop.getProperty("ReferenceLink"));
 		
 		innovationTagsField.sendKeys("a");
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		innovationTagsField.sendKeys("r");
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		selectDropdownOption(prop.getProperty("Tags"));
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		
 		innovationCountryField.sendKeys("i");
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		innovationCountryField.sendKeys("n");
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		innovationCountryField.sendKeys("d");
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		selectDropdownOption(prop.getProperty("Country"));
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		
 		innovationUCField.sendKeys("m");
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		innovationUCField.sendKeys("u");
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		selectDropdownOption(prop.getProperty("SelectUseCode"));
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		
 		innovationVisibilityRadio.click();
 		innovationInnovation.sendKeys(prop.getProperty("Description"));
@@ -218,15 +219,15 @@ public class InnovationDetails extends Loginpage
 		
 		
 		uploadInput.sendKeys("C:/Users/Vatsal BT210 QA/Pictures/images.png");
-		waitForElement(2);
+		Testutils.waitForElement(2);
 		
-		scroll_bottom();
-		waitForElement(3);
+		Testutils.scroll_bottom();
+		Testutils.waitForElement(3);
 		
-		ElementOnClick(saveBtn);
-		waitForElement(10);
+		Testutils.ElementOnClick(saveBtn);
+		Testutils.waitForElement(10);
 		
-		Assert.assertTrue(checkRedirection("ticket-viewall"), "User is redirected on wrong url after completion of the Innovation form");
+		Assert.assertTrue(Testutils.checkRedirection("ticket-viewall"), "User is redirected on wrong url after completion of the Innovation form");
 		
 	}
 	
@@ -234,21 +235,21 @@ public class InnovationDetails extends Loginpage
 	{
 		PageFactory.initElements(driver, this);
 		
-		waitForElement(2);
-		scroll_bottom();
-		waitForElement(3);
+		Testutils.waitForElement(2);
+		Testutils.scroll_bottom();
+		Testutils.waitForElement(3);
 		uploadInput.sendKeys("C:/Users/Vatsal BT210 QA/Pictures/images.png");
-		waitForElement(2);
+		Testutils.waitForElement(2);
 		
-		ElementOnClick(deleteIconOfUploadFile);
-		ElementOnClick(cancelBtnFromDeletePopup);
-		waitForElement(2);
-		ElementOnClick(deleteIconOfUploadFile);
-		ElementOnClick(deleteBtnFromDeletePopup);
+		Testutils.ElementOnClick(deleteIconOfUploadFile);
+		Testutils.ElementOnClick(cancelBtnFromDeletePopup);
+		Testutils.waitForElement(2);
+		Testutils.ElementOnClick(deleteIconOfUploadFile);
+		Testutils.ElementOnClick(deleteBtnFromDeletePopup);
 		//uploadInput.click();
 		//PressTab();
 		
-		waitForElement(3);
+		Testutils.waitForElement(3);
 		driver.navigate().refresh();
 		
 	}

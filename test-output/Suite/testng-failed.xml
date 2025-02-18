@@ -5,10 +5,17 @@
     <classes>
       <class name="AutomationAccelerationTest.InnovationDetailsTest">
         <methods>
-          <include name="initialization"/>
+          <include name="openInnovationForm"/>
           <include name="fillForm"/>
+          <include name="uploadFileinForm"/>
         </methods>
       </class> <!-- AutomationAccelerationTest.InnovationDetailsTest -->
+      <class name="LoginModuleTest.LoginpageTest">
+        <methods>
+          <include name="Verify_login_functionality"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- LoginModuleTest.LoginpageTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import AutomationAcceleration.InnovationDetails;
 import LoginModule.Loginpage;
+import utils.Testutils;
 
 public class InnovationDetailsTest extends InnovationDetails
 {
@@ -18,7 +19,7 @@ public class InnovationDetailsTest extends InnovationDetails
 	//@BeforeClass
 	public void takeLogin() throws Exception
 	{
-		Loginpage.logindetails(prop.getProperty("username"), prop.getProperty("passward"));
+		Testutils.ValidateUserLogin();
 	}
 	
 	@Test(priority=1)

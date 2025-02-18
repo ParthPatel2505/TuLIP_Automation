@@ -1,11 +1,15 @@
 package utils;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.openqa.selenium.By;
@@ -314,7 +318,7 @@ public class Testutils<switchToFrame> extends TestBase {
 		}
 		
 		//check redirection properly
-		public boolean checkRedirection(String word)
+		public static boolean checkRedirection(String word)
 		{
 			String url = driver.getCurrentUrl().toString();
 			String fetchURL = url.toLowerCase();
@@ -328,4 +332,12 @@ public class Testutils<switchToFrame> extends TestBase {
 				return false;
 			}
 		}
+		
+		//wait until element or screen loading
+        public static void waitForElement(long l) throws Exception
+        {
+            Thread.sleep(TimeUnit.SECONDS.toMillis(l));
+            //System.out.println(TimeUnit.MILLISECONDS.toMillis(l));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(l));
+        }
 }
