@@ -1,3 +1,7 @@
-/target/
+target/*
 test-output/*
-
+.classpath
+.settings/*
+.project
+.classpath.swp
+.vscode/*
