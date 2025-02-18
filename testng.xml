@@ -9,6 +9,7 @@
       <class name="LoginModuleTest.SignupTest"/>
       <class name="MentorPanelTest.Category_ManagementTest"/>
       <class name="LoginModuleTest.LoginpageTest"/>
+		  <class name="AutomationAccelerationTest.InnovationDetailsTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

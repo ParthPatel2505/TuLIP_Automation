@@ -1,13 +1,15 @@
 package utils;
 
-import java.awt.event.KeyEvent;
-import java.awt.Robot;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.openqa.selenium.By;
@@ -19,9 +21,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import base.TestBase;
 import com.github.javafaker.Faker;
+
 public class Testutils<switchToFrame> extends TestBase {
 
 	// Here TestUtils class extends some properties from TestBase class;
@@ -89,7 +94,7 @@ public class Testutils<switchToFrame> extends TestBase {
 	public static void PressEnter() throws InterruptedException {
 		Actions action = new Actions(driver);
 		action.sendKeys(Keys.ENTER).perform();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 	}
 
 	// press DOWN
@@ -195,15 +200,13 @@ public class Testutils<switchToFrame> extends TestBase {
 	}
 
 	// Scrolling to particular element
-	public static void Scroll_to_element(WebElement element) {
-		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-		jsExecutor.executeScript("arguments[0].scrollIntoView();", element);
+	public void Scroll_to_element(WebElement element) {
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
 	}
-	
 
 	// It is used for uploading file only when type = "file"
 	public static void upload_file(WebElement upload_element, String file_path) {
-		upload_element.sendKeys(file_path); 
+		upload_element.sendKeys(file_path);
 	}
 
 	// It is used for Horizontal scroll clicking on count of click
@@ -290,11 +293,58 @@ public class Testutils<switchToFrame> extends TestBase {
         inputField.sendKeys(currentDateTime);
 		return currentDateTime;
     }
-	
-	public static void PressrobotEnter() throws Exception {
-	    Robot robot = new Robot();
-	    robot.keyPress(KeyEvent.VK_ENTER); // Press Enter key
-	    robot.keyRelease(KeyEvent.VK_ENTER); // Release Enter key
-	    Thread.sleep(2000); // Wait for 2 seconds
-	}
+
+			//Fetching the list from menu which is open as dropdown using ul or li tag
+		public void selectFromMenuList(String xPath, String value)
+		{
+			List<WebElement> liList = driver.findElements(By.xpath(xPath));
+			//liList.add(plusIconListinUL);
+			
+			for(int i=0; i < liList.size();)
+			{
+				String fetchValue = liList.get(i).getText();
+				//System.out.println(fetchValue);
+				if(fetchValue.equals(value))
+				{
+					String makingxPath = xPath + "[" + (i+1) + "]/span";
+					driver.findElement(By.xpath(makingxPath)).click();
+					break;
+				}
+				else
+				{
+					i++;
+				}
+			}
+		}
+		
+		//check redirection properly
+		public static boolean checkRedirection(String word)
+		{
+			String url = driver.getCurrentUrl().toString();
+			String fetchURL = url.toLowerCase();
+			//System.out.println(fetchURL);
+			if(fetchURL.contains(word))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
+		//wait until element or screen loading
+        public static void waitForElement(long l) throws Exception
+        {
+            Thread.sleep(TimeUnit.SECONDS.toMillis(l));
+            //System.out.println(TimeUnit.MILLISECONDS.toMillis(l));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(l));
+        }
+
+		public static void PressrobotEnter() throws Exception {
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_ENTER); // Press Enter key
+			robot.keyRelease(KeyEvent.VK_ENTER); // Release Enter key
+			Thread.sleep(2000); // Wait for 2 seconds
+		}
 }
