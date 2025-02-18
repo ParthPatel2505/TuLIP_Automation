@@ -3,7 +3,13 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
+      <class name="LoginModuleTest.ForgotpasswardTest"/>
+      <class name="MentorPanelTest.ThemesTest"/>
+      <class name="MentorPanelTest.Usecase_ManagementTest"/>
+      <class name="LoginModuleTest.SignupTest"/>
+      <class name="MentorPanelTest.Category_ManagementTest"/>
       <class name="LoginModuleTest.LoginpageTest"/>
+		  <class name="AutomationAccelerationTest.InnovationDetailsTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
