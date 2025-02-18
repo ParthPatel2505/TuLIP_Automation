@@ -340,4 +340,11 @@ public class Testutils<switchToFrame> extends TestBase {
             //System.out.println(TimeUnit.MILLISECONDS.toMillis(l));
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(l));
         }
+
+		public static void PressrobotEnter() throws Exception {
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_ENTER); // Press Enter key
+			robot.keyRelease(KeyEvent.VK_ENTER); // Release Enter key
+			Thread.sleep(2000); // Wait for 2 seconds
+		}
 }
