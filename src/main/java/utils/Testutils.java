@@ -372,4 +372,8 @@ public class Testutils<switchToFrame> extends TestBase {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("window.scrollTo(-100, document.body.scrollHeight);");
 	}
+	public static void scrollUsingAction(WebElement element) {
+		Actions actions = new Actions(driver);
+	    actions.moveToElement(element).perform();
+	}
 }
