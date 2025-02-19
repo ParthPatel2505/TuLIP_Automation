@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="none">
-  <test thread-count="1" name="Test">
-	  <classes>
-		  <class name="LoginModuleTest.LoginpageTest"/>
-		  <class name="AutomationAccelerationTest.InnovationDetailsTest"/>
-	  </classes>
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="MentorPanelTest.Department_ManagementTest"/>
+      <class name="LoginModuleTest.ForgotpasswardTest"/>
+      <class name="MentorPanelTest.ThemesTest"/>
+      <class name="MentorPanelTest.Usecase_ManagementTest"/>
+      <class name="LoginModuleTest.SignupTest"/>
+      <class name="MentorPanelTest.Category_ManagementTest"/>
+      <class name="MenuOrHeaderPanelTest.MenuOrHeaderPanelTest"/>
+      <class name="LoginModuleTest.LoginpageTest"/>
+      <class name="AutomationAccelerationTest.InnovationDetailsTest"/>
+    </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
