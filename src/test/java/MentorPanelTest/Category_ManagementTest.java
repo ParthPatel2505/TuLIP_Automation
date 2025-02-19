@@ -26,7 +26,7 @@ public class Category_ManagementTest extends TestBase{
 	}
 
 	@Test(priority = 1)
-	public void Verify_navigatetocategory_functionality() throws InterruptedException {
+	public void Verify_navigatetodepartment_functionality() throws InterruptedException {
 		category.navigate_to_category();
 	}
 	
