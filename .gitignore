@@ -26,6 +26,7 @@ node_modules/
 # Eclipse project files
 .project
 .settings/
+.classpath
 
 # Exclude temporary files created by OS
 .DS_Store
