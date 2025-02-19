@@ -1,5 +1,6 @@
 package utils;
 
+import java.awt.event.KeyEvent;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -8,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.awt.Robot;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.usermodel.Sheet;
@@ -200,7 +202,7 @@ public class Testutils<switchToFrame> extends TestBase {
 	}
 
 	// Scrolling to particular element
-	public void Scroll_to_element(WebElement element) {
+	public static void Scroll_to_element(WebElement element) {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
 	}
 
@@ -340,4 +342,34 @@ public class Testutils<switchToFrame> extends TestBase {
             //System.out.println(TimeUnit.MILLISECONDS.toMillis(l));
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(l));
         }
+
+		public static void PressrobotEnter() throws Exception {
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_ENTER); // Press Enter key
+			robot.keyRelease(KeyEvent.VK_ENTER); // Release Enter key
+			Thread.sleep(2000); // Wait for 2 seconds
+		}
+		// press All with element
+	public static void selectAllValue(WebElement menu) throws InterruptedException {
+		Actions action = new Actions(driver);
+		action.moveToElement(menu).keyDown(Keys.CONTROL).sendKeys("A").keyUp(Keys.CONTROL).build().perform();
+		Thread.sleep(3000);
+	}
+
+	// press All with element
+	public static void removeAllValue(WebElement menu) throws InterruptedException {
+		Actions action = new Actions(driver);
+		action.moveToElement(menu).sendKeys(Keys.BACK_SPACE).build().perform();
+		Thread.sleep(3000);
+	}
+
+	public static void bottomScrollUsingJS() {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("window.scrollTo(200, document.body.scrollHeight);");
+	}
+
+	public static void topScrollUsingJS() {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("window.scrollTo(-100, document.body.scrollHeight);");
+	}
 }
