@@ -1,17 +1,13 @@
 package AutomationAccelerationTest;
 
-
-import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import AutomationAcceleration.InnovationDetails;
+import AutomationAcceleration.VenturesDetails;
 import LoginModule.Loginpage;
 import utils.Testutils;
 
-public class InnovationDetailsTest extends InnovationDetails
+public class VenturesDetailsTest extends VenturesDetails
 {
-	InnovationDetails openPlusMenuFromHeader = new InnovationDetails();
 	Loginpage lp = new Loginpage();
 	
 	
@@ -23,9 +19,9 @@ public class InnovationDetailsTest extends InnovationDetails
 	}
 	
 	@Test(priority=1)
-	public void openInnovationForm() throws Exception
+	public void openEngForm() throws Exception
 	{
-		openPlusMenuFromHeader.openInnovationForm();
+		openEngFormFromPlus();
 	}
 	
 	@Test(priority=2)

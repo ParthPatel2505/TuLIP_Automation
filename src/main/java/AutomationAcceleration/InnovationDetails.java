@@ -105,7 +105,7 @@ public class InnovationDetails extends TestBase
 	
 	public void openInnovationForm() throws Exception
 	{
-		clickOnPlus.openPlusMenuFromHeader();
+		clickOnPlus.openInnovationFromPlusMenuFromHeader();
 	}
 
 	public void checkValidation() throws Exception
@@ -172,7 +172,7 @@ public class InnovationDetails extends TestBase
 		Testutils.waitForElement(15);
 		Testutils.scroll_top();
 		Testutils.waitForElement(5);
-		innovationTitle.sendKeys(prop.getProperty("InnovationTitle"));
+		innovationTitle.sendKeys(prop.getProperty("Title"));
 		
 		innovationTheme.click();
 		Testutils.waitForElement(3);
@@ -218,14 +218,14 @@ public class InnovationDetails extends TestBase
 		innovationBus.sendKeys(prop.getProperty("Description"));
 		
 		
-		uploadInput.sendKeys("C:/Users/Vatsal BT210 QA/Pictures/images.png");
+		uploadInput.sendKeys("C:\\Vatsal\\Extra\\dummy.pdf");
 		Testutils.waitForElement(2);
 		
 		Testutils.scroll_bottom();
 		Testutils.waitForElement(3);
 		
 		Testutils.ElementOnClick(saveBtn);
-		Testutils.waitForElement(10);
+		Testutils.waitForElement(15);
 		
 		Assert.assertTrue(Testutils.checkRedirection("ticket-viewall"), "User is redirected on wrong url after completion of the Innovation form");
 		
@@ -238,7 +238,7 @@ public class InnovationDetails extends TestBase
 		Testutils.waitForElement(2);
 		Testutils.scroll_bottom();
 		Testutils.waitForElement(3);
-		uploadInput.sendKeys("C:/Users/Vatsal BT210 QA/Pictures/images.png");
+		uploadInput.sendKeys("C:\\Vatsal\\Extra\\dummy.pdf");
 		Testutils.waitForElement(2);
 		
 		Testutils.ElementOnClick(deleteIconOfUploadFile);

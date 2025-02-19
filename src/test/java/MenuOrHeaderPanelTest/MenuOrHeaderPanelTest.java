@@ -2,8 +2,6 @@ package MenuOrHeaderPanelTest;
 
 import java.io.IOException;
 
-import org.testng.annotations.Test;
-
 import LoginModuleTest.LoginpageTest;
 import MenuOrHeaderPanel.MenuOrHeaderPanel;
 
@@ -17,9 +15,15 @@ public class MenuOrHeaderPanelTest extends LoginpageTest
 
 	MenuOrHeaderPanel menuHeaderPanel = new MenuOrHeaderPanel();
 	
-	@Test
+	//@Test
+	public void clickOnInnoPlusHeaderMenu() throws Exception
+	{
+		menuHeaderPanel.openInnovationFromPlusMenuFromHeader();
+	}
+	
+	//@Test
 	public void clickOnPlusHeaderMenu() throws Exception
 	{
-		menuHeaderPanel.openPlusMenuFromHeader();
+		menuHeaderPanel.openEngFromPlusMenuFromHeader();
 	}
 }
