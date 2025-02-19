@@ -295,7 +295,7 @@ public class Testutils<switchToFrame> extends TestBase {
     }
 
 			//Fetching the list from menu which is open as dropdown using ul or li tag
-		public void selectFromMenuList(String xPath, String value)
+		public static void selectFromMenuList(String xPath, String value)
 		{
 			List<WebElement> liList = driver.findElements(By.xpath(xPath));
 			//liList.add(plusIconListinUL);
