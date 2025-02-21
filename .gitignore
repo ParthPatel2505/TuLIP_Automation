@@ -32,8 +32,4 @@ node_modules/
 .DS_Store
 Thumbs.db
 /.apt_generated/
-<<<<<<< HEAD
 /.apt_generated_tests/
-=======
-/.apt_generated_tests/
->>>>>>> master

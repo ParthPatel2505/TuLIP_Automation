@@ -24,19 +24,25 @@ public class Education_Test extends TestBase {
 		Testutils.logindetails("chand.patel@tntra.io", "Brijesh@05042003");
 	}
 
-	@Test(priority=1)
+	@Test(priority = 1)
 	public void navigatetoEducationthroughProfile() throws InterruptedException {
 		PI.NavigatetoProfile();
+		Thread.sleep(2000);
 		ET.navigateToEducation();
 	}
 
-	@Test(priority=2)
+	@Test(priority = 2)
 	public void verifyDisabledFields() throws InterruptedException {
 		ET.disabledFields();
 	}
 
-	@Test(priority=3)
+	@Test(priority = 3)
 	public void verifyrequiredFields() throws InterruptedException {
 		ET.requiredFields();
+	}
+
+	@Test(priority = 4)
+	public void verifyFillTheDetails() throws Exception {
+		ET.fillTheDetails();
 	}
 }

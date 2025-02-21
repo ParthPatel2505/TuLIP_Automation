@@ -83,7 +83,7 @@ public class Personal_Information extends TestBase {
 		for (WebElement element : disabledElements) {
 			System.out.println("Tag: " + element.getTagName() + ", Name: " + element.getAttribute("name") + ", ID: "
 					+ element.getAttribute("id"));
-	}
+		}
 		System.out.println("Total disabled fields found: " + disabledElements.size());
 		Assert.assertEquals(disabledElements.size(), 2);
 	}

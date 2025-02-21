@@ -376,4 +376,32 @@ public class Testutils<switchToFrame> extends TestBase {
 		Actions actions = new Actions(driver);
 	    actions.moveToElement(element).perform();
 	}
+
+	public static void selectUsingAction(WebElement element, int n) {
+		Actions actions = new Actions(driver);
+		actions.moveToElement(element).click().perform();
+		for (int i = 0; i < n; i++) {
+			actions.sendKeys(Keys.ARROW_DOWN).perform();
+		}
+		actions.sendKeys(Keys.ENTER).perform();
+	}
+	public static void selectFromStaticList(String xPath, String value)
+	{
+		List<WebElement> liList = driver.findElements(By.xpath(xPath));
+		
+		for(int i=0; i < liList.size();)
+		{
+			String fetchValue = liList.get(i).getText();
+			if(fetchValue.equals(value))
+			{
+				String makingxPath = xPath + "[" + (i+1) + "]";
+				driver.findElement(By.xpath(makingxPath)).click();
+				break;
+			}
+			else
+			{
+				i++;
+			}
+		}
+	}
 }
