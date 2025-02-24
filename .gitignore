@@ -25,9 +25,12 @@ node_modules/
 
 # Eclipse project files
 .project
+.classpath
 .settings/
 .classpath
 
 # Exclude temporary files created by OS
 .DS_Store
 Thumbs.db
+/.apt_generated/
+/.apt_generated_tests/

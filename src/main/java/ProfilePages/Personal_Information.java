@@ -13,6 +13,8 @@ import utils.Testutils;
 
 public class Personal_Information extends TestBase {
 
+	public String storedEmail;
+
 	public Personal_Information() {
 		PageFactory.initElements(driver, this);
 	}
@@ -49,21 +51,20 @@ public class Personal_Information extends TestBase {
 	WebElement dob_txt;
 	@FindBy(xpath = "//header[@class='top-header']")
 	WebElement header_txt;
-    @FindBy(xpath = "//div[@class='react-select__indicator react-select__clear-indicator css-1xc3v61-indicatorContainer']//*[name()='svg']")
-    WebElement Close_icn;
-    @FindBy(xpath = "//select[1]")
-    WebElement year_ddl;
-    @FindBy(xpath = "//select[2]")
-    WebElement month_ddl;
-    @FindBy(xpath = "//option[contains(text(),'2003')]")
-    WebElement year_txt;
-    @FindBy(xpath = "//option[contains(text(),'April')]")
-    WebElement month_txt;
-    @FindBy(xpath = "//div[@aria-label='Choose Saturday, April 5th, 2003']")
-    WebElement date_txt;
-    @FindBy(xpath = "//div[@id='_rht_toaster']")
-    WebElement success_txt;
-    
+	@FindBy(xpath = "//div[@class='react-select__indicator react-select__clear-indicator css-1xc3v61-indicatorContainer']//*[name()='svg']")
+	WebElement Close_icn;
+	@FindBy(xpath = "//select[1]")
+	WebElement year_ddl;
+	@FindBy(xpath = "//select[2]")
+	WebElement month_ddl;
+	@FindBy(xpath = "//option[contains(text(),'2003')]")
+	WebElement year_txt;
+	@FindBy(xpath = "//option[contains(text(),'April')]")
+	WebElement month_txt;
+	@FindBy(xpath = "//div[@aria-label='Choose Saturday, April 5th, 2003']")
+	WebElement date_txt;
+	@FindBy(xpath = "//div[@role='status']")
+	WebElement success_txt;
 
 	public void NavigatetoProfile() throws InterruptedException {
 		Thread.sleep(4000);
@@ -74,7 +75,7 @@ public class Personal_Information extends TestBase {
 
 	public void VerifyDisabledFields() throws InterruptedException {
 		Thread.sleep(1000);
-		//Testutils.ElementOnClick(PersonalInformation_txt);
+		// Testutils.ElementOnClick(PersonalInformation_txt);
 		Thread.sleep(1000);
 		Testutils.ElementOnClick(Edit_icn);
 
@@ -89,7 +90,7 @@ public class Personal_Information extends TestBase {
 
 	public void VerifyRequiredFields() throws InterruptedException {
 
-		String email = email_txt.getAttribute("value");
+		storedEmail = email_txt.getAttribute("value");
 		Testutils.scrollUsingAction(Language_ddl);
 		Thread.sleep(1000);
 		Testutils.ElementOnClick(LastName_txt);
@@ -127,13 +128,20 @@ public class Personal_Information extends TestBase {
 	public void fillPersonalInformation() throws InterruptedException {
 		Testutils.scrollUsingAction(dob_txt);
 		LastName_txt.sendKeys("Patel");
-		email_txt.sendKeys("chand.patel@tntra.io");
-		Testutils.ElementOnClick(dob_txt); Thread.sleep(1000);
-		Testutils.ElementOnClick(year_ddl); Thread.sleep(1000);
-		Testutils.ElementOnClick(year_txt); Thread.sleep(1000);
-		Testutils.ElementOnClick(month_ddl); Thread.sleep(1000);
-		Testutils.ElementOnClick(month_txt); Thread.sleep(1000);
-		Testutils.ElementOnClick(date_txt); Thread.sleep(1000);
+//		email_txt.sendKeys("chand.patel@tntra.io");
+		email_txt.sendKeys(storedEmail);
+		Testutils.ElementOnClick(dob_txt);
+		Thread.sleep(1000);
+		Testutils.ElementOnClick(year_ddl);
+		Thread.sleep(1000);
+		Testutils.ElementOnClick(year_txt);
+		Thread.sleep(1000);
+		Testutils.ElementOnClick(month_ddl);
+		Thread.sleep(1000);
+		Testutils.ElementOnClick(month_txt);
+		Thread.sleep(1000);
+		Testutils.ElementOnClick(date_txt);
+		Thread.sleep(1000);
 		AboutMe_txt.sendKeys(
 				"A dedicated software tester with hands-on experience in manual & automation testing, bug tracking, and regression testing. Passionate about ensuring software quality by identifying and resolving critical bugs. Skilled in working with Jira and collaborating with development teams to enhance product functionality. Always eager to learn new testing methodologies and improve software reliability.");
 		Thread.sleep(2000);
@@ -155,7 +163,7 @@ public class Personal_Information extends TestBase {
 		Thread.sleep(2000);
 		Testutils.ElementOnClick(Save_btn);
 		Thread.sleep(1000);
-		Assert.assertEquals(success_txt.getText(),"Success! Record updated.");
-		
+		Assert.assertEquals(success_txt.getText(), "Success! Record updated.");
+
 	}
 }

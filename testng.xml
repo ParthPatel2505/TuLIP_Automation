@@ -13,6 +13,8 @@
       <class name="MenuOrHeaderPanelTest.MenuOrHeaderPanelTest"/>
       <class name="LoginModuleTest.LoginpageTest"/>
       <class name="AutomationAccelerationTest.InnovationDetailsTest"/>
+      <class name="AutomationAccelerationTest.EngineeringDetailsTest"/>
+		  <class name="AutomationAccelerationTest.VenturesDetailsTest"/> 
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
