@@ -3,6 +3,7 @@ package MentorPanel;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -38,7 +39,7 @@ String Random_Name = Testutils.generateRandomName();
 	@FindBy(xpath = "(//input[@id='name'])[1]")
 	WebElement communityinput;
 	
-	@FindBy(xpath = "(//span[@id=':ru:'])[1]")
+	@FindBy(xpath = "//span[@class='MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1l6c7y9']")
 	WebElement fileupload;
 	
 	@FindBy(xpath = "(//a[@role='button'])[1]")
@@ -47,7 +48,7 @@ String Random_Name = Testutils.generateRandomName();
 	@FindBy(xpath = "//div[@class='jodit-wysiwyg']")
 	WebElement description;
 	
-	@FindBy(xpath = "//input[@id=':r13:']")
+	@FindBy(xpath = "//button[@title='Open']")
 	WebElement communittags;
 	
 	@FindBy(xpath = "(//div[@class='MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-deletable MuiChip-deletableColorDefault MuiChip-filledDefault MuiAutocomplete-tag MuiAutocomplete-tagSizeMedium css-1th7ptu'])[last()]")
@@ -59,13 +60,13 @@ String Random_Name = Testutils.generateRandomName();
 	@FindBy(xpath = "//div[@role='status']")
 	WebElement successaddedmsg;
 	
-	@FindBy(xpath = "//tbody/tr[1]/td[4]/button[1]")
+	@FindBy(xpath = "(//button[@class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-i9hf7q\"])[2]")
 	WebElement viewicon;
 	
 	@FindBy(xpath = "//input[@disabled]")
 	WebElement disabledfields;
 	
-	@FindBy(xpath = "(//button[normalize-space()='Go Back'])[1]")
+	@FindBy(xpath = "//button[text()='Go Back']")
 	WebElement goback;
 	
 	@FindBy(xpath = "(//span[@class=\"MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked Mui-checked css-1ndmc9y\"])[1]")
@@ -80,7 +81,7 @@ String Random_Name = Testutils.generateRandomName();
 	@FindBy(xpath = "//div[contains(@role,'status')]")
 	WebElement activemessage;
 	
-	@FindBy(xpath = "//input[@id='search-career']")
+	@FindBy(xpath = "//input[@id=\"search-challenge\"]")
 	WebElement searchbar;
 	
 	@FindBy(xpath = "(//td[@class=\"MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-u4mgp3\"])[1]")
@@ -139,19 +140,17 @@ String Random_Name = Testutils.generateRandomName();
 	    cancelbutton.click();	    
 	}
 	
-	public void adddetails() throws InterruptedException {
+	public void adddetails() throws Exception {
 		Thread.sleep(800);
 		Testutils.waitForElementAndClick(driver, Addbutton);
 		communityinput.sendKeys(Random_Name);
 		String filePath = System.getProperty("user.dir") + "\\Files\\demo.png";
-	    Testutils.upload_file(driver, fileupload, filePath);
+		Testutils.uploadFileUsingRobot(fileupload, filePath);
 		Assert.assertTrue(uploadedfile.isDisplayed());
 		description.sendKeys(Random_Name);
 		communittags.click();
 		Testutils.PressDown();Testutils.PressEnter();
 		tagcancel.click();
-		communittags.click();
-		Testutils.PressDown();Testutils.PressEnter();
 		communittags.click();
 		Testutils.PressDown();Testutils.PressEnter();
 		allclear.click();
@@ -167,8 +166,8 @@ String Random_Name = Testutils.generateRandomName();
 		Thread.sleep(800);
 		viewicon.click();
 		List<WebElement> disabled_fields = driver.findElements(By.xpath("//input[@disabled]"));
-	    System.out.println("Total number of disabled fields on page: " + disabled_fields.size());
-	    goback.click();
+	    System.out.println("Total number of disabled fields on page: " + disabled_fields.size());Thread.sleep(500);
+	    driver.navigate().back();    //goback.click();
 	}
 	
 	public void toggleactions() throws InterruptedException {
@@ -176,18 +175,18 @@ String Random_Name = Testutils.generateRandomName();
 		activetoggle.click();Thread.sleep(1000);
 		Assert.assertEquals(inactivemessage.getText(), "Success! Community deactivated.");
 		inactivtoggle.click();Thread.sleep(1000);
-		Assert.assertEquals(activemessage.getText(), "Success! Record activated.");
+		Assert.assertEquals(activemessage.getText(), "Success! Community activated.");
 	    System.out.println("Toggle Actions working properly.");
 	}
 	
 	public void searchbar() throws InterruptedException {
 		Thread.sleep(1000);
-		String s = firsttd.getText();
-		searchbar.sendKeys(s);Thread.sleep(500);
+		String s = firsttd.getText();Thread.sleep(500);
+		searchbar.sendKeys(s);Thread.sleep(1000);
 		driver.navigate().refresh();
 		Thread.sleep(1000);
 		searchbar.sendKeys(s+"1");Thread.sleep(500);
-		Assert.assertEquals(nodata.getText(), "No data found");Thread.sleep(500);
+		Assert.assertEquals(nodata.getText(), "No Data Found");Thread.sleep(500);
 	}
 	
 	public void pagination() throws InterruptedException {
@@ -204,10 +203,10 @@ String Random_Name = Testutils.generateRandomName();
 	
 	public void editpage() throws InterruptedException {
 		Thread.sleep(1000);
-		searchbar.sendKeys(Random_Name);
+		searchbar.sendKeys(Random_Name);Thread.sleep(1000);
 		editicon.click();Thread.sleep(500);
-		savebutton.click();
-		Assert.assertEquals(activemessage.getText(), "Success! Record updated.");	
+		savebutton.click();Thread.sleep(1000);
+		Assert.assertEquals(editupdatedmsg.getText(), "Success! Record updated.");	
 	}
 	
 }

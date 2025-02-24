@@ -36,7 +36,7 @@ public class Community_ManagementTest extends TestBase{
 	}
 
 	@Test(priority = 3)
-	public void verify_addcommunity_functionality() throws InterruptedException {
+	public void verify_addcommunity_functionality() throws Exception {
 		community.adddetails();
 
 	}
