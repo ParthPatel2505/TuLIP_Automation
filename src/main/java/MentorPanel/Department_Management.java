@@ -11,7 +11,7 @@ import utils.Testutils;
 public class Department_Management extends TestBase {
 	String Random_Name = Testutils.generateRandomName();
 
-	@FindBy(xpath = "//span[@class='ant-avatar ant-avatar-circle ant-avatar-image ant-dropdown-trigger pointer profileImage css-7ynt2h']")
+	@FindBy(xpath = "(//img[@alt='user-profile'])[1]")
 	WebElement Profile;
 
 	@FindBy(xpath = "//span[contains(text(),'Switch to')]")

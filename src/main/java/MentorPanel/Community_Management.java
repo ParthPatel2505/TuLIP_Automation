@@ -13,7 +13,7 @@ import base.TestBase;
 import utils.Testutils;
 
 public class Community_Management extends TestBase{
-String Random_Name = Testutils.generateRandomName();
+	String Random_Name = Testutils.generateRandomName();
 	
 	@FindBy(xpath = "//span[@class='ant-avatar ant-avatar-circle ant-avatar-image ant-dropdown-trigger pointer profileImage css-7ynt2h']")
 	WebElement Profile;
