@@ -90,7 +90,7 @@ public class Personal_Information extends TestBase {
 	public void VerifyRequiredFields() throws InterruptedException {
 
 		String email = email_txt.getAttribute("value");
-		Testutils.scrollUsingAction(Language_ddl);
+		//Testutils.scrollUsingAction(Language_ddl);
 		Thread.sleep(1000);
 		Testutils.ElementOnClick(LastName_txt);
 		Thread.sleep(1000);
@@ -108,7 +108,7 @@ public class Personal_Information extends TestBase {
 		Testutils.removeAllValue(dob_txt);
 		Thread.sleep(1000);
 		Testutils.ElementOnClick(header_txt);
-		Testutils.scrollUsingAction(Cancel_btn);
+		//Testutils.scrollUsingAction(Cancel_btn);
 		Testutils.ElementOnClick(AboutMe_txt);
 		Thread.sleep(1000);
 		Testutils.selectAllValue(AboutMe_txt);
@@ -125,7 +125,7 @@ public class Personal_Information extends TestBase {
 	}
 
 	public void fillPersonalInformation() throws InterruptedException {
-		Testutils.scrollUsingAction(dob_txt);
+		//Testutils.scrollUsingAction(dob_txt);
 		LastName_txt.sendKeys("Patel");
 		email_txt.sendKeys("chand.patel@tntra.io");
 		Testutils.ElementOnClick(dob_txt); Thread.sleep(1000);
@@ -151,7 +151,7 @@ public class Personal_Information extends TestBase {
 		Language_ddl.sendKeys("Basaa");
 		Testutils.PressEnter();
 		Thread.sleep(2000);
-		Testutils.scrollUsingAction(Save_btn);
+		//Testutils.scrollUsingAction(Save_btn);
 		Thread.sleep(2000);
 		Testutils.ElementOnClick(Save_btn);
 		Thread.sleep(1000);

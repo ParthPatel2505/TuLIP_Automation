@@ -24,27 +24,27 @@ public class EngineeringDetails extends TestBase
 	WebElement resetBtn;
 	@FindBy(xpath = "//*[@type='button']/span[text()='Cancel']")
 	WebElement cancelBtn;
-	@FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Company Name')]")
+	@FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Company Name')]")
 	WebElement validationOnEngCompName;
-	@FindBy(css = "body > div.ant-layout.css-7ynt2h > div > div > div > main > form > div > div > div.ant-row.mb-4.css-7ynt2h > div:nth-child(2) > div > span:nth-child(4)")
+	@FindBy(xpath = "(//*[contains(@class,'danger') and contains(text(),'given list')])[1]")
 	WebElement validationOnEngDomain;
-    @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Use Case')]")
+    @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Use Case')]")
 	WebElement validationOnEngUseCase;
-    @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Project Name')]")
+    @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Project Name')]")
 	WebElement validationOnEngProjName;
-    @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'radio')]")
+    @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'radio')]")
 	WebElement validationOnEngVisibility;
-    @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Full Name')]")
+    @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Full Name')]")
 	WebElement validationOnEngFullName;
-    @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Email')]")
+    @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Email')]")
 	WebElement validationOnEngEmail;
-	@FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Country')]")
+	@FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Country')]")
 	WebElement validationOnEngCountry;
-	@FindBy(css = "body > div.ant-layout.css-7ynt2h > div > div > div > main > form > div > div > div:nth-child(7) > div:nth-child(5) > div > span:nth-child(4)")
+	@FindBy(xpath = "(//*[contains(@class,'danger') and contains(text(),'given list')])[2]")
 	WebElement validationOnSource;
-	@FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Description')]")
+	@FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Description')]")
 	WebElement validationOnEngSerDesc;
-	@FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Scope')]")
+	@FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Scope')]")
 	WebElement validationOnEngSerScope;
 	
 	//fields
@@ -58,7 +58,7 @@ public class EngineeringDetails extends TestBase
 	WebElement engUCField;
     @FindBy(xpath = "//*[@data-testid='engineeringService.projectNameLabel']")
 	WebElement engProjName;
-    @FindBy(xpath = "//div[@class='ant-flex css-7ynt2h']//*[@type='radio' and @value='0']")
+    @FindBy(xpath = "(//*[@type='radio' and @value='0'])[1]")
 	WebElement engVisibilityRadio;
     @FindBy(xpath = "//*[@data-testid='engineeringService.fullNameLabel']")
 	WebElement engFullName;
@@ -74,18 +74,18 @@ public class EngineeringDetails extends TestBase
 	WebElement engSource;
 	@FindBy(xpath = "//div[@name='sourceDto']//*/input[@role='combobox']")
 	WebElement engSourceField;
-    @FindBy(xpath = "//*[@class='ant-radio-wrapper ant-radio-wrapper-checked css-7ynt2h']//*[@type='radio' and @value='0']")
+    @FindBy(xpath = "(//*[@type='radio' and @value='1'])[2]")
 	WebElement engServiceRadio;
-    @FindBy(xpath = "//div[@class='ant-row css-7ynt2h']/div[1]//*[@class='form-field w-100']/div/div/div[2]/div[@contenteditable='true']")
+    @FindBy(xpath = "(//div[@contenteditable='true'])[1]")
 	WebElement engSerDesc;
-    @FindBy(xpath = "//div[@class='ant-row css-7ynt2h']/div[2]//*[@class='form-field w-100']/div/div/div[2]/div[@contenteditable='true']")
+    @FindBy(xpath = "(//div[@contenteditable='true'])[2]")
 	WebElement engSerScope;
 
     @FindBy(xpath = "//div[@class='rc-virtual-list-holder']")
 	WebElement dropdownList;
 	@FindBy(xpath = "//div[@role='presentation']/input")
 	WebElement uploadInput;
-	@FindBy(xpath = "//*[@class='ant-flex css-7ynt2h ant-flex-justify-space-between']/button")
+	@FindBy(xpath = "//button[@aria-label='delete']")
 	WebElement deleteIconOfUploadFile;
 	@FindBy(xpath = "//button[@type='button']/p[contains(text(),'Delete')]")
 	WebElement deleteBtnFromDeletePopup;
@@ -218,7 +218,11 @@ public class EngineeringDetails extends TestBase
 		Testutils.waitForElement(3);
 		engSourceField.sendKeys("h");
 		Testutils.waitForElement(3);
-		selectDropdownOption(prop.getProperty("Source"));
+		//selectDropdownOption(prop.getProperty("Source"));
+		Testutils.PressDown();
+		Testutils.PressEnter();
+		Testutils.PressTab();
+		Testutils.Scroll_to_element(engServiceRadio);
 		Testutils.waitForElement(3);
 		
 		engServiceRadio.click();
@@ -236,7 +240,7 @@ public class EngineeringDetails extends TestBase
 		Testutils.ElementOnClick(saveBtn);
 		Testutils.waitForElement(15);
 		
-		Assert.assertTrue(Testutils.checkRedirection("ticket-viewall"), "User is redirected on wrong url after completion of the Innovation form");
+		Assert.assertTrue(Testutils.checkRedirection("engineering"), "User is redirected on wrong url after completion of the Innovation form");
 		
 	}
 	

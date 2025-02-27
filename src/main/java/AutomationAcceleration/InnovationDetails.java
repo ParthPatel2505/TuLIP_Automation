@@ -27,27 +27,27 @@ public class InnovationDetails extends TestBase
 	WebElement resetBtn;
 	public @FindBy(xpath = "//*[@type='button']/span[text()='Cancel']")
 	WebElement cancelBtn;
-	public @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Title')]")
+	public @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Title')]")
 	WebElement validationOnInnovationTitle;
-	public @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Domain')]")
+	public @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Domain')]")
 	WebElement validationOnInnovationDomain;
-	public @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Country')]")
+	public @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Country')]")
 	WebElement validationOnInnovationCountry;
-	public @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Use Case')]")
+	public @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Use Case')]")
 	WebElement validationOnInnovationUseCase;
-	public @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'radio')]")
+	public @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'radio')]")
 	WebElement validationOnInnovationVisibility;
-	public @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Innovation')]")
+	public @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Innovation')]")
 	WebElement validationOnInnovationInnovation;
-	public @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Market')]")
+	public @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Market')]")
 	WebElement validationOnInnovationMarket;
-	public @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'IP')]")
+	public @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'IP')]")
 	WebElement validationOnInnovationIPPote;
-	public @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Technology')]")
+	public @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Technology')]")
 	WebElement validationOnInnovationTechnology;
-	public @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Compliance')]")
+	public @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Compliance')]")
 	WebElement validationOnInnovationCompliance;
-	public @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Business')]")
+	public @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Business')]")
 	WebElement validationOnInnovationBusiness;
 	
 	@FindBy(xpath = "//*[@id='ideas.ideaTitle']")
@@ -72,23 +72,23 @@ public class InnovationDetails extends TestBase
 	WebElement innovationUCField;
 	@FindBy(xpath = "//*[@type='radio' and @value='0']")
 	WebElement innovationVisibilityRadio;
-	@FindBy(xpath = "//div[@class='ant-row css-7ynt2h']/div[1]//*[@class='form-field w-100']/div/div/div[2]/div[@contenteditable='true']")
+	@FindBy(xpath = "(//div[@contenteditable='true'])[1]")
 	WebElement innovationInnovation;
-	@FindBy(xpath = "//div[@class='ant-row css-7ynt2h']/div[2]//*[@class='form-field w-100']/div/div/div[2]/div[@contenteditable='true']")
+	@FindBy(xpath = "(//div[@contenteditable='true'])[2]")
 	WebElement innovationMarket;
-	@FindBy(xpath = "//div[@class='ant-row css-7ynt2h']/div[3]//*[@class='form-field w-100']/div/div/div[2]/div[@contenteditable='true']")
+	@FindBy(xpath = "(//div[@contenteditable='true'])[3]")
 	WebElement innovationIPPote;
-	@FindBy(xpath = "//div[@class='ant-row css-7ynt2h']/div[4]//*[@class='form-field w-100']/div/div/div[2]/div[@contenteditable='true']")
+	@FindBy(xpath = "(//div[@contenteditable='true'])[4]")
 	WebElement innovationTech;
-	@FindBy(xpath = "//div[@class='ant-row css-7ynt2h']/div[5]//*[@class='form-field w-100']/div/div/div[2]/div[@contenteditable='true']")
+	@FindBy(xpath = "(//div[@contenteditable='true'])[5]")
 	WebElement innovationCom;
-	@FindBy(xpath = "//div[@class='ant-row css-7ynt2h']/div[6]//*[@class='form-field w-100']/div/div/div[2]/div[@contenteditable='true']")
+	@FindBy(xpath = "(//div[@contenteditable='true'])[6]")
 	WebElement innovationBus;
 	@FindBy(xpath = "//div[@class='rc-virtual-list-holder']")
 	WebElement dropdownList;
 	@FindBy(xpath = "//div[@role='presentation']/input")
 	WebElement uploadInput;
-	@FindBy(xpath = "//*[@class='ant-flex css-7ynt2h ant-flex-justify-space-between']/button")
+	@FindBy(xpath = "//button[@aria-label='delete']")
 	WebElement deleteIconOfUploadFile;
 	@FindBy(xpath = "//button[@type='button']/p[contains(text(),'Delete')]")
 	WebElement deleteBtnFromDeletePopup;
@@ -96,7 +96,7 @@ public class InnovationDetails extends TestBase
 	WebElement cancelBtnFromDeletePopup;
 	
 	
-	String pathOfElement = "//div[contains(text(),'";
+	
 	
 	
 	public InnovationDetails() {
@@ -105,6 +105,7 @@ public class InnovationDetails extends TestBase
 	
 	public void openInnovationForm() throws Exception
 	{
+		PageFactory.initElements(driver, this);
 		clickOnPlus.openInnovationFromPlusMenuFromHeader();
 	}
 
@@ -161,6 +162,7 @@ public class InnovationDetails extends TestBase
 	
 	public void selectDropdownOption(String value)
 	{
+		String pathOfElement = "//div[contains(text(),'";
 		WebElement element =  driver.findElement(By.xpath(pathOfElement+value+"')]"));
 		element.click();
 	}
@@ -169,7 +171,7 @@ public class InnovationDetails extends TestBase
 	public void fillAllFieldsValue() throws Exception
 	{
 		PageFactory.initElements(driver, this);
-		Testutils.waitForElement(15);
+		Testutils.waitForElement(10);
 		Testutils.scroll_top();
 		Testutils.waitForElement(5);
 		innovationTitle.sendKeys(prop.getProperty("Title"));
@@ -225,9 +227,9 @@ public class InnovationDetails extends TestBase
 		Testutils.waitForElement(3);
 		
 		Testutils.ElementOnClick(saveBtn);
-		Testutils.waitForElement(15);
+		Testutils.waitForElement(20);
 		
-		Assert.assertTrue(Testutils.checkRedirection("ticket-viewall"), "User is redirected on wrong url after completion of the Innovation form");
+		Assert.assertTrue(Testutils.checkRedirection("innovation"), "User is redirected on wrong url after completion of the Innovation form");
 		
 	}
 	
