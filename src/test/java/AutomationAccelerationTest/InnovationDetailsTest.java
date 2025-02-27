@@ -1,6 +1,8 @@
 package AutomationAccelerationTest;
 
 
+import java.io.IOException;
+
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,7 +16,10 @@ public class InnovationDetailsTest extends InnovationDetails
 	InnovationDetails openPlusMenuFromHeader = new InnovationDetails();
 	Loginpage lp = new Loginpage();
 	
-	
+	public InnovationDetailsTest() throws IOException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 	//@BeforeClass
 	public void takeLogin() throws Exception

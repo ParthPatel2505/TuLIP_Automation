@@ -23,17 +23,17 @@ public class VenturesDetails extends TestBase
 	WebElement resetBtn;
 	@FindBy(xpath = "//*[@type='button']/span[text()='Cancel']")
 	WebElement cancelBtn;
-	@FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'First')]")
+	@FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'First')]")
 	WebElement validationOnVenFName;
-	@FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Last')]")
+	@FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Last')]")
 	WebElement validationOnVenLName;
-	@FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Email')]")
+	@FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Email')]")
 	WebElement validationOnVenEmail;
-	@FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Company')]")
+	@FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Company')]")
 	WebElement validationOnVenComp;
-	@FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'radio')]")
+	@FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'radio')]")
 	WebElement validationOnVenVisibility;
-    @FindBy(xpath = "//*[@class='ant-typography ant-typography-danger css-7ynt2h' and contains(text(),'Use Case')]")
+    @FindBy(xpath = "//*[contains(@class,'danger') and contains(text(),'Use Case')]")
 	WebElement validationOnVenUseCase;
 	
 	//fields
@@ -49,9 +49,9 @@ public class VenturesDetails extends TestBase
 	WebElement venProgOfInterest;
 	@FindBy(xpath = "//*[@id='ventures.profYear']")
 	WebElement venProgOfExp;
-	@FindBy(xpath = "//div[@class='ant-flex css-7ynt2h']//*[@type='radio' and @value='0']")
+	@FindBy(xpath = "(//*[@type='radio' and @value='0'])[1]")
 	WebElement venVisibilityRadio;
-	@FindBy(xpath = "//div[@class='jodit-react-container']//div[@contenteditable='true']")
+	@FindBy(xpath = "(//div[@contenteditable='true'])[1]")
 	WebElement venProgGoals;
 	@FindBy(xpath = "//div[@name='useCases']")
 	WebElement venUseCase;
@@ -69,7 +69,7 @@ public class VenturesDetails extends TestBase
     //upload and delete images
 	@FindBy(xpath = "//div[@role='presentation']/input")
 	WebElement uploadInput;
-	@FindBy(xpath = "//*[@class='ant-flex css-7ynt2h ant-flex-justify-space-between']/button")
+	@FindBy(xpath = "//button[@aria-label='delete']")
 	WebElement deleteIconOfUploadFile;
 	@FindBy(xpath = "//button[@type='button']/p[contains(text(),'Delete')]")
 	WebElement deleteBtnFromDeletePopup;
@@ -181,7 +181,7 @@ public class VenturesDetails extends TestBase
 		Testutils.ElementOnClick(saveBtn);
 		Testutils.waitForElement(15);
 		
-		Assert.assertTrue(Testutils.checkRedirection("ticket-viewall"), "User is redirected on wrong url after completion of the Innovation form");
+		Assert.assertTrue(Testutils.checkRedirection("ventures"), "User is redirected on wrong url after completion of the Innovation form");
 		
 	}
 	

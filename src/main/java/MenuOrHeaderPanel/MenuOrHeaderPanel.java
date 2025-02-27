@@ -15,7 +15,10 @@ public class MenuOrHeaderPanel extends Loginpage
 	@FindBy(xpath = "//header[@class='top-header']/div/nav/div[@class='ant-flex css-7ynt2h ant-flex-align-center']//*[name()='svg'][1]")
 	WebElement plusFromHeader;
 	
-	By plusHeaderIcon = By.xpath("//header[@class='top-header']/div/nav/div[@class='ant-flex css-7ynt2h ant-flex-align-center']//*[name()='svg'][1]");
+	@FindBy(xpath = "(//*[contains(@class,'plus')])[1]")
+	WebElement plusHeaderIcon;
+	
+	//By plusHeaderIcon = By.xpath("//header[@class='top-header']/div/nav/div[@class='ant-flex css-7ynt2h ant-flex-align-center']//*[name()='svg'][1]");
 	
 	@FindBy(xpath = "//*[@class='tabler-icon tabler-icon-message-plus pointer']") 
 	WebElement languageFromHeader;
@@ -32,6 +35,13 @@ public class MenuOrHeaderPanel extends Loginpage
 	@FindBy(xpath = "//*[@class='ant-dropdown css-7ynt2h ant-dropdown-show-arrow ant-dropdown-placement-bottomRight']/ul/li")
 	WebElement plusIconListing;
 	
+	@FindBy(xpath = "//span[contains(text(),'Innovation')]")
+	WebElement innFromPlusIcon;
+	@FindBy(xpath = "//span[contains(text(),'Engineering')]")
+	WebElement engFromPlusIcon;
+	@FindBy(xpath = "//span[contains(text(),'Ventures')]")
+	WebElement venFromPlusIcon;
+	
 	String plusIconList = "//*[@class='ant-dropdown css-7ynt2h ant-dropdown-show-arrow ant-dropdown-placement-bottomRight']/ul/li";
 
 	public MenuOrHeaderPanel() {
@@ -40,46 +50,37 @@ public class MenuOrHeaderPanel extends Loginpage
 	
 	public void openInnovationFromPlusMenuFromHeader() throws Exception
 	{
-		//System.out.println("Entered in MenuHEaderClass.....");
-		Testutils.waitForElement(3);
+		PageFactory.initElements(driver, this);
+		Testutils.waitForElement(4);
 		
-		WebElement plusIcon = driver.findElement(plusHeaderIcon);
-		Actions action = new Actions(driver);
-		action.moveToElement(plusIcon).click().build().perform();
+		plusHeaderIcon.click();
 		
-		//testutil.clickonElement(plusHeaderIcon);
 		Testutils.waitForElement(2);
-		Testutils.selectFromMenuList(plusIconList, prop.getProperty("automationAccelerationInn"));
+		innFromPlusIcon.click();
 		Testutils.waitForElement(7);
 	}
 
 	public void openEngFromPlusMenuFromHeader() throws Exception
 	{
-		//System.out.println("Entered in MenuHEaderClass.....");
-		Testutils.waitForElement(3);
+		PageFactory.initElements(driver, this);
+		Testutils.waitForElement(4);
 		
-		WebElement plusIcon = driver.findElement(plusHeaderIcon);
-		Actions action = new Actions(driver);
-		action.moveToElement(plusIcon).click().build().perform();
+		plusHeaderIcon.click();
 		
-		//testutil.clickonElement(plusHeaderIcon);
 		Testutils.waitForElement(2);
-		Testutils.selectFromMenuList(plusIconList, prop.getProperty("automationAccelerationEng"));
+		engFromPlusIcon.click();
 		Testutils.waitForElement(7);
 	}
 	
 	public void openVenturesFromPlusMenuFromHeader() throws Exception
 	{
-		//System.out.println("Entered in MenuHEaderClass.....");
-		Testutils.waitForElement(3);
+		PageFactory.initElements(driver, this);
+		Testutils.waitForElement(4);
 		
-		WebElement plusIcon = driver.findElement(plusHeaderIcon);
-		Actions action = new Actions(driver);
-		action.moveToElement(plusIcon).click().build().perform();
+		plusHeaderIcon.click();
 		
-		//testutil.clickonElement(plusHeaderIcon);
 		Testutils.waitForElement(2);
-		Testutils.selectFromMenuList(plusIconList, prop.getProperty("automationAccelerationVen"));
+		venFromPlusIcon.click();
 		Testutils.waitForElement(7);
 	}
 	

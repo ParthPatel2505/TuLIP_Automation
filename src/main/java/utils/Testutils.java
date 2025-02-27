@@ -309,7 +309,7 @@ public class Testutils<switchToFrame> extends TestBase {
 			for(int i=0; i < liList.size();)
 			{
 				String fetchValue = liList.get(i).getText();
-				//System.out.println(fetchValue);
+				System.out.println(fetchValue);
 				if(fetchValue.equals(value))
 				{
 					String makingxPath = xPath + "[" + (i+1) + "]/span";
