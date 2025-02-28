@@ -148,7 +148,7 @@ public class EngineeringDetails extends TestBase
 		Testutils.waitForElement(3);
 		Testutils.scroll_bottom();
 		Testutils.waitForElement(1);
-		Testutils.ElementOnClick(resetBtn);
+		Testutils.clickOnElement(resetBtn);
 		Testutils.waitForElement(1);
 		Testutils.scroll_top();
 		Testutils.waitForElement(3);
@@ -231,13 +231,13 @@ public class EngineeringDetails extends TestBase
 		engSerDesc.sendKeys(prop.getProperty("Description"));
 		engSerScope.sendKeys(prop.getProperty("Description"));
 		
-		uploadInput.sendKeys("C:\\Vatsal\\Extra\\dummy.pdf");
+		uploadInput.sendKeys(System.getProperty("user.dir")+"\\Files\\dummy.pdf");
 		Testutils.waitForElement(2);
 		
 		Testutils.scroll_bottom();
 		Testutils.waitForElement(3);
 		
-		Testutils.ElementOnClick(saveBtn);
+		Testutils.clickOnElement(saveBtn);
 		Testutils.waitForElement(15);
 		
 		Assert.assertTrue(Testutils.checkRedirection("engineering"), "User is redirected on wrong url after completion of the Innovation form");
@@ -251,14 +251,14 @@ public class EngineeringDetails extends TestBase
 		Testutils.waitForElement(5);
 		Testutils.scroll_bottom();
 		Testutils.waitForElement(3);
-		uploadInput.sendKeys("C:\\Vatsal\\Extra\\dummy.pdf");
+		uploadInput.sendKeys(System.getProperty("user.dir")+"\\Files\\dummy.pdf");
 		Testutils.waitForElement(2);
 		
-		Testutils.ElementOnClick(deleteIconOfUploadFile);
-		Testutils.ElementOnClick(cancelBtnFromDeletePopup);
+		Testutils.clickOnElement(deleteIconOfUploadFile);
+		Testutils.clickOnElement(cancelBtnFromDeletePopup);
 		Testutils.waitForElement(2);
-		Testutils.ElementOnClick(deleteIconOfUploadFile);
-		Testutils.ElementOnClick(deleteBtnFromDeletePopup);
+		Testutils.clickOnElement(deleteIconOfUploadFile);
+		Testutils.clickOnElement(deleteBtnFromDeletePopup);
 		//uploadInput.click();
 		//PressTab();
 		
