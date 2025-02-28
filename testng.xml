@@ -17,8 +17,8 @@
       <class name="AutomationAccelerationTest.InnTaskandChallengesTest"/> 
       <class name="AutomationAccelerationTest.EngineeringDetailsTest"/>
       <class name="AutomationAccelerationTest.EngTaskandChallengesTest"/>
-	    <class name="AutomationAccelerationTest.VenturesDetailsTest"/>
-	    <class name="AutomationAccelerationTest.VenTaskandChallengesTest"/>
+	  <class name="AutomationAccelerationTest.VenturesDetailsTest"/>
+	  <class name="AutomationAccelerationTest.VenTaskandChallengesTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

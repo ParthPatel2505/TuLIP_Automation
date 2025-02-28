@@ -143,7 +143,7 @@ public class Testutils<switchToFrame> extends TestBase {
 	}
 
 	// It is used for click on element
-	public static void ElementOnClick(WebElement click_element) {
+	public static void clickOnElement(WebElement click_element) {
 		click_element.click();
 	}
 
