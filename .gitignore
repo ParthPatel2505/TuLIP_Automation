@@ -27,10 +27,11 @@ node_modules/
 .project
 .classpath
 .settings/
-.classpath
+.classpath/
 
 # Exclude temporary files created by OS
 .DS_Store
 Thumbs.db
 .apt_generated/
 .apt_generated_tests/
+/bin/
