@@ -45,4 +45,9 @@ public class Education_Test extends TestBase {
 	public void verifyFillTheDetails() throws Exception {
 		ET.fillTheDetails();
 	}
+	
+	@Test(priority = 5)
+	public void verifyEditTheDetails() throws Exception {
+		ET.editDetails();
+	}
 }
