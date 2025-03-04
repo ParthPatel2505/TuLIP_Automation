@@ -69,16 +69,16 @@ public class Personal_Information extends TestBase {
 
 	public void NavigatetoProfile() throws InterruptedException {
 		Thread.sleep(4000);
-		Testutils.ElementOnClick(Profile_Icn);
+		Testutils.clickOnElement(Profile_Icn);
 		Thread.sleep(2000);
-		Testutils.ElementOnClick(Profile_txt);
+		Testutils.clickOnElement(Profile_txt);
 	}
 
 	public void VerifyDisabledFields() throws InterruptedException {
 		Thread.sleep(1000);
 		// Testutils.ElementOnClick(PersonalInformation_txt);
 		Thread.sleep(1000);
-		Testutils.ElementOnClick(Edit_icn);
+		Testutils.clickOnElement(Edit_icn);
 
 		List<WebElement> disabledElements = driver.findElements(By.xpath("//input[@disabled]"));
 		for (WebElement element : disabledElements) {
@@ -91,6 +91,8 @@ public class Personal_Information extends TestBase {
 
 	public void VerifyRequiredFields() throws InterruptedException {
 
+
+		//Testutils.scrollUsingAction(Language_ddl);
 		storedEmail = email_txt.getAttribute("value");
 		Testutils.scrollUsingAction(Language_ddl);
 		Testutils.ElementOnClick(LastName_txt);
@@ -118,7 +120,7 @@ public class Personal_Information extends TestBase {
 	}
 
 	public void fillPersonalInformation() throws InterruptedException {
-		Testutils.scrollUsingAction(dob_txt);
+		//Testutils.scrollUsingAction(dob_txt);
 		LastName_txt.sendKeys("Patel");
 		email_txt.sendKeys(storedEmail);
 		Testutils.ElementOnClick(dob_txt);
@@ -136,7 +138,7 @@ public class Personal_Information extends TestBase {
 		City_ddl.sendKeys("Ascot");
 		Testutils.PressEnter();
 		Thread.sleep(2000);
-		Testutils.ElementOnClick(Close_icn);
+		Testutils.clickOnElement(Close_icn);
 		Thread.sleep(2000);
 		Language_ddl.sendKeys("Basaa");
 		Testutils.PressEnter();

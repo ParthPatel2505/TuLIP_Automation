@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.awt.Robot;
+import java.awt.Toolkit;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.ss.usermodel.Sheet;
@@ -28,6 +29,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.TestBase;
 import com.github.javafaker.Faker;
+
+import java.awt.datatransfer.StringSelection;
+
 
 public class Testutils<switchToFrame> extends TestBase {
 
@@ -139,7 +143,7 @@ public class Testutils<switchToFrame> extends TestBase {
 	}
 
 	// It is used for click on element
-	public static void ElementOnClick(WebElement click_element) {
+	public static void clickOnElement(WebElement click_element) {
 		click_element.click();
 	}
 
@@ -207,7 +211,7 @@ public class Testutils<switchToFrame> extends TestBase {
 	}
 
 	// It is used for uploading file only when type = "file"
-	public static void upload_file(WebElement upload_element, String file_path) {
+	public static void upload_file(WebDriver driver, WebElement upload_element, String file_path) {
 		upload_element.sendKeys(file_path);
 	}
 
@@ -305,7 +309,7 @@ public class Testutils<switchToFrame> extends TestBase {
 			for(int i=0; i < liList.size();)
 			{
 				String fetchValue = liList.get(i).getText();
-				//System.out.println(fetchValue);
+				System.out.println(fetchValue);
 				if(fetchValue.equals(value))
 				{
 					String makingxPath = xPath + "[" + (i+1) + "]/span";
@@ -372,10 +376,34 @@ public class Testutils<switchToFrame> extends TestBase {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("window.scrollTo(-100, document.body.scrollHeight);");
 	}
+	
 	public static void scrollUsingAction(WebElement element) {
-		Actions actions = new Actions(driver);
-	    actions.moveToElement(element).perform();
-	}
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).perform();
+    }
+	
+	// Method file upload with Robot class
+	public static void uploadFileUsingRobot(WebElement uploadbutton ,String filePath) throws Exception {
+        Thread.sleep(500);
+		uploadbutton.click();
+		Thread.sleep(1000);
+		// Create Robot instance
+        Robot robot = new Robot();
+
+        // Simulate typing the file path in the file chooser dialog
+        StringSelection stringSelection = new StringSelection(filePath);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+
+        // Press Ctrl + V to paste the file path
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+
+        // Press Enter to confirm the file upload
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+    }
 
 	public static void selectUsingAction(WebElement element, int n) {
 		Actions actions = new Actions(driver);
