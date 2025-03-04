@@ -51,8 +51,8 @@ public class Testutils<switchToFrame> extends TestBase {
 
 	public static void ValidateUserLogin() {
 		driver.findElement(By.xpath("//span[normalize-space()='Login']")).click();
-		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(prop.getProperty("username"));
-		driver.findElement(By.xpath("//input[@id='password']")).sendKeys(prop.getProperty("passward"));
+		driver.findElement(By.xpath("//input[@id=\"form.login.email\"]")).sendKeys(prop.getProperty("username"));
+		driver.findElement(By.xpath("//input[@id=\"form.login.password\"]")).sendKeys(prop.getProperty("passward"));
 		driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
 	}
 
@@ -60,8 +60,8 @@ public class Testutils<switchToFrame> extends TestBase {
 
 	public static void logindetails(String username, String passward) {
 		driver.findElement(By.xpath("//span[normalize-space()='Login']")).click();
-		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(username);
-		driver.findElement(By.xpath("//input[@id='password']")).sendKeys(passward);
+		driver.findElement(By.xpath("//input[@id=\"form.login.email\"]")).sendKeys(username);
+		driver.findElement(By.xpath("//input[@id=\"form.login.password\"]")).sendKeys(passward);
 		driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
 	}
 

@@ -46,6 +46,12 @@ public class Education extends TestBase {
 	WebElement SuccessonCreate_txt;
 	@FindBy(xpath = "//div[@role='status']")
 	WebElement SuccessonDelete_txt;
+	@FindBy(xpath = "//div[@role='status']")
+	WebElement SuccessonUpdate_txt;
+	@FindBy(xpath = "(//*[name()='svg'][@class='pointer actionIcon undefined'])[1]")
+	WebElement Edit_icn;
+	@FindBy(xpath = "((//*[name()='svg'][@class='pointer actionIcon undefined'])[2]")
+	WebElement Delete_icn;
 
 	public void navigateToEducation() throws InterruptedException {
 		Thread.sleep(2000);
@@ -77,36 +83,37 @@ public class Education extends TestBase {
 	}
 
 	public void fillTheDetails() throws Exception {
-		Thread.sleep(2000);
 		University_ddl.sendKeys("Babaria Institute of Technology");
 		Testutils.PressEnter();
-		Thread.sleep(2000);
 		Degree_ddl.sendKeys("BE");
 		Testutils.PressEnter();
-		Thread.sleep(2000);
 		Startyear_ddl.click();
 		Testutils.selectFromStaticList("//div[@class='react-select__menu css-1nmdiq5-menu']/div/div",
 				prop.getProperty("StartYear"));
-		Thread.sleep(2000);
 		Startmonth_ddl.click();
 		Testutils.selectFromStaticList("//div[@class='react-select__menu css-1nmdiq5-menu']/div/div",
 				prop.getProperty("StartMonth"));
-		Thread.sleep(2000);
 		Endyear_ddl.click();
 		Testutils.selectFromStaticList("//div[@class='react-select__menu css-1nmdiq5-menu']/div/div",
 				prop.getProperty("EndYear"));
-		Thread.sleep(2000);
 		Endmonth_ddl.click();
 		Testutils.selectFromStaticList("//div[@class='react-select__menu css-1nmdiq5-menu']/div/div",
 				prop.getProperty("EndMonth"));
-		Thread.sleep(1000);
 		grade_txt.sendKeys("65");
-		Thread.sleep(1000);
 		Specialsubject_txt.sendKeys("Quality Assurance");
-		Thread.sleep(1000);
 		Save_btn.click();
-		Thread.sleep(1000);
 		Assert.assertEquals(SuccessonCreate_txt.getText(), "Success! Record saved.");
+	}
+	
+	public void editDetails() throws InterruptedException
+	{
+		Edit_icn.click();
+		grade_txt.click();
+		Testutils.selectAllValue(grade_txt);
+		Testutils.removeAllValue(grade_txt);
+		grade_txt.sendKeys("75");
+		Save_btn.click();
+		Assert.assertEquals(SuccessonUpdate_txt.getText(), "Success! Record updated.");
 	}
 
 }
