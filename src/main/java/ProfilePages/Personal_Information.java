@@ -52,7 +52,7 @@ public class Personal_Information extends TestBase {
 	WebElement dob_txt;
 	@FindBy(xpath = "//header[@class='top-header']")
 	WebElement header_txt;
-	@FindBy(xpath = "//div[@class='react-select__indicator react-select__clear-indicator css-1xc3v61-indicatorContainer']//*[name()='svg']")
+	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/*[name()='svg'][1]/*[name()='path'][1]")
 	WebElement Close_icn;
 	@FindBy(xpath = "//select[1]")
 	WebElement year_ddl;
@@ -95,18 +95,18 @@ public class Personal_Information extends TestBase {
 		//Testutils.scrollUsingAction(Language_ddl);
 		storedEmail = email_txt.getAttribute("value");
 		Testutils.scrollUsingAction(Language_ddl);
-		Testutils.ElementOnClick(LastName_txt);
+		Testutils.clickOnElement(LastName_txt);
 		Testutils.selectAllValue(LastName_txt);
 		Testutils.removeAllValue(LastName_txt);
-		Testutils.ElementOnClick(email_txt);
+		Testutils.clickOnElement(email_txt);
 		Testutils.selectAllValue(email_txt);
 		Testutils.removeAllValue(email_txt);
-		Testutils.ElementOnClick(dob_txt);
+		Testutils.clickOnElement(dob_txt);
 		Testutils.selectAllValue(dob_txt);
 		Testutils.removeAllValue(dob_txt);
-		Testutils.ElementOnClick(header_txt);
+		Testutils.clickOnElement(header_txt);
 		Testutils.scrollUsingAction(Cancel_btn);
-		Testutils.ElementOnClick(AboutMe_txt);
+		Testutils.clickOnElement(AboutMe_txt);
 		Testutils.selectAllValue(AboutMe_txt);
 		Testutils.removeAllValue(AboutMe_txt);
 		List<WebElement> requiredElements = driver.findElements(By.xpath("//span[contains(text(),'Please')]"));
@@ -123,12 +123,12 @@ public class Personal_Information extends TestBase {
 		//Testutils.scrollUsingAction(dob_txt);
 		LastName_txt.sendKeys("Patel");
 		email_txt.sendKeys(storedEmail);
-		Testutils.ElementOnClick(dob_txt);
-		Testutils.ElementOnClick(year_ddl);
-		Testutils.ElementOnClick(year_txt);
-		Testutils.ElementOnClick(month_ddl);
-		Testutils.ElementOnClick(month_txt);
-		Testutils.ElementOnClick(date_txt);
+		Testutils.clickOnElement(dob_txt);
+		Testutils.clickOnElement(year_ddl);
+		Testutils.clickOnElement(year_txt);
+		Testutils.clickOnElement(month_ddl);
+		Testutils.clickOnElement(month_txt);
+		Testutils.clickOnElement(date_txt);
 		AboutMe_txt.sendKeys(
 				"A dedicated software tester with hands-on experience in manual & automation testing, bug tracking, and regression testing. Passionate about ensuring software quality by identifying and resolving critical bugs. Skilled in working with Jira and collaborating with development teams to enhance product functionality. Always eager to learn new testing methodologies and improve software reliability.");
 		Country_ddl.sendKeys("Australia");
@@ -143,7 +143,7 @@ public class Personal_Information extends TestBase {
 		Language_ddl.sendKeys("Basaa");
 		Testutils.PressEnter();
 		Testutils.scrollUsingAction(Save_btn);
-		Testutils.ElementOnClick(Save_btn);
+		Testutils.clickOnElement(Save_btn);
 		Assert.assertEquals(success_txt.getText(), "Success! Record updated.");
 
 	}
