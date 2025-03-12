@@ -10,6 +10,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.Testutils;
 
@@ -68,7 +70,7 @@ public class TestBase {
     }
 
     // Close Browser
-
+    @AfterClass
     public static void browserclose() {
         if (driver != null) {
             driver.quit();
