@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-
 import base.TestBase;
 import utils.Testutils;
 
@@ -19,7 +18,9 @@ public class Personal_Information extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//span[@class=\"ant-avatar ant-avatar-circle ant-avatar-image ant-dropdown-trigger pointer profileImage css-7ynt2h\"]")
+//	@FindBy(xpath = "//span[@class=\"ant-avatar ant-avatar-circle ant-avatar-image ant-dropdown-trigger pointer profileImage css-7ynt2h\"]")
+//	WebElement Profile_Icn;
+	@FindBy(xpath = "(//img[@alt='user-profile'])[1]")
 	WebElement Profile_Icn;
 	@FindBy(xpath = "//span[normalize-space()='Profile']")
 	WebElement Profile_txt;
@@ -51,7 +52,7 @@ public class Personal_Information extends TestBase {
 	WebElement dob_txt;
 	@FindBy(xpath = "//header[@class='top-header']")
 	WebElement header_txt;
-	@FindBy(xpath = "//div[@class='react-select__indicator react-select__clear-indicator css-1xc3v61-indicatorContainer']//*[name()='svg']")
+	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/*[name()='svg'][1]/*[name()='path'][1]")
 	WebElement Close_icn;
 	@FindBy(xpath = "//select[1]")
 	WebElement year_ddl;
@@ -91,34 +92,23 @@ public class Personal_Information extends TestBase {
 	public void VerifyRequiredFields() throws InterruptedException {
 
 
-		String email = email_txt.getAttribute("value");
 		//Testutils.scrollUsingAction(Language_ddl);
 		storedEmail = email_txt.getAttribute("value");
 		Testutils.scrollUsingAction(Language_ddl);
-
-		Thread.sleep(1000);
 		Testutils.clickOnElement(LastName_txt);
-		Thread.sleep(1000);
 		Testutils.selectAllValue(LastName_txt);
 		Testutils.removeAllValue(LastName_txt);
-		Thread.sleep(1000);
 		Testutils.clickOnElement(email_txt);
-		Thread.sleep(1000);
 		Testutils.selectAllValue(email_txt);
 		Testutils.removeAllValue(email_txt);
-		Thread.sleep(1000);
 		Testutils.clickOnElement(dob_txt);
-		Thread.sleep(1000);
 		Testutils.selectAllValue(dob_txt);
 		Testutils.removeAllValue(dob_txt);
-		Thread.sleep(1000);
 		Testutils.clickOnElement(header_txt);
-		//Testutils.scrollUsingAction(Cancel_btn);
+		Testutils.scrollUsingAction(Cancel_btn);
 		Testutils.clickOnElement(AboutMe_txt);
-		Thread.sleep(1000);
 		Testutils.selectAllValue(AboutMe_txt);
 		Testutils.removeAllValue(AboutMe_txt);
-		Thread.sleep(3000);
 		List<WebElement> requiredElements = driver.findElements(By.xpath("//span[contains(text(),'Please')]"));
 		Thread.sleep(1000);
 		for (WebElement element : requiredElements) {
@@ -132,29 +122,19 @@ public class Personal_Information extends TestBase {
 	public void fillPersonalInformation() throws InterruptedException {
 		//Testutils.scrollUsingAction(dob_txt);
 		LastName_txt.sendKeys("Patel");
-//		email_txt.sendKeys("chand.patel@tntra.io");
 		email_txt.sendKeys(storedEmail);
 		Testutils.clickOnElement(dob_txt);
-		Thread.sleep(1000);
 		Testutils.clickOnElement(year_ddl);
-		Thread.sleep(1000);
 		Testutils.clickOnElement(year_txt);
-		Thread.sleep(1000);
 		Testutils.clickOnElement(month_ddl);
-		Thread.sleep(1000);
 		Testutils.clickOnElement(month_txt);
-		Thread.sleep(1000);
 		Testutils.clickOnElement(date_txt);
-		Thread.sleep(1000);
 		AboutMe_txt.sendKeys(
 				"A dedicated software tester with hands-on experience in manual & automation testing, bug tracking, and regression testing. Passionate about ensuring software quality by identifying and resolving critical bugs. Skilled in working with Jira and collaborating with development teams to enhance product functionality. Always eager to learn new testing methodologies and improve software reliability.");
-		Thread.sleep(2000);
 		Country_ddl.sendKeys("Australia");
 		Testutils.PressEnter();
-		Thread.sleep(2000);
 		State_ddl.sendKeys("Victoria");
 		Testutils.PressEnter();
-		Thread.sleep(2000);
 		City_ddl.sendKeys("Ascot");
 		Testutils.PressEnter();
 		Thread.sleep(2000);
@@ -162,11 +142,8 @@ public class Personal_Information extends TestBase {
 		Thread.sleep(2000);
 		Language_ddl.sendKeys("Basaa");
 		Testutils.PressEnter();
-		Thread.sleep(2000);
-		//Testutils.scrollUsingAction(Save_btn);
-		Thread.sleep(2000);
+		Testutils.scrollUsingAction(Save_btn);
 		Testutils.clickOnElement(Save_btn);
-		Thread.sleep(1000);
 		Assert.assertEquals(success_txt.getText(), "Success! Record updated.");
 
 	}

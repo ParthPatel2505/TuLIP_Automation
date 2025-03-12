@@ -1,25 +1,25 @@
 package ProfileModuleTest;
 
-import ProfilePages.Personal_Information;
-
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import ProfilePages.Education;
+
+import ProfilePages.Personal_Information;
+import ProfilePages.Skill;
 import base.TestBase;
 import utils.Testutils;
 
-public class Education_Test extends TestBase {
-	Education ET;
+public class Skill_Test extends TestBase {
 	Personal_Information PI;
+	Skill Sk;
 
-	public Education_Test() {
+	public Skill_Test() {
 		super();
 	}
 
 	@BeforeClass
 	public void setup() {
 		super.initialization();
-		ET = new Education();
+		Sk = new Skill();
 		PI = new Personal_Information();
 		Testutils.logindetails("chand.patel@tntra.io", "Brijesh@05042003");
 	}
@@ -28,26 +28,26 @@ public class Education_Test extends TestBase {
 	public void navigatetoEducationthroughProfile() throws InterruptedException {
 		PI.NavigatetoProfile();
 		Thread.sleep(2000);
-		ET.navigateToEducation();
+		Sk.navigateToSkills();
 	}
 
 	@Test(priority = 2)
-	public void verifyDisabledFields() throws InterruptedException {
-		ET.disabledFields();
+	public void verifyRequiredFields() {
+		Sk.requiredFields();
 	}
 
 	@Test(priority = 3)
-	public void verifyrequiredFields() throws InterruptedException {
-		ET.requiredFields();
+	public void verifyDisabledFields() {
+		Sk.disabledFields();
 	}
 
 	@Test(priority = 4)
-	public void verifyFillTheDetails() throws Exception {
-		ET.fillTheDetails();
+	public void fillSkillDetails() throws InterruptedException {
+		Sk.fillTheSkills();
 	}
 	
 	@Test(priority = 5)
-	public void verifyEditTheDetails() throws Exception {
-		ET.editDetails();
+	public void verifyEditSkills() throws InterruptedException {
+		Sk.editSkills();
 	}
 }
