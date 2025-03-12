@@ -51,18 +51,18 @@ public class Testutils<switchToFrame> extends TestBase {
 
 	public static void ValidateUserLogin() {
 		driver.findElement(By.xpath("//span[normalize-space()='Login']")).click();
-		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(prop.getProperty("username"));
-		driver.findElement(By.xpath("//input[@id='password']")).sendKeys(prop.getProperty("passward"));
-		driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
+		driver.findElement(By.xpath("//input[@id='form.login.email']")).sendKeys(prop.getProperty("username"));
+		driver.findElement(By.xpath("//input[@id='form.login.password']")).sendKeys(prop.getProperty("passward"));
+		driver.findElement(By.xpath("//button[@type='button']")).click();
 	}
 
 	// It is used for dynamic user login
 
 	public static void logindetails(String username, String passward) {
 		driver.findElement(By.xpath("//span[normalize-space()='Login']")).click();
-		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(username);
-		driver.findElement(By.xpath("//input[@id='password']")).sendKeys(passward);
-		driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
+		driver.findElement(By.xpath("//input[@id='form.login.email']")).sendKeys(username);
+		driver.findElement(By.xpath("//input[@id='form.login.password']")).sendKeys(passward);
+		driver.findElement(By.xpath("(//button[@type='button'])[1]")).click();
 	}
 
 
@@ -356,14 +356,15 @@ public class Testutils<switchToFrame> extends TestBase {
 		// press All with element
 	public static void selectAllValue(WebElement menu) throws InterruptedException {
 		Actions action = new Actions(driver);
-		action.moveToElement(menu).keyDown(Keys.CONTROL).sendKeys("A").keyUp(Keys.CONTROL).build().perform();
+		menu.click();
+		action.keyDown(Keys.CONTROL).sendKeys("A").keyUp(Keys.CONTROL).build().perform();
 		Thread.sleep(3000);
 	}
 
 	// press All with element
 	public static void removeAllValue(WebElement menu) throws InterruptedException {
 		Actions action = new Actions(driver);
-		action.moveToElement(menu).sendKeys(Keys.BACK_SPACE).build().perform();
+		action.sendKeys(Keys.BACK_SPACE).build().perform();
 		Thread.sleep(3000);
 	}
 

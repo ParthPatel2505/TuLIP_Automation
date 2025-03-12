@@ -10,13 +10,13 @@ import base.TestBase;
 
 public class Loginpage extends TestBase{
 
-	@FindBy(xpath = "//input[@id='email']")
+	@FindBy(xpath = "//input[@id='form.login.email']")
 	WebElement Tulipid;
 	
-	@FindBy(xpath = "//input[@id='password']")
+	@FindBy(xpath = "//input[@id='form.login.password']")
 	WebElement Tulippass;
 	
-	@FindBy(xpath = "//button[@type='submit']")
+	@FindBy(xpath = "//span[normalize-space()='Login']")
 	WebElement Tuliplogin;
 	
 	@FindBy(xpath = "//div[@role='status']")
