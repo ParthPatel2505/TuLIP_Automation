@@ -15,7 +15,7 @@ import utils.Testutils;
 public class Community_Management extends TestBase{
 	String Random_Name = Testutils.generateRandomName();
 	
-	@FindBy(xpath = "//span[@class='ant-avatar ant-avatar-circle ant-avatar-image ant-dropdown-trigger pointer profileImage css-7ynt2h']")
+	@FindBy(xpath = "(//img[@alt='user-profile'])[1]")
 	WebElement Profile;
 	
 	@FindBy(xpath = "//span[contains(text(),'Switch to')]")
@@ -185,7 +185,7 @@ public class Community_Management extends TestBase{
 		searchbar.sendKeys(s);Thread.sleep(1000);
 		driver.navigate().refresh();
 		Thread.sleep(1000);
-		searchbar.sendKeys(s+"1");Thread.sleep(500);
+		searchbar.sendKeys(s+"1");Thread.sleep(1000);
 		Assert.assertEquals(nodata.getText(), "No Data Found");Thread.sleep(500);
 	}
 	

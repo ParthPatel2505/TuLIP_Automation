@@ -176,7 +176,7 @@ String Random_Name = Testutils.generateRandomName();
 		driver.navigate().refresh();
 		Thread.sleep(1000);
 		searchbar.sendKeys(s+"1");Thread.sleep(500);
-		Assert.assertEquals(nodata.getText(), "No data found");Thread.sleep(500);
+		Assert.assertEquals(nodata.getText(), "Please search user to get list");Thread.sleep(500);
 	}
 	
 }

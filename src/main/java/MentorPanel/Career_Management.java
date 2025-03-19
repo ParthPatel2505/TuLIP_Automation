@@ -227,10 +227,10 @@ public class Career_Management extends TestBase{
 	
 	public void viewpage() throws InterruptedException {
 		Thread.sleep(800);
-		viewicon.click();
-		List<WebElement> disabled_fields = driver.findElements(By.xpath("//input[@disabled]"));
-	    System.out.println("Total number of disabled fields on page: " + disabled_fields.size());Thread.sleep(500);
-	    Assert.assertEquals(disabled_fields.size(), 10);
+		viewicon.click();Thread.sleep(1000);
+		List<WebElement> disabled_fields = driver.findElements(By.xpath("//*[@disabled]"));
+	    System.out.println("Total number of disabled fields on page: " + disabled_fields.size());
+	    Assert.assertEquals(disabled_fields.size(), 12);
 	    goback_button.click();Thread.sleep(500);
 	}
 	
