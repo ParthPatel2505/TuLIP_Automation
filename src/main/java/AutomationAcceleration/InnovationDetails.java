@@ -178,12 +178,16 @@ public class InnovationDetails extends TestBase
 		
 		innovationTheme.click();
 		Testutils.waitForElement(3);
-		selectDropdownOption(prop.getProperty("Theme"));
+		//Testutils.PressDown();
+		Testutils.PressEnter();
+		//selectDropdownOption(prop.getProperty("Theme"));
 		Testutils.waitForElement(3);
 		
 		innovationDomain.click();
 		Testutils.waitForElement(3);
-		selectDropdownOption(prop.getProperty("Domain"));
+		//selectDropdownOption(prop.getProperty("Domain"));
+		Testutils.PressDown();
+		Testutils.PressEnter();
 		Testutils.waitForElement(3);
 		
 		innovationRefLink.sendKeys(prop.getProperty("ReferenceLink"));
