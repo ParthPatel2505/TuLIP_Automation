@@ -52,7 +52,7 @@ public class Testutils<switchToFrame> extends TestBase {
 	public static void ValidateUserLogin() {
 		driver.findElement(By.xpath("//span[normalize-space()='Login']")).click();
 		driver.findElement(By.xpath("//input[@id='form.login.email']")).sendKeys(prop.getProperty("username"));
-		driver.findElement(By.xpath("//input[@id='form.login.password']")).sendKeys(prop.getProperty("passward"));
+		driver.findElement(By.xpath("//input[@id='form.login.password']")).sendKeys(prop.getProperty("password"));
 		driver.findElement(By.xpath("//button[@type='button']")).click();
 	}
 
@@ -114,6 +114,12 @@ public class Testutils<switchToFrame> extends TestBase {
 	public static void PressUP() throws InterruptedException {
 		Actions action = new Actions(driver);
 		action.sendKeys(Keys.ARROW_UP).perform();
+		Thread.sleep(2000);
+	}
+	
+	public static void PressESC() throws InterruptedException {
+		Actions action = new Actions(driver);
+		action.sendKeys(Keys.ESCAPE).perform();
 		Thread.sleep(2000);
 	}
 

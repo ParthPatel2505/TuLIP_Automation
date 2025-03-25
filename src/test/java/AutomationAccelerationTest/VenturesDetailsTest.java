@@ -1,5 +1,6 @@
 package AutomationAccelerationTest;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import AutomationAcceleration.VenturesDetails;
@@ -10,6 +11,11 @@ public class VenturesDetailsTest extends VenturesDetails
 {
 	Loginpage lp = new Loginpage();
 	
+	@BeforeClass
+	public void setup() {
+		super.initialization();
+		Testutils.ValidateUserLogin();
+	}
 	
 	
 	//@BeforeClass

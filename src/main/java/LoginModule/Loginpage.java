@@ -29,7 +29,7 @@ public class Loginpage extends TestBase{
 	public void Login_verify() throws InterruptedException {
 		driver.findElement(By.xpath("//span[normalize-space()='Login']")).click();
 		Tulipid.sendKeys(prop.getProperty("username"));
-		Tulippass.sendKeys(prop.getProperty("passward"));
+		Tulippass.sendKeys(prop.getProperty("password"));
 		Tuliplogin.click();Thread.sleep(2000);
 		//Assert.assertEquals(Successmessage.getText(), "Success! You have Logged-In.");
 		System.out.println("Login Successfully");
