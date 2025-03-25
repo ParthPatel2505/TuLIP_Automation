@@ -109,8 +109,19 @@ public class TrendingFiltersDetails extends InnTaskandChallengesDetails
 	@FindBy(xpath = "//div[contains(@class,'custom-dropdown')]//button[span[text()='Reset']]")
 	WebElement ucResetBtn;
 	
+	@FindBy(xpath = "//*[text()='Clear All']")
+	WebElement clearAllBtn;
 	
-	
+	@FindBy(xpath = "//button[.//*[text()='Sort']]")
+	WebElement openSort;
+	@FindBy(xpath = "//li[.//*[text()='Oldest First']]")
+	WebElement olderSortOption;
+	@FindBy(xpath = "//li[.//*[text()='Latest First']]")
+	WebElement latestSortOption;
+	@FindBy(xpath = "//span[.//span[contains(text(),'Oldest')] and .//*[contains(@class,'close')]]")
+	WebElement oldSortSelection;
+	@FindBy(xpath = "//span[.//span[contains(text(),'Latest')] and .//*[contains(@class,'close')]]")
+	WebElement latestSortSelection;
 	
 
 	//common methods
@@ -130,6 +141,21 @@ public class TrendingFiltersDetails extends InnTaskandChallengesDetails
 	}
 	
 	//common methods
+	public void openSort() throws Exception
+	{
+		openSort.click();
+		Testutils.waitForElement(3);
+	}
+	
+	//common methods
+	public void clearAll() throws Exception
+	{
+		Testutils.waitForElement(3);
+		clearAllBtn.click();
+		Testutils.waitForElement(3);
+	}
+	
+	//common methods
 	public void sendStringintoField(WebElement element, String word) throws Exception
 	{
 		Testutils.waitForElement(2);
@@ -142,25 +168,6 @@ public class TrendingFiltersDetails extends InnTaskandChallengesDetails
 		}
 		
 	}
-	
-	//common methods
-	public String currentDate()
-	{
-		Date today = new Date();
-		Calendar c = Calendar.getInstance();
-		c.setTime(today);
-		int i = c.get(Calendar.DAY_OF_WEEK) - c.getFirstDayOfWeek();
-		c.add(Calendar.DATE, -i-7);
-		Date start = c.getTime();
-		c.add(Calendar.DATE, 6);
-		Date end = c.getTime();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String startformattedDate = dateFormat.format(start);
-		String endformattedDate = dateFormat.format(end);
-		//System.out.println(formattedDate);
-		return startformattedDate;
-	}
-	
 	
 	public void typeFilters() throws Exception
 	{
@@ -369,10 +376,27 @@ public class TrendingFiltersDetails extends InnTaskandChallengesDetails
 		Testutils.waitForElement(2);
 		useCaseOptionSelect.click();
 		Testutils.waitForElement(2);
-		ucOKBtn.click();
-		
-		
-		
+		ucOKBtn.click();	
+		clearAll();
+	}
+	
+	public void olderSorting() throws Exception
+	{
+		Testutils.waitForElement(2);
+		openSort();
+		olderSortOption.click();
+		Testutils.waitForElement(2);
+		Assert.assertTrue(validationMessage(oldSortSelection), "Wrong filter selected.");
+	}
+	
+	public void latestSorting() throws Exception
+	{
+		clearAll();
+		Testutils.waitForElement(2);
+		openSort();
+		latestSortOption.click();
+		Testutils.waitForElement(2);
+		Assert.assertTrue(validationMessage(latestSortSelection), "Wrong filter selected.");
 	}
 
 }

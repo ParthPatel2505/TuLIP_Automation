@@ -57,4 +57,11 @@ public class TrendingFiltersDetailsTest extends TrendingFiltersDetails
 	{
 		useCaseFilters();
 	}
+	
+	@Test(priority=8)
+	public void openSorting() throws Exception
+	{
+		olderSorting();
+		latestSorting();
+	}
 }
