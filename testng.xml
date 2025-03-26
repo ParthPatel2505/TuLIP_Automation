@@ -12,8 +12,8 @@
       <class name="ProfileModuleTest.Education_Test"/>
       <class name="LoginModuleTest.SignupTest"/>
       <class name="MentorPanelTest.Challenge_ManagementTest"/>
-      <class name="MentorPanelTest.Department_ManagementTest"/>
       <class name="LoginModuleTest.ForgotpasswardTest"/>
+      <class name="MentorPanelTest.Department_ManagementTest"/>
       <class name="MentorPanelTest.ThemesTest"/>
       <class name="MentorPanelTest.Career_ManagementTest"/>
       <class name="MentorPanelTest.Usecase_ManagementTest"/> -->
