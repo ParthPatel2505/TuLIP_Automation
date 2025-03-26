@@ -334,8 +334,9 @@ public class Testutils<switchToFrame> extends TestBase {
 		{
 			String url = driver.getCurrentUrl().toString();
 			String fetchURL = url.toLowerCase();
+			String wordInLower = word.toLowerCase();
 			//System.out.println(fetchURL);
-			if(fetchURL.contains(word))
+			if(fetchURL.contains(wordInLower))
 			{
 				return true;
 			}
