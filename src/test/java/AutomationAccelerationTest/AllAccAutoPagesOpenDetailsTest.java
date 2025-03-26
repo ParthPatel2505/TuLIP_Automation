@@ -16,7 +16,6 @@ public class AllAccAutoPagesOpenDetailsTest extends AllAccAutoPagesOpenDetails
 		Testutils.ValidateUserLogin();
 	}
 	
-
 	@Test(priority=1)
 	public void openInnovationPage() throws Exception
 	{
@@ -39,5 +38,5 @@ public class AllAccAutoPagesOpenDetailsTest extends AllAccAutoPagesOpenDetails
 	public void openTrendingPage() throws Exception
 	{
 		openTre();
-	}
+	} 
 }
