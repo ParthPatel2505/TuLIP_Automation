@@ -15,7 +15,7 @@ public class MenuOrHeaderPanel extends Loginpage
 	@FindBy(xpath = "//header[@class='top-header']/div/nav/div[@class='ant-flex css-7ynt2h ant-flex-align-center']//*[name()='svg'][1]")
 	WebElement plusFromHeader;
 	
-	@FindBy(xpath = "(//*[contains(@class,'plus')])[1]")
+	@FindBy(xpath = "(//*[contains(@class,'plus')])[2]")
 	WebElement plusHeaderIcon;
 	
 	//By plusHeaderIcon = By.xpath("//header[@class='top-header']/div/nav/div[@class='ant-flex css-7ynt2h ant-flex-align-center']//*[name()='svg'][1]");

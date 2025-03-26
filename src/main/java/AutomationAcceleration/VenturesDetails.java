@@ -149,7 +149,7 @@ public class VenturesDetails extends TestBase
 		venFName.sendKeys(prop.getProperty("FName"));
 		venLName.sendKeys(prop.getProperty("LName"));
 		venEmail.sendKeys(prop.getProperty("username"));
-		venCompany.sendKeys(prop.getProperty("Comp"));
+		venCompany.sendKeys(prop.getProperty("VenComp"));
 		venProgOfInterest.sendKeys(prop.getProperty("ProgramInterest"));
 		venProgOfExp.sendKeys(prop.getProperty("YearOfExp"));
 		

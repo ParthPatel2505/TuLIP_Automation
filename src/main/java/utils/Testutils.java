@@ -51,7 +51,7 @@ public class Testutils<switchToFrame> extends TestBase {
 	public static void ValidateUserLogin() {
 		driver.findElement(By.xpath("//span[normalize-space()='Login']")).click();
 		driver.findElement(By.xpath("//input[@id='form.login.email']")).sendKeys(prop.getProperty("username"));
-		driver.findElement(By.xpath("//input[@id='form.login.password']")).sendKeys(prop.getProperty("passward"));
+		driver.findElement(By.xpath("//input[@id='form.login.password']")).sendKeys(prop.getProperty("password"));
 		driver.findElement(By.xpath("//button[@type='button']")).click();
 	}
 
@@ -126,6 +126,12 @@ public class Testutils<switchToFrame> extends TestBase {
 	public static void PressUP() throws InterruptedException {
 		Actions action = new Actions(driver);
 		action.sendKeys(Keys.ARROW_UP).perform();
+		Thread.sleep(2000);
+	}
+	
+	public static void PressESC() throws InterruptedException {
+		Actions action = new Actions(driver);
+		action.sendKeys(Keys.ESCAPE).perform();
 		Thread.sleep(2000);
 	}
 
@@ -312,10 +318,53 @@ public class Testutils<switchToFrame> extends TestBase {
 		return currentDateTime;
 	}
 
-	// Fetching the list from menu which is open as dropdown using ul or li tag
-	public static void selectFromMenuList(String xPath, String value) {
-		List<WebElement> liList = driver.findElements(By.xpath(xPath));
-		// liList.add(plusIconListinUL);
+			//Fetching the list from menu which is open as dropdown using ul or li tag
+		public static void selectFromMenuList(String xPath, String value)
+		{
+			List<WebElement> liList = driver.findElements(By.xpath(xPath));
+			//liList.add(plusIconListinUL);
+			
+			for(int i=0; i < liList.size();)
+			{
+				String fetchValue = liList.get(i).getText();
+				System.out.println(fetchValue);
+				if(fetchValue.equals(value))
+				{
+					String makingxPath = xPath + "[" + (i+1) + "]/span";
+					driver.findElement(By.xpath(makingxPath)).click();
+					break;
+				}
+				else
+				{
+					i++;
+				}
+			}
+		}
+		
+		//check redirection properly
+		public static boolean checkRedirection(String word)
+		{
+			String url = driver.getCurrentUrl().toString();
+			String fetchURL = url.toLowerCase();
+			String wordInLower = word.toLowerCase();
+			//System.out.println(fetchURL);
+			if(fetchURL.contains(wordInLower))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
+		//wait until element or screen loading
+        public static void waitForElement(long l) throws Exception
+        {
+            Thread.sleep(TimeUnit.SECONDS.toMillis(l));
+            //System.out.println(TimeUnit.MILLISECONDS.toMillis(l));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(l));
+        }
 
 		for (int i = 0; i < liList.size();) {
 			String fetchValue = liList.get(i).getText();

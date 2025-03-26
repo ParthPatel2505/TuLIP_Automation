@@ -1,20 +1,20 @@
 package AutomationAccelerationTest;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import AutomationAcceleration.EngineeringDetails;
 import LoginModule.Loginpage;
+import MentorPanel.Career_Management;
 import utils.Testutils;
 
 public class EngineeringDetailsTest extends EngineeringDetails
 {
 	Loginpage lp = new Loginpage();
 	
-	
-	
-	//@BeforeClass
-	public void takeLogin() throws Exception
-	{
+	@BeforeClass
+	public void setup() {
+		super.initialization();
 		Testutils.ValidateUserLogin();
 	}
 	
