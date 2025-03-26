@@ -9,6 +9,7 @@ import utils.Testutils;
 
 public class Engineering_Collaboration extends TestBase{
 	String Random_Name = Testutils.generateRandomName();
+	String Random_Name2 = Testutils.generateRandomName();
 	String Random_Mail = Testutils.RandomEmailGenerator();
 	
 	public Engineering_Collaboration() {
@@ -84,6 +85,23 @@ public class Engineering_Collaboration extends TestBase{
 		source.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();		
 		service_description.sendKeys(Random_Name);Thread.sleep(500);
 		service_scope.sendKeys(Random_Name);Thread.sleep(500);Testutils.scrollUsingAction(save_buttom);supporting_text.click();
+		save_buttom.click();Thread.sleep(3000);	
+	}
+	public void add_engineering2() throws InterruptedException {
+		Thread.sleep(2000);
+		add_Engineering.click();Thread.sleep(500);
+		company_name.sendKeys(Random_Name2);
+		domain.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();
+		use_case.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();
+		project_name.sendKeys(Random_Name2);
+		radio_private.click();
+		full_name.sendKeys(Random_Name2);Thread.sleep(500);
+		email.sendKeys(Random_Mail);Thread.sleep(500);
+		phone.sendKeys("5123648526");Thread.sleep(500);Testutils.scrollUsingAction(supporting_text);
+		country.click();Thread.sleep(1500);Testutils.PressEnter();Testutils.PressALT();
+		source.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();		
+		service_description.sendKeys(Random_Name2);Thread.sleep(500);
+		service_scope.sendKeys(Random_Name2);Thread.sleep(500);Testutils.scrollUsingAction(save_buttom);supporting_text.click();
 		save_buttom.click();Thread.sleep(3000);	
 	}
 	

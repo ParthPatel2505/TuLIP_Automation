@@ -10,6 +10,7 @@ import utils.Testutils;
 
 public class Innovation_Collaboration extends TestBase{
 	String Random_Name = Testutils.generateRandomName();
+	String Random_Name2 = Testutils.generateRandomName();
 
 	public Innovation_Collaboration() {
 		PageFactory.initElements(driver, this);
@@ -31,9 +32,9 @@ public class Innovation_Collaboration extends TestBase{
 	WebElement innovation_title;
 	
 	@FindBy(xpath = "(//span[@class='ant-select-selection-item'])[1]")
-	WebElement theme;
+	WebElement initiative;
 	
-	@FindBy(xpath = "(//input[@id='rc_select_1'])[1]")
+	@FindBy(xpath = "(//span[@class='ant-select-selection-wrap'])[2]")
 	WebElement domain;
 	
 	@FindBy(xpath = "(//input[@id='ideas.referenceLink'])[1]")
@@ -79,7 +80,7 @@ public class Innovation_Collaboration extends TestBase{
 		Thread.sleep(2000);
 		add_innovation.click();
 		innovation_title.sendKeys(Random_Name);
-		theme.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();
+		initiative.click();Thread.sleep(1500);Testutils.PressEnter();Testutils.PressALT();
 		domain.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();
 		refrence_link.sendKeys(Random_Name);
 		tegs.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();
@@ -92,6 +93,25 @@ public class Innovation_Collaboration extends TestBase{
 		d_availability.sendKeys(Random_Name);Thread.sleep(500);
 		d_compliance.sendKeys(Random_Name);Thread.sleep(500);
 		d_model.sendKeys(Random_Name);Thread.sleep(500);Testutils.scrollUsingAction(save_buttom);document.click();
+		save_buttom.click();Thread.sleep(3000);	
+	}
+	public void add_innovation2() throws InterruptedException {
+		Thread.sleep(2000);
+		add_innovation.click();
+		innovation_title.sendKeys(Random_Name2);
+		initiative.click();Thread.sleep(1500);Testutils.PressEnter();Testutils.PressALT();
+		domain.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();
+		refrence_link.sendKeys(Random_Name2);
+		tegs.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();
+		country.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();
+		use_case.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();
+		radio_private.click();
+		d_innovation.sendKeys(Random_Name2);Thread.sleep(500);
+		d_Mpotential.sendKeys(Random_Name2);Thread.sleep(500);
+		d_Ppotential.sendKeys(Random_Name2);Thread.sleep(500);
+		d_availability.sendKeys(Random_Name2);Thread.sleep(500);
+		d_compliance.sendKeys(Random_Name2);Thread.sleep(500);
+		d_model.sendKeys(Random_Name2);Thread.sleep(500);Testutils.scrollUsingAction(save_buttom);document.click();
 		save_buttom.click();Thread.sleep(3000);	
 	}
 	

@@ -9,6 +9,7 @@ import utils.Testutils;
 
 public class Ventures_Collaboration extends TestBase{
 	String Random_Name = Testutils.generateRandomName();
+	String Random_Name2 = Testutils.generateRandomName();
 	String Random_Mail = Testutils.RandomEmailGenerator();
 
 	public Ventures_Collaboration() {
@@ -74,6 +75,21 @@ public class Ventures_Collaboration extends TestBase{
 		years_exp.sendKeys("1");
 		radio_private.click();
 		primary_program.sendKeys(Random_Name);Testutils.scrollUsingAction(supporting_text);
+		use_case.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();
+		refrral_source.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();Testutils.scrollUsingAction(save_buttom);
+		save_buttom.click();Thread.sleep(3000);
+	}
+	public void add_ventures2() throws InterruptedException {
+		Thread.sleep(2000);
+		add_ventures.click();Thread.sleep(500);
+		first_name.sendKeys(Random_Name2);
+		last_name.sendKeys(Random_Name2);
+		email_address.sendKeys(Random_Mail);
+		company_name.sendKeys(Random_Name2);
+		program_intrest.sendKeys(Random_Name2);
+		years_exp.sendKeys("1");
+		radio_private.click();
+		primary_program.sendKeys(Random_Name2);Testutils.scrollUsingAction(supporting_text);
 		use_case.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();
 		refrral_source.click();Thread.sleep(1000);Testutils.PressEnter();Testutils.PressALT();Testutils.scrollUsingAction(save_buttom);
 		save_buttom.click();Thread.sleep(3000);
