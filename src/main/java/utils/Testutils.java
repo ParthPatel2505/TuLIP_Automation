@@ -63,12 +63,15 @@ public class Testutils<switchToFrame> extends TestBase {
 		driver.findElement(By.xpath("//input[@id='form.login.password']")).sendKeys(passward);
 		driver.findElement(By.xpath("(//button[@type='button'])[1]")).click();
 	}
-	
+
 	public static void logout() throws InterruptedException {
 		Thread.sleep(1500);
-		driver.findElement(By.xpath("(//img[@alt='gurukula-logo'])[1]")).click();Thread.sleep(1500);
-		driver.findElement(By.xpath("(//img[@alt='user-profile'])[1]")).click();Thread.sleep(1500);
-		driver.findElement(By.xpath("(//span[normalize-space()='Logout'])[1]")).click();Thread.sleep(1500);
+		driver.findElement(By.xpath("(//img[@alt='gurukula-logo'])[1]")).click();
+		Thread.sleep(1500);
+		driver.findElement(By.xpath("(//img[@alt='user-profile'])[1]")).click();
+		Thread.sleep(1500);
+		driver.findElement(By.xpath("(//span[normalize-space()='Logout'])[1]")).click();
+		Thread.sleep(1500);
 	}
 
 	// Method to wait for an element to be visible and then click it
@@ -128,7 +131,7 @@ public class Testutils<switchToFrame> extends TestBase {
 		action.sendKeys(Keys.ARROW_UP).perform();
 		Thread.sleep(2000);
 	}
-	
+
 	public static void PressESC() throws InterruptedException {
 		Actions action = new Actions(driver);
 		action.sendKeys(Keys.ESCAPE).perform();
@@ -318,53 +321,10 @@ public class Testutils<switchToFrame> extends TestBase {
 		return currentDateTime;
 	}
 
-			//Fetching the list from menu which is open as dropdown using ul or li tag
-		public static void selectFromMenuList(String xPath, String value)
-		{
-			List<WebElement> liList = driver.findElements(By.xpath(xPath));
-			//liList.add(plusIconListinUL);
-			
-			for(int i=0; i < liList.size();)
-			{
-				String fetchValue = liList.get(i).getText();
-				System.out.println(fetchValue);
-				if(fetchValue.equals(value))
-				{
-					String makingxPath = xPath + "[" + (i+1) + "]/span";
-					driver.findElement(By.xpath(makingxPath)).click();
-					break;
-				}
-				else
-				{
-					i++;
-				}
-			}
-		}
-		
-		//check redirection properly
-		public static boolean checkRedirection(String word)
-		{
-			String url = driver.getCurrentUrl().toString();
-			String fetchURL = url.toLowerCase();
-			String wordInLower = word.toLowerCase();
-			//System.out.println(fetchURL);
-			if(fetchURL.contains(wordInLower))
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		
-		//wait until element or screen loading
-        public static void waitForElement(long l) throws Exception
-        {
-            Thread.sleep(TimeUnit.SECONDS.toMillis(l));
-            //System.out.println(TimeUnit.MILLISECONDS.toMillis(l));
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(l));
-        }
+	// Fetching the list from menu which is open as dropdown using ul or li tag
+	public static void selectFromMenuList(String xPath, String value) {
+		List<WebElement> liList = driver.findElements(By.xpath(xPath));
+		// liList.add(plusIconListinUL);
 
 		for (int i = 0; i < liList.size();) {
 			String fetchValue = liList.get(i).getText();
@@ -383,8 +343,9 @@ public class Testutils<switchToFrame> extends TestBase {
 	public static boolean checkRedirection(String word) {
 		String url = driver.getCurrentUrl().toString();
 		String fetchURL = url.toLowerCase();
+		String wordInLower = word.toLowerCase();
 		// System.out.println(fetchURL);
-		if (fetchURL.contains(word)) {
+		if (fetchURL.contains(wordInLower)) {
 			return true;
 		} else {
 			return false;
