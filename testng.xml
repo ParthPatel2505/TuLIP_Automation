@@ -18,6 +18,7 @@
       <class name="MentorPanelTest.Career_ManagementTest"/>
       <class name="MentorPanelTest.Usecase_ManagementTest"/> -->
       <class name="LoginModuleTest.LoginpageTest"/>
+      <class name="AutomationAccelerationTest.AllAccAutoPagesOpenDetailsTest"/>
       <class name="AutomationAccelerationTest.InnovationDetailsTest"/>
       <class name="AutomationAccelerationTest.InnTaskandChallengesTest"/>
       <class name="AutomationAccelerationTest.VenturesDetailsTest"/>
