@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import AutomationAcceleration.InnovationDetails;
@@ -21,9 +22,9 @@ public class InnovationDetailsTest extends InnovationDetails
 		// TODO Auto-generated constructor stub
 	}
 	
-	//@BeforeClass
-	public void takeLogin() throws Exception
-	{
+	@BeforeClass
+	public void setup() {
+		super.initialization();
 		Testutils.ValidateUserLogin();
 	}
 	

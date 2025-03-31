@@ -171,7 +171,9 @@ public class EngineeringDetails extends TestBase
 		
 		engDomain.click();
 		Testutils.waitForElement(3);
-		selectDropdownOption(prop.getProperty("Domain"));
+		//selectDropdownOption(prop.getProperty("Domain"));
+		Testutils.PressDown();
+		Testutils.PressEnter();
 		Testutils.waitForElement(3);
 		
 		engUCField.sendKeys("m");
@@ -221,12 +223,14 @@ public class EngineeringDetails extends TestBase
 		//selectDropdownOption(prop.getProperty("Source"));
 		Testutils.PressDown();
 		Testutils.PressEnter();
-		Testutils.PressTab();
-		Testutils.Scroll_to_element(engServiceRadio);
+		Testutils.waitForElement(2);
+		//Testutils.PressTab();
+		Testutils.PressESC();
+		//Testutils.Scroll_to_element(engServiceRadio);
 		Testutils.waitForElement(3);
 		
-		engServiceRadio.click();
-		Testutils.waitForElement(3);
+		//engServiceRadio.click();
+		//Testutils.waitForElement(3);
 		
 		engSerDesc.sendKeys(prop.getProperty("Description"));
 		engSerScope.sendKeys(prop.getProperty("Description"));

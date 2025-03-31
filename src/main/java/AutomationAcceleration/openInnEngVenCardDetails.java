@@ -48,6 +48,16 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 	WebElement viewAll;
 	@FindBy(xpath = "//button[@type='button' and contains(@class,'variant-link')]")
 	static WebElement showMore;
+	@FindBy(xpath = "//button[.//*[contains(text(), 'Filters')]]")
+	WebElement filtersButton;
+	@FindBy(xpath = "//li//*[text()='Type']")
+	WebElement typeOption;
+	@FindBy(xpath = "//span[contains(text(),'Innovation')]")
+	WebElement selectInn;
+	@FindBy(xpath = "//span[contains(text(),'Engineering')]")
+	WebElement selectEng;
+	@FindBy(xpath = "//span[contains(text(),'Ventures')]")
+	WebElement selectVen;
 	
 	public static void selectTilefromList(WebElement xPath, WebElement typeOfInn, WebElement innName, String screen) throws Exception
 	{
@@ -180,7 +190,7 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 	
 	public void selectTile(String typeOfTrend, String projectName) throws Exception
 	{
-		WebElement element = driver.findElement(By.xpath("(//div[.//h5[contains(text(), '"+projectName+"')]])[10]"));
+		WebElement element = driver.findElement(By.xpath("(//div[.//h5[contains(text(), '"+projectName+"')]])[9]"));
 		try
 		{
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -232,7 +242,7 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 			
 		}
 		//dashoardImage.click();
-		Testutils.waitForElement(3);
+		Testutils.waitForElement(4);
 		viewAll.click();
 		System.out.println("Clicked on View All.");
 		Testutils.waitForElement(5);
@@ -247,6 +257,12 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 		Testutils.waitForElement(10);
 		if(screenName.equals(prop.getProperty("automationAccelerationInn")))
 		{
+			Testutils.waitForElement(3);
+			filtersButton.click();
+			Testutils.waitForElement(2);
+			typeOption.click();
+			Testutils.waitForElement(2);
+			selectInn.click();
 			selectTile(prop.getProperty("automationAccelerationInn"), prop.getProperty("Title"));
 			tasks();
 			challenges();
@@ -255,6 +271,12 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 		}
 		else if(screenName.equals(prop.getProperty("automationAccelerationEng")))
 		{
+			Testutils.waitForElement(3);
+			filtersButton.click();
+			Testutils.waitForElement(2);
+			typeOption.click();
+			Testutils.waitForElement(2);
+			selectEng.click();
 			selectTile(prop.getProperty("automationAccelerationEng"), prop.getProperty("Title"));
 			tasks();
 			challenges();
@@ -263,7 +285,13 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 			
 		}else if(screenName.equals(prop.getProperty("automationAccelerationVen")))
 		{
-			selectTile(prop.getProperty("automationAccelerationVen"), prop.getProperty("Comp"));
+			Testutils.waitForElement(3);
+			filtersButton.click();
+			Testutils.waitForElement(2);
+			typeOption.click();
+			Testutils.waitForElement(2);
+			selectVen.click();
+			selectTile(prop.getProperty("automationAccelerationVen"), prop.getProperty("VenComp"));
 			tasks();
 			challenges();
 			//favTab.click();

@@ -132,7 +132,7 @@ public class Usecase_Management extends TestBase{
 		Testutils.waitForElementAndClick(driver, Addbutton);
 		usecaseinput.sendKeys(Random_Name);
 	    Description.sendKeys(Random_Name);
-	    Publish.click();Thread.sleep(1000);
+	    Publish.click();Thread.sleep(1500);
 	    Assert.assertEquals(Successmessage.getText(), "Success! Record saved.");
 	    System.out.println("Use Case Details added successfully.");
 

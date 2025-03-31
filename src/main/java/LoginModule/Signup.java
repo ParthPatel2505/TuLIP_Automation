@@ -18,28 +18,28 @@ public class Signup extends TestBase{
 	@FindBy(xpath = "//img[@alt='Tulip Logo']")
 	WebElement Tulipimg;
 	
-	@FindBy(xpath = "//a[normalize-space()='Back to Home']")
+	@FindBy(xpath = "(//a[normalize-space()='Back to Home'])[1]")
 	WebElement Backtohome;
 	
-	@FindBy(xpath = "//input[@id='firstName']")
+	@FindBy(xpath = "(//input[@id='form.signup.first_name'])[1]")
 	WebElement Firstname;
 	
-	@FindBy(xpath = "//input[@id='lastName']")
+	@FindBy(xpath = "(//input[@id='form.signup.last_name'])[1]")
 	WebElement Lastname;
 	
-	@FindBy(xpath = "//input[@id='email']")
+	@FindBy(xpath = "(//input[@id='form.signup.email'])[1]")
 	WebElement Email;
 	
-	@FindBy(xpath = "//input[@id='password']")
+	@FindBy(xpath = "(//input[@id='form.login.password'])[1]")
 	WebElement Passward;
 	
-	@FindBy(xpath = "//input[@id='confirm-password']")
+	@FindBy(xpath = "(//input[@id='form.signup.confirm_password'])[1]")
 	WebElement Confirmpass;
 	
-	@FindBy(xpath = "//input[@type='checkbox']")
+	@FindBy(xpath = "(//input[@value='true'])[1]")
 	WebElement Checkbox;
 	
-	@FindBy(xpath = "//button[normalize-space()='Register']")
+	@FindBy(xpath = "(//button[@type='submit'])[1]")
 	WebElement Register;
 	
 	@FindBy(xpath = "//div[@role='status']")
@@ -60,13 +60,13 @@ public class Signup extends TestBase{
 	@FindBy(xpath = "//a[text()='Verify email']")
 	WebElement Verifyemail;
 	
-	@FindBy(xpath = "//input[@id='email']")
+	@FindBy(xpath = "(//input[@id='form.login.email'])[1]")
 	WebElement Tulipid;
 	
-	@FindBy(xpath = "//input[@id='password']")
+	@FindBy(xpath = "(//input[@id='form.login.password'])[1]")
 	WebElement Tulippass;
 	
-	@FindBy(xpath = "//button[@type='submit']")
+	@FindBy(xpath = "(//span[normalize-space()='Login'])[1]")
 	WebElement Tuliplogin;
 	
 	

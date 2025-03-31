@@ -17,10 +17,10 @@ public class Forgotpassward extends TestBase{
 	@FindBy(xpath = "//a[normalize-space()='Forgot Password?']")
 	WebElement Forgotpass;
 	
-	@FindBy(xpath = "//input[@id='email']")
+	@FindBy(xpath = "(//input[@id='form.login.email'])[1]")
 	WebElement Email;
 	
-	@FindBy(xpath = "//button[normalize-space()='Reset Password']")
+	@FindBy(xpath = "(//button[@type='button'])[1]")
 	WebElement Resetbutton;
 	
 	@FindBy(xpath = "//div[@role='status']")
@@ -44,13 +44,13 @@ public class Forgotpassward extends TestBase{
 	@FindBy(xpath = "//a[text()='Reset Password']")
 	WebElement Resetpassward;
 	
-	@FindBy(xpath = "//input[@id='new-password']")
+	@FindBy(xpath = "(//input[@id='form.reset_password.new_pass'])[1]")
 	WebElement Newpassward;
 	
-	@FindBy(xpath = "//input[@id='confirm-password']")
+	@FindBy(xpath = "(//input[@id='form.reset_password.confirm_password'])[1]")
 	WebElement Confirmpassward;
 	
-	@FindBy(xpath = "//button[normalize-space()='Update Password']")
+	@FindBy(xpath = "(//span[normalize-space()='Update Password'])[1]")
 	WebElement Updatebutton;
 	
 	@FindBy(xpath = "//div[@role='status']")
