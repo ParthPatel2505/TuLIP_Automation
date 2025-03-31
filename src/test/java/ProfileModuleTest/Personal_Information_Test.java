@@ -28,15 +28,25 @@ public class Personal_Information_Test extends TestBase {
 	}
 	@Test(priority=2) 
 	public void verifydisabledfields() throws InterruptedException {
-		PI.VerifyDisabledFields();
+		PI.NavigatetoPersonalInformation();
+		PI.verifyDisabledFields();
 	}
 	@Test(priority=3)
 	public void verifyrequiredfields() throws InterruptedException {
-		PI.VerifyRequiredFields();
+		PI.verifyRequiredFields();
 	}
 	@Test(priority=4)
+	public void verifyValidations() throws InterruptedException {
+		PI.verifyValidations();
+	}
+	@Test(priority=5)
 	public void verifyPersonalInformation() throws InterruptedException {
 		PI.fillPersonalInformation();
+	}
+	@Test(priority=6)
+	public void verifyUpdatedDetails() throws InterruptedException {
+		PI.NavigatetoPersonalInformation();
+		PI.updateDetails();
 	}
 	
 
