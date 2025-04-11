@@ -53,7 +53,7 @@ public class Testutils<switchToFrame> extends TestBase {
 		driver.findElement(By.xpath("//span[normalize-space()='Login']")).click();
 		driver.findElement(By.xpath("//input[@id='form.login.email']")).sendKeys(prop.getProperty("username"));
 		driver.findElement(By.xpath("//input[@id='form.login.password']")).sendKeys(prop.getProperty("password"));
-		driver.findElement(By.xpath("//button[@type='button']")).click();
+		driver.findElement(By.xpath("//button//*[text()='Login']")).click();
 	}
 
 	// It is used for dynamic user login

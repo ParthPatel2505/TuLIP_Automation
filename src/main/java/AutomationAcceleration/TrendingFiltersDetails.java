@@ -19,20 +19,24 @@ public class TrendingFiltersDetails extends InnTaskandChallengesDetails
 	WebElement type;
 	@FindBy(xpath = "//span[contains(text(),'Innovation')]")
 	WebElement innType;
-	@FindBy(xpath = "//span[contains(text(),'Engineering')]")
+	@FindBy(xpath = "//span[contains(text(),'Engineerin..')]")
 	WebElement engType;
 	@FindBy(xpath = "//span[contains(text(),'Ventures')]")
 	WebElement venType;
+	@FindBy(xpath = "//span[contains(text(),'Merger & A...')]")
+	WebElement mergeAcqType;
 	@FindBy(xpath = "//button[.//*[contains(text(), 'Reset')]]")
 	WebElement resetButton;
 	@FindBy(xpath = "//button[.//*[contains(text(), 'Clear All')]]")
 	WebElement clearAllButton;
-	@FindBy(xpath = "//span[.//span[contains(text(),'Innovation')] and .//*[contains(@class,'close')]]")
+	@FindBy(xpath = "//li[.//span[contains(text(),'Innovation')]]")
 	WebElement innFilterSelection;
-	@FindBy(xpath = "//span[.//span[contains(text(),'Engine')] and .//*[contains(@class,'close')]]")
+	@FindBy(xpath = "//li[.//span[contains(text(),'Engineering')]]")
 	WebElement engFilterSelection;
-	@FindBy(xpath = "//span[.//span[contains(text(),'Ventures')] and .//*[contains(@class,'close')]]")
+	@FindBy(xpath = "//li[.//span[contains(text(),'Ventures')]]")
 	WebElement venFilterSelection;
+	@FindBy(xpath = "//li[.//span[contains(text(),'Merger and Acquisition')]]")
+	WebElement mergeAcqFilterSelection;
 	
 	@FindBy(xpath = "//li//*[text()='State']")
 	WebElement state;
@@ -177,26 +181,35 @@ public class TrendingFiltersDetails extends InnTaskandChallengesDetails
 		openFilter();
 		type.click();
 		Testutils.waitForElement(2);
-		innType.click();
-		Testutils.waitForElement(2);
-		Assert.assertTrue(validationMessage(innFilterSelection), "Wrong filter selected.");
+		innFilterSelection.click();
+		Testutils.waitForElement(5);
+		Assert.assertTrue(validationMessage(innType), "Wrong filter selected.");
 		
 		//Select Engineering option
 		openFilter();
 		type.click();
 		Testutils.waitForElement(2);
-		engType.click();
-		Testutils.waitForElement(2);
-		Assert.assertTrue(validationMessage(engFilterSelection), "Wrong filter selected.");
+		engFilterSelection.click();
+		Testutils.waitForElement(5);
+		Assert.assertTrue(validationMessage(engType), "Wrong filter selected.");
 		Testutils.waitForElement(2);
 		
 		//Select Ventures option
 		openFilter();
 		type.click();
 		Testutils.waitForElement(2);
-		venType.click();
+		venFilterSelection.click();
+		Testutils.waitForElement(5);
+		Assert.assertTrue(validationMessage(venType), "Wrong filter selected.");
 		Testutils.waitForElement(2);
-		Assert.assertTrue(validationMessage(venFilterSelection), "Wrong filter selected.");
+		
+		//Select Ventures option
+		openFilter();
+		type.click();
+		Testutils.waitForElement(2);
+		mergeAcqFilterSelection.click();
+		Testutils.waitForElement(5);
+		Assert.assertTrue(validationMessage(mergeAcqType), "Wrong filter selected.");
 		Testutils.waitForElement(2);
 		
 	}
@@ -285,6 +298,7 @@ public class TrendingFiltersDetails extends InnTaskandChallengesDetails
 		fav.click();
 		Testutils.waitForElement(2);
 		Assert.assertTrue(validationMessage(favFilterSelection), "Wrong filter selected.");
+		Testutils.waitForElement(2);
 	}
 	
 	public void reviewStatusFilters() throws Exception
@@ -292,7 +306,7 @@ public class TrendingFiltersDetails extends InnTaskandChallengesDetails
 		resetFilter();
 		
 		//Select Sent for Review option
-		Testutils.waitForElement(2);
+		Testutils.waitForElement(5);
 		openFilter();
 		reviewState.click();
 		Testutils.waitForElement(2);
@@ -324,7 +338,7 @@ public class TrendingFiltersDetails extends InnTaskandChallengesDetails
 		resetFilter();
 		
 		//Select Collation option
-		Testutils.waitForElement(2);
+		Testutils.waitForElement(5);
 		openFilter();
 		dateRange.click();
 		
@@ -332,9 +346,9 @@ public class TrendingFiltersDetails extends InnTaskandChallengesDetails
 		Calendar c = Calendar.getInstance();
 		c.setTime(today);
 		int i = c.get(Calendar.DAY_OF_WEEK) - c.getFirstDayOfWeek();
-		c.add(Calendar.DATE, -i-7);
+		c.add(Calendar.DATE, -i);
 		Date start = c.getTime();
-		c.add(Calendar.DATE, 6);
+		c.add(Calendar.DATE,i);
 		Date end = c.getTime();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String startformattedDate = dateFormat.format(start);
@@ -359,7 +373,7 @@ public class TrendingFiltersDetails extends InnTaskandChallengesDetails
 		resetFilter();
 		
 		//Select Collation option
-		Testutils.waitForElement(2);
+		Testutils.waitForElement(5);
 		openFilter();
 		useCase.click();
 		sendStringintoField(useCaseSearch, "Inventory");
@@ -382,7 +396,7 @@ public class TrendingFiltersDetails extends InnTaskandChallengesDetails
 	
 	public void olderSorting() throws Exception
 	{
-		Testutils.waitForElement(2);
+		Testutils.waitForElement(5);
 		openSort();
 		olderSortOption.click();
 		Testutils.waitForElement(2);
