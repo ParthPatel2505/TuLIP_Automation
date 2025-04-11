@@ -86,13 +86,13 @@ public class InnovationDetails extends TestBase
 	WebElement innovationBus;
 	@FindBy(xpath = "//div[@class='rc-virtual-list-holder']")
 	WebElement dropdownList;
-	@FindBy(xpath = "//div[@role='presentation']/input")
+	@FindBy(xpath = "//*[contains(@class,'upload')]/input")
 	WebElement uploadInput;
 	@FindBy(xpath = "//button[@aria-label='delete']")
 	WebElement deleteIconOfUploadFile;
-	@FindBy(xpath = "//button[@type='button']/p[contains(text(),'Delete')]")
+	@FindBy(xpath = "//button[@type='button']//*[contains(text(),'Delete')]")
 	WebElement deleteBtnFromDeletePopup;
-	@FindBy(xpath = "//button[@type='button']/p[contains(text(),'Cancel')]")
+	@FindBy(xpath = "(//button[@type='button']//*[contains(text(),'Cancel')])[2]")
 	WebElement cancelBtnFromDeletePopup;
 	
 	
@@ -248,9 +248,11 @@ public class InnovationDetails extends TestBase
 		Testutils.waitForElement(2);
 		
 		Testutils.clickOnElement(deleteIconOfUploadFile);
+		Testutils.waitForElement(3);
 		Testutils.clickOnElement(cancelBtnFromDeletePopup);
-		Testutils.waitForElement(2);
+		Testutils.waitForElement(3);
 		Testutils.clickOnElement(deleteIconOfUploadFile);
+		Testutils.waitForElement(3);
 		Testutils.clickOnElement(deleteBtnFromDeletePopup);
 		//uploadInput.click();
 		//PressTab();

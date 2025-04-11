@@ -83,13 +83,13 @@ public class EngineeringDetails extends TestBase
 
     @FindBy(xpath = "//div[@class='rc-virtual-list-holder']")
 	WebElement dropdownList;
-	@FindBy(xpath = "//div[@role='presentation']/input")
+	@FindBy(xpath = "//*[contains(@class,'upload')]/input")
 	WebElement uploadInput;
 	@FindBy(xpath = "//button[@aria-label='delete']")
 	WebElement deleteIconOfUploadFile;
-	@FindBy(xpath = "//button[@type='button']/p[contains(text(),'Delete')]")
+	@FindBy(xpath = "//button[@type='button']//*[contains(text(),'Delete')]")
 	WebElement deleteBtnFromDeletePopup;
-	@FindBy(xpath = "//button[@type='button']/p[contains(text(),'Cancel')]")
+	@FindBy(xpath = "(//button[@type='button']//*[contains(text(),'Cancel')])[2]")
 	WebElement cancelBtnFromDeletePopup;
     
 	String pathOfElement = "//div[contains(text(),'";
@@ -259,9 +259,11 @@ public class EngineeringDetails extends TestBase
 		Testutils.waitForElement(2);
 		
 		Testutils.clickOnElement(deleteIconOfUploadFile);
+		Testutils.waitForElement(3);
 		Testutils.clickOnElement(cancelBtnFromDeletePopup);
 		Testutils.waitForElement(2);
 		Testutils.clickOnElement(deleteIconOfUploadFile);
+		Testutils.waitForElement(3);
 		Testutils.clickOnElement(deleteBtnFromDeletePopup);
 		//uploadInput.click();
 		//PressTab();

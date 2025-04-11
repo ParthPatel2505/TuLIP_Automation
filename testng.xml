@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <!-- <class name="ProfileModuleTest.Experience_Test"/>
+      <class name="ProfileModuleTest.Experience_Test"/>
       <class name="ProfileModuleTest.Skill_Test"/>
       <class name="ProfileModuleTest.Personal_Information_Test"/>
       <class name="MentorPanelTest.User_ManagementTest"/>
@@ -16,16 +16,18 @@
       <class name="MentorPanelTest.Department_ManagementTest"/>
       <class name="MentorPanelTest.ThemesTest"/>
       <class name="MentorPanelTest.Career_ManagementTest"/>
-      <class name="MentorPanelTest.Usecase_ManagementTest"/> -->
+      <class name="MentorPanelTest.Usecase_ManagementTest"/>
       <class name="LoginModuleTest.LoginpageTest"/>
-      <class name="AutomationAccelerationTest.AllAccAutoPagesOpenDetailsTest"/>
-      <class name="AutomationAccelerationTest.InnovationDetailsTest"/>
-      <class name="AutomationAccelerationTest.InnTaskandChallengesTest"/>
-      <class name="AutomationAccelerationTest.VenturesDetailsTest"/>
-      <class name="AutomationAccelerationTest.VenTaskandChallengesTest"/>
-      <class name="AutomationAccelerationTest.EngineeringDetailsTest"/>
+      <class name="AutomationAccelerationTest.InnovationDetailsTest"/> 
+      <class name="AutomationAccelerationTest.InnTaskandChallengesTest"/> 
+      <class name="AutomationAccelerationTest.EngineeringDetailsTest"/> 
       <class name="AutomationAccelerationTest.EngTaskandChallengesTest"/>
+      <class name="AutomationAccelerationTest.VenturesDetailsTest"/>
+	  <class name="AutomationAccelerationTest.VenTaskandChallengesTest"/>
+	  <class name="AutomationAccelerationTest.AllAccAutoPagesOpenDetailsTest"/>
       <class name="AutomationAccelerationTest.TrendingFiltersDetailsTest"/>
+      <class name="AutomationAccelerationTest.MergerAcquisitionDetailsTest"/>
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

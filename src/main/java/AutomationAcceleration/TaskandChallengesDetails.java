@@ -32,8 +32,8 @@ public class TaskandChallengesDetails extends TestBase
 	WebElement validationManager;
 	
 	//Fields
-	@FindBy (xpath = "//div[@class='ant-tabs-extra-content']/button[@type='button']")
-	WebElement plusIcon;
+	@FindBy (xpath = "//*[@data-node-key='task']")
+	WebElement openTaskTab;
 	@FindBy (xpath = "//*[@id='dashboard.orchestration.taskTab.titleLabel']")
 	WebElement titleForTasks;
 	@FindBy (xpath = "(//*[@id='dashboard.orchestration.taskTab.titleLabel'])[2]")
@@ -70,17 +70,17 @@ public class TaskandChallengesDetails extends TestBase
 	WebElement endDateForTasks;
 	@FindBy (xpath = "(//*[@id='dashboard.orchestration.taskTab.endDateLabel'])[2]")
 	WebElement endDateForChal;
-	@FindBy (xpath = "//*[@class='MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-feqhe6']//*/input")
+	@FindBy (xpath = "//*[@id='dashboard.orchestration.taskTab.timeZoneLabel']")
 	WebElement timeZoneForTasks;
-	@FindBy (xpath = "(//*[@class='MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-feqhe6']//*/input)[2]")
+	@FindBy (xpath = "(//*[@id='dashboard.orchestration.taskTab.timeZoneLabel'])[2]")
 	WebElement timeZoneForChal;
-	@FindBy (xpath = "//*[@type='button' and text()='Cancel']")
+	@FindBy (xpath = "//button[@type='button' and .//span[text()='Cancel']]")
 	WebElement cancelBtnForTasks;
-	@FindBy (xpath = "(//*[@type='button' and text()='Cancel'])[2]")
+	@FindBy (xpath = "(//button[@type='button' and .//span[text()='Cancel']])[2]")
 	WebElement cancelBtnForChal;
-	@FindBy (xpath = "//*[@type='submit' and text()='Save']")
+	@FindBy (xpath = "//button[@type='button' and .//span[text()='Save']]")
 	WebElement saveBtnForTasks;
-	@FindBy (xpath = "(//*[@type='submit' and text()='Save'])[2]")
+	@FindBy (xpath = "(//button[@type='button' and .//span[text()='Save']])[2]")
 	WebElement saveBtnForChal;
 	@FindBy (xpath = "//*[@type='button' and @aria-label='Close']")
 	WebElement cancelIconForTasks;
@@ -94,8 +94,10 @@ public class TaskandChallengesDetails extends TestBase
 	WebElement tableTitleforTasks;
 	@FindBy (xpath = "(//*[@class='ant-select-selection-item' and contains(@title,'page')])[2]")
 	WebElement tableTitleforChal;
-	@FindBy (xpath = "//span/*[contains(text(),'Tasks')]")
-	WebElement tasksOption;
+	@FindBy (xpath = "//button[@type='button' and contains(@class,'ant-btn-circle ant-btn-default')]")
+	WebElement openAddMenu; 
+	@FindBy (xpath = "//li[@role='menuitem' and contains(@data-menu-id,'add')]")
+	WebElement addBtn;
 	@FindBy (xpath = "//span/*[contains(text(),'Challenges')]")
 	WebElement chalOption;
 	
@@ -178,11 +180,14 @@ public class TaskandChallengesDetails extends TestBase
 	
 	public void tasks() throws Exception
 	{
-		Testutils.waitForElement(8);
-		plusIcon.click();
-		Testutils.waitForElement(2);
+		//openTaskTab.click();
+		//Testutils.waitForElement(2);
 		//Testutils.selectFromMenuList(plusIconList, prop.getProperty("Tasks"));
-		tasksOption.click();
+		taskTab.click();
+		Testutils.waitForElement(2);
+		openAddMenu.click();
+		Testutils.waitForElement(2);
+		addBtn.click();
 		Testutils.waitForElement(5);
 		
 		popupforTask();
@@ -197,11 +202,12 @@ public class TaskandChallengesDetails extends TestBase
 	public void challenges() throws Exception
 	{
 		Testutils.waitForElement(3);
-		plusIcon.click();
-		Testutils.waitForElement(2);
+		challengesTab.click();
 		//Testutils.selectFromMenuList(plusIconList, prop.getProperty("Challenges"));
-		chalOption.click();
-		Testutils.waitForElement(7);
+		openAddMenu.click();
+		Testutils.waitForElement(2);
+		addBtn.click();
+		Testutils.waitForElement(5);
 		
 		popupforChal();
 		
@@ -216,10 +222,12 @@ public class TaskandChallengesDetails extends TestBase
 		cancelIconForTasks.click();
 			
 		Testutils.waitForElement(3);
-		plusIcon.click();
+		taskTab.click();
+		Testutils.waitForElement(2);
+		openAddMenu.click();
+		Testutils.waitForElement(2);
+		addBtn.click();
 		
-		//Testutils.selectFromMenuList(plusIconList, prop.getProperty("Tasks"));
-		tasksOption.click();
 		Testutils.waitForElement(3);
 		saveBtnForTasks.click();
 		
@@ -233,10 +241,16 @@ public class TaskandChallengesDetails extends TestBase
 		Testutils.waitForElement(3);
 		cancelBtnForTasks.click();
 		Testutils.waitForElement(3);
-		plusIcon.click();
-		tasksOption.click();
+		
+		//openTaskTab.click();
+		//Testutils.waitForElement(2);
 		//Testutils.selectFromMenuList(plusIconList, prop.getProperty("Tasks"));
-		Testutils.waitForElement(3);
+		taskTab.click();
+		Testutils.waitForElement(2);
+		openAddMenu.click();
+		Testutils.waitForElement(2);
+		addBtn.click();
+		Testutils.waitForElement(5);
 		
 		titleForTasks.sendKeys(prop.getProperty("Title"));
 		
@@ -315,8 +329,9 @@ public class TaskandChallengesDetails extends TestBase
 		cancelIconForChal.click();
 				
 		Testutils.waitForElement(3);
-		plusIcon.click();
-		chalOption.click();
+		openAddMenu.click();
+		Testutils.waitForElement(2);
+		addBtn.click();
 		//Testutils.selectFromMenuList(plusIconList, prop.getProperty("Challenges"));
 		
 		Testutils.waitForElement(3);
@@ -332,10 +347,11 @@ public class TaskandChallengesDetails extends TestBase
 		Testutils.waitForElement(3);
 		cancelBtnForChal.click();
 		Testutils.waitForElement(3);
-		plusIcon.click();
-		chalOption.click();
+		openAddMenu.click();
+		Testutils.waitForElement(2);
+		addBtn.click();
 		//Testutils.selectFromMenuList(plusIconList, prop.getProperty("Challenges"));
-		
+		Testutils.waitForElement(3);
 		titleForChal.sendKeys(prop.getProperty("Title"));
 		
 		useCaseForChal.click();
