@@ -100,5 +100,12 @@
 			<artifactId>extentreports</artifactId>
 			<version>5.0.9</version>
 		</dependency>
+
+
+		<dependency>
+			<groupId>OpencartV4.12</groupId>
+			<artifactId>OpencartV4.12</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>

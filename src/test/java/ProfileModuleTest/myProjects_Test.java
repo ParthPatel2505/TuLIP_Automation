@@ -54,13 +54,23 @@ public class myProjects_Test extends TestBase {
 	}
 
 	@Test(priority = 6)
-	public void verifyRequiredFields() {
+	public void verifyRequiredFields() throws InterruptedException {
 		MP.requiredFields();
 	}
 
 	@Test(priority = 7)
 	public void verifyFillTheDetails() throws InterruptedException {
 		MP.fillTheDetails();
+	}
+
+	@Test(priority = 8)
+	public void verifyeditDetails() throws InterruptedException {
+		MP.editDetails();
+	}
+
+	@Test(priority = 9)
+	public void verifyDeleteRecord() throws InterruptedException {
+		MP.deleteRecord();
 	}
 
 }
