@@ -21,6 +21,8 @@ public class AllAccAutoPagesOpenDetails extends InnTaskandChallengesDetails
 	WebElement venMenu;
 	@FindBy(xpath = "//*[contains(@class,'menu')]/a[text()='Trending']")
 	WebElement treMenu;
+	@FindBy(xpath = "//*[contains(@class,'menu')]/a[text()='Merger and Acquisition']")
+	WebElement MergeAcqMenu;
 	
 	@FindBy(xpath = "//h4[text()='Innovation']")
 	WebElement innHeaderPage;
@@ -30,6 +32,9 @@ public class AllAccAutoPagesOpenDetails extends InnTaskandChallengesDetails
 	WebElement venHeaderPage;
 	@FindBy(xpath = "//h4[text()='Trending']")
 	WebElement treHeaderPage;
+	@FindBy(xpath = "//h4[text()='Merger and Acquisition']")
+	WebElement MergerAcqHeaderPage;
+	
 	
 	@FindBy(xpath = "//*[contains(text(),'Show More')]")
 	WebElement loadMoreBtn;
@@ -147,6 +152,18 @@ public class AllAccAutoPagesOpenDetails extends InnTaskandChallengesDetails
 		Testutils.waitForElement(3);
 		Assert.assertTrue(treHeaderPage.isDisplayed(), "Use is on wrong page instead of Trending.");
 		Assert.assertTrue(Testutils.checkRedirection("ticket-viewall"), "User is redirect on wrong URL instead of Trending.");
+		LoadMoreDate();
+		Testutils.waitForElement(3);
+	}
+	
+	public void openMergeAcq() throws Exception
+	{
+		Testutils.waitForElement(2);
+		//checkOpenMenu();
+		MergeAcqMenu.click();
+		Testutils.waitForElement(3);
+		Assert.assertTrue(MergerAcqHeaderPage.isDisplayed(), "Use is on wrong page instead of Trending.");
+		Assert.assertTrue(Testutils.checkRedirection("merger-acquisition"), "User is redirect on wrong URL instead of Trending.");
 		LoadMoreDate();
 		Testutils.waitForElement(3);
 	}

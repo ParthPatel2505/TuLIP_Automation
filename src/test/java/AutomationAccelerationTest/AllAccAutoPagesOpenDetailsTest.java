@@ -39,4 +39,10 @@ public class AllAccAutoPagesOpenDetailsTest extends AllAccAutoPagesOpenDetails
 	{
 		openTre();
 	} 
+	
+	@Test(priority=5)
+	public void openMergerAcqPage() throws Exception
+	{
+		openMergeAcq();
+	} 
 }

@@ -41,6 +41,8 @@ public class MenuOrHeaderPanel extends Loginpage
 	WebElement engFromPlusIcon;
 	@FindBy(xpath = "//span[contains(text(),'Ventures')]")
 	WebElement venFromPlusIcon;
+	@FindBy(xpath = "//span[contains(text(),'Merger and Acquisition')]")
+	WebElement mergeAcqFromPlusIcon;
 	
 	String plusIconList = "//*[@class='ant-dropdown css-7ynt2h ant-dropdown-show-arrow ant-dropdown-placement-bottomRight']/ul/li";
 
@@ -81,6 +83,18 @@ public class MenuOrHeaderPanel extends Loginpage
 		
 		Testutils.waitForElement(2);
 		venFromPlusIcon.click();
+		Testutils.waitForElement(7);
+	}
+	
+	public void openMergerAcqFromPlusMenuFromHeader() throws Exception
+	{
+		PageFactory.initElements(driver, this);
+		Testutils.waitForElement(4);
+		
+		plusHeaderIcon.click();
+		
+		Testutils.waitForElement(2);
+		mergeAcqFromPlusIcon.click();
 		Testutils.waitForElement(7);
 	}
 	
