@@ -3,19 +3,42 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
+      <class name="AutomationAccelerationTest.EngTaskandChallengesTest"/>
+      <class name="AutomationAccelerationTest.EngineeringDetailsTest"/>
+      <class name="CollaborationANDReviewFlowaTest.Ventures_CLB_FlowTest"/>
+      <class name="ProfileModuleTest.commAndPre_Test"/>
+      <class name="MentorPanelTest.Category_ManagementTest"/>
+      <class name="AutomationAccelerationTest.AllAccAutoPagesOpenDetailsTest"/>
+      <class name="LoginModuleTest.LoginpageTest"/>
+      <class name="ProfileModuleTest.myProjects_Test"/>
+      <class name="AutomationAccelerationTest.VenturesDetailsTest"/>
+      <class name="MentorPanelTest.DashboardTest"/>
+      <class name="CollaborationANDReviewFlowaTest.Ventures_ReviewFlowTest"/>
+      <class name="MentorPanelTest.Challenge_ManagementTest"/>
+      <class name="ProfileModuleTest.goalAndAsp_Test"/>
+      <class name="MentorPanelTest.Usecase_ManagementTest"/>
+      <class name="LoginModuleTest.SignupTest"/>
+      <class name="AutomationAccelerationTest.TrendingFiltersDetailsTest"/>
+      <class name="AutomationAccelerationTest.VenTaskandChallengesTest"/>
       <class name="ProfileModuleTest.Experience_Test"/>
+      <class name="CollaborationANDReviewFlowaTest.Innovation_ReviewFlowTest"/>
       <class name="ProfileModuleTest.Skill_Test"/>
       <class name="ProfileModuleTest.Personal_Information_Test"/>
-      <class name="MentorPanelTest.User_ManagementTest"/>
-      <class name="MentorPanelTest.Category_ManagementTest"/>
+      <class name="ProfileModuleTest.Feedback_Test"/>
+      <class name="CollaborationANDReviewFlowaTest.Engineering_CLB_FlowTest"/>
       <class name="MentorPanelTest.Community_ManagementTest"/>
       <class name="ProfileModuleTest.Education_Test"/>
-      <class name="LoginModuleTest.SignupTest"/>
-      <class name="MentorPanelTest.Challenge_ManagementTest"/>
       <class name="LoginModuleTest.ForgotpasswardTest"/>
       <class name="MentorPanelTest.Department_ManagementTest"/>
+      <class name="ProfileModuleTest.myBlogs_Test"/>
       <class name="MentorPanelTest.ThemesTest"/>
       <class name="MentorPanelTest.Career_ManagementTest"/>
+<<<<<<< HEAD
+      <class name="AutomationAccelerationTest.InnTaskandChallengesTest"/>
+      <class name="AutomationAccelerationTest.InnovationDetailsTest"/>
+      <class name="MentorPanelTest.User_ManagementTest"/>
+      <class name="CollaborationANDReviewFlowaTest.Innovation_CLB_FlowTest"/>
+=======
       <class name="MentorPanelTest.Usecase_ManagementTest"/>
       <class name="LoginModuleTest.LoginpageTest"/>
       <class name="AutomationAccelerationTest.InnovationDetailsTest"/> 
@@ -28,6 +51,7 @@
       <class name="AutomationAccelerationTest.TrendingFiltersDetailsTest"/>
       <class name="AutomationAccelerationTest.MergerAcquisitionDetailsTest"/>
       
+>>>>>>> master
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
