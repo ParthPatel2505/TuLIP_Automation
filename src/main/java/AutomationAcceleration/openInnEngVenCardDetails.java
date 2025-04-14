@@ -52,11 +52,11 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 	WebElement filtersButton;
 	@FindBy(xpath = "//li//*[text()='Type']")
 	WebElement typeOption;
-	@FindBy(xpath = "//span[contains(text(),'Innovation')]")
+	@FindBy(xpath = "//li[.//span[contains(text(),'Innovation')]]")
 	WebElement selectInn;
-	@FindBy(xpath = "//span[contains(text(),'Engineering')]")
+	@FindBy(xpath = "//li[.//span[contains(text(),'Engineering')]]")
 	WebElement selectEng;
-	@FindBy(xpath = "//span[contains(text(),'Ventures')]")
+	@FindBy(xpath = "//li[.//span[contains(text(),'Ventures')]]")
 	WebElement selectVen;
 	
 	public static void selectTilefromList(WebElement xPath, WebElement typeOfInn, WebElement innName, String screen) throws Exception
@@ -198,11 +198,13 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 			try {
 			    // Wait until the element is visible
 			    wait.until(ExpectedConditions.visibilityOf(element));
+			    Testutils.bottomScrollUsingJS();
+			    Testutils.waitForElement(3);
 			    
 			    // Check if the element is displayed and clickable
 			    if (element.isDisplayed()) {
 			        element.click();
-			        Testutils.waitForElement(10);
+			        Testutils.waitForElement(15);
 			    } else {
 			        // Scroll down and then click "Show More"
 			        Testutils.bottomScrollUsingJS();
@@ -263,7 +265,9 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 			typeOption.click();
 			Testutils.waitForElement(2);
 			selectInn.click();
+			Testutils.waitForElement(5);
 			selectTile(prop.getProperty("automationAccelerationInn"), prop.getProperty("Title"));
+			Testutils.waitForElement(3);
 			tasks();
 			challenges();
 			//favTab.click();
@@ -277,7 +281,9 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 			typeOption.click();
 			Testutils.waitForElement(2);
 			selectEng.click();
+			Testutils.waitForElement(8);
 			selectTile(prop.getProperty("automationAccelerationEng"), prop.getProperty("Title"));
+			Testutils.waitForElement(3);
 			tasks();
 			challenges();
 			//favTab.click();
@@ -291,7 +297,9 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 			typeOption.click();
 			Testutils.waitForElement(2);
 			selectVen.click();
+			Testutils.waitForElement(8);
 			selectTile(prop.getProperty("automationAccelerationVen"), prop.getProperty("VenComp"));
+			Testutils.waitForElement(3);
 			tasks();
 			challenges();
 			//favTab.click();

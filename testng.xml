@@ -33,10 +33,25 @@
       <class name="ProfileModuleTest.myBlogs_Test"/>
       <class name="MentorPanelTest.ThemesTest"/>
       <class name="MentorPanelTest.Career_ManagementTest"/>
+<<<<<<< HEAD
       <class name="AutomationAccelerationTest.InnTaskandChallengesTest"/>
       <class name="AutomationAccelerationTest.InnovationDetailsTest"/>
       <class name="MentorPanelTest.User_ManagementTest"/>
       <class name="CollaborationANDReviewFlowaTest.Innovation_CLB_FlowTest"/>
+=======
+      <class name="MentorPanelTest.Usecase_ManagementTest"/>
+      <class name="LoginModuleTest.LoginpageTest"/>
+      <class name="AutomationAccelerationTest.InnovationDetailsTest"/> 
+      <class name="AutomationAccelerationTest.InnTaskandChallengesTest"/> 
+      <class name="AutomationAccelerationTest.EngineeringDetailsTest"/> 
+      <class name="AutomationAccelerationTest.EngTaskandChallengesTest"/>
+      <class name="AutomationAccelerationTest.VenturesDetailsTest"/>
+	  <class name="AutomationAccelerationTest.VenTaskandChallengesTest"/>
+	  <class name="AutomationAccelerationTest.AllAccAutoPagesOpenDetailsTest"/>
+      <class name="AutomationAccelerationTest.TrendingFiltersDetailsTest"/>
+      <class name="AutomationAccelerationTest.MergerAcquisitionDetailsTest"/>
+      
+>>>>>>> master
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
