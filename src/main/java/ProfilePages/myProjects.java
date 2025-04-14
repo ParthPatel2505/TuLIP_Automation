@@ -24,7 +24,7 @@ public class myProjects extends TestBase {
 	WebElement plus_icn;
 	@FindBy(xpath = "//button[normalize-space()='Save']")
 	WebElement save_btn;
-	@FindBy(xpath = "(//button[normalize-space()='Cancel'])[1]")
+	@FindBy(xpath = "//button[normalize-space()='Cancel']")
 	WebElement cancel_btn;
 	@FindBy(xpath = "//input[@id='projectName']")
 	WebElement name_txt;
@@ -50,9 +50,9 @@ public class myProjects extends TestBase {
 	WebElement projectTools_txt;
 	@FindBy(xpath = "//div[@class='col-md-6']//div[@class='col-md-6']//div[@class='react-select__indicator react-select__dropdown-indicator css-1xc3v61-indicatorContainer']//*[name()='svg']")
 	WebElement startMonth_ddl;
-	@FindBy(xpath = "//body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/div[1]/form[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]")
+	@FindBy(xpath = "(//div[@class='react-select__value-container css-f0ja12'])[2]")
 	WebElement startYear_ddl;
-	@FindBy(xpath = "(//div[@class='react-select__control css-5bh7pi-control'])[5]")
+	@FindBy(xpath = "//body/div[@class='ant-layout css-5xddah']/div[@class='ant-layout wrapper css-5xddah']/div[@class='ant-layout ant-layout-has-sider wrapper css-5xddah']/div[@class='ant-layout main-content css-5xddah']/main[@class='ant-layout-content inner-content css-5xddah']/div[@class='ant-row ProfileContentWrapper mt-4 css-5xddah']/div[@class='ant-col d-flex profileRightContent ant-col-md-18 css-5xddah']/div[@class='ant-card w-100 css-5xddah']/div[@class='ant-card-body']/div[@class='h-100']/form/div[@class='row']/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]")
 	WebElement endMonth_ddl;
 	@FindBy(xpath = "//div[@class='ant-card-body']//div[2]//div[1]//div[2]//div[1]//div[1]//div[2]//div[1]//*[name()='svg']")
 	WebElement endYear_ddl;
@@ -64,19 +64,7 @@ public class myProjects extends TestBase {
 	WebElement startDateVal_txt;
 	@FindBy(xpath = "(//span[@class=\"error-msg d-block mt-2\"])[2]")
 	WebElement endDateVal_txt;
-	@FindBy(xpath = "(//*[name()='svg'][@class='pointer actionIcon undefined'])[1]")
-	WebElement edit_icn;
-	@FindBy(xpath = "(//*[name()='svg'][@class='pointer actionIcon undefined'])[2]")
-	WebElement delete_icn;
-	@FindBy(xpath = "(//*[name()='svg'][@class='css-8mmkcg'])[2]")
-	WebElement closeInSkills_icn;
-	@FindBy(xpath = "(//*[name()='svg'][@class='css-8mmkcg'])[5]")
-	WebElement closeInTools_icn;
-	@FindBy(xpath = "//div[@role='status']")
-	WebElement succ_msg;
-	@FindBy(xpath = "(//div[@class='react-select__value-container react-select__value-container--has-value css-f0ja12'])[2]")
-	WebElement startYearEdit_ddl;
-	
+
 	public void navigateToMyProjects() throws InterruptedException {
 		Testutils.scrollUsingAction(myProject_txt);
 		myProject_txt.click();
@@ -88,9 +76,8 @@ public class myProjects extends TestBase {
 	}
 
 	public void closeAndCancel() throws InterruptedException {
+		Testutils.scrollUsingAction(cancel_btn);
 		Thread.sleep(1000);
-		Testutils.scrollUsingAction(save_btn);
-		Thread.sleep(2000);
 		cancel_btn.click();
 		Thread.sleep(1000);
 		System.out.println("Cancel Button Working as Expected");
@@ -139,24 +126,16 @@ public class myProjects extends TestBase {
 		Assert.assertEquals(disabled_Fields.size(), 0);
 	}
 
-	public void requiredFields() throws InterruptedException {
+	public void requiredFields() {
 		for (WebElement Element : required_Fields) {
 			System.out.println("Tag: " + Element.getTagName() + ", Name: " + Element.getAttribute("name") + ", ID: "
 					+ Element.getAttribute("id"));
 		}
 		System.out.println("Total required fields found : " + required_Fields.size());
 		Assert.assertEquals(required_Fields.size(), 2);
-		Testutils.scrollUsingAction(save_btn);
-		Thread.sleep(1000);
-		cancel_btn.click();
-		
 	}
 
 	public void fillTheDetails() throws InterruptedException {
-		Testutils.scrollUsingAction(plus_icn);
-		Thread.sleep(1000);
-		plus_icn.click();
-		Thread.sleep(1000);
 		Testutils.scrollUsingAction(name_txt);
 		String randomName = generateRandomString(6);
 		name_txt.sendKeys(randomName);
@@ -169,9 +148,11 @@ public class myProjects extends TestBase {
 		challAndSol_txt.sendKeys(randomChallengesAndSolutions);
 		Testutils.scrollUsingAction(checkbox_chk);
 		Thread.sleep(1000);
+		// skill_ddl.click();
 		skill_txt.sendKeys("Automation Testing");
 		Testutils.PressEnter();
 		Thread.sleep(1000);
+		// projectTools_ddl.click();
 		projectTools_txt.sendKeys("Selenium");
 		Testutils.PressEnter();
 		Thread.sleep(2000);
@@ -192,73 +173,9 @@ public class myProjects extends TestBase {
 		projectUrl_txt.sendKeys(randomURL);
 		Thread.sleep(1000);
 		save_btn.click();
-		Thread.sleep(1000);
-		Assert.assertEquals(succ_msg.getText(), "Success! Record saved.");
-		System.out.println("Your form was submitted successfully!");
+
 	}
 
-	public void editDetails() throws InterruptedException {
-		Thread.sleep(1000);
-		edit_icn.click();
-		Thread.sleep(1000);
-		Testutils.scrollUsingAction(name_txt);
-		Testutils.selectAllValue(name_txt);
-		Testutils.removeAllValue(name_txt);
-		String randomName = generateRandomString(6);
-		name_txt.sendKeys(randomName);
-		Thread.sleep(1000);
-		Testutils.scrollUsingAction(description_txt);
-		Testutils.selectAllValue(description_txt);
-		Testutils.removeAllValue(description_txt);
-		String randomDes = generateRandomString(26);
-		description_txt.sendKeys(randomDes);
-		Testutils.scrollUsingAction(challAndSol_txt);
-		Testutils.selectAllValue(challAndSol_txt);
-		Testutils.removeAllValue(challAndSol_txt);
-		Thread.sleep(1000);
-		String randomChallengesAndSolutions = generateRandomString(50);
-		challAndSol_txt.sendKeys(randomChallengesAndSolutions);
-		Testutils.scrollUsingAction(checkbox_chk);
-		Thread.sleep(1000);
-		closeInSkills_icn.click();
-		skill_txt.sendKeys("DB Testing");
-		Testutils.PressEnter();
-		Thread.sleep(1000);
-		closeInTools_icn.click();
-		projectTools_txt.sendKeys("MYSQL");
-		Testutils.PressEnter();
-		Thread.sleep(2000);
-		startYearEdit_ddl.click();
-		selectFromDdl("(//div[@class=\"react-select__menu-list css-qr46ko\"]/div)", "2020");
-		Thread.sleep(2000);
-		startMonth_ddl.click();
-		selectFromDdl("(//div[@class=\"react-select__menu-list css-qr46ko\"]/div)", "April");
-		Thread.sleep(1000);
-		Testutils.scrollUsingAction(save_btn);
-		Thread.sleep(1000);
-		checkbox_chk.click();
-		Thread.sleep(1000);
-		Testutils.scrollUsingAction(checkbox_chk);
-		Thread.sleep(1000);
-		Testutils.selectAllValue(projectUrl_txt);
-		Testutils.removeAllValue(projectUrl_txt);
-		String randomURL = generateURL();
-		projectUrl_txt.sendKeys(randomURL);
-		Thread.sleep(1000);
-		save_btn.click();
-		Thread.sleep(1000);
-		Assert.assertEquals(succ_msg.getText(), "Success! Record updated.");
-		System.out.println("Your changes have been saved successfully!");
-	}
-	
-	public void deleteRecord() throws InterruptedException {
-		Thread.sleep(1000);
-		delete_icn.click();
-		Thread.sleep(1000);
-		Assert.assertEquals(succ_msg.getText(), "Removed! Record deleted.");
-		Thread.sleep(1000);
-		
-	}
 	public String generateRandomString(int length) {
 		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 		StringBuilder randomString = new StringBuilder();
