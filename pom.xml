@@ -101,10 +101,9 @@
 			<version>5.0.9</version>
 		</dependency>
 
-
 		<dependency>
-			<groupId>OpencartV4.12</groupId>
-			<artifactId>OpencartV4.12</artifactId>
+			<groupId>com.stm</groupId>
+			<artifactId>TestAutomatiomFramework</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
