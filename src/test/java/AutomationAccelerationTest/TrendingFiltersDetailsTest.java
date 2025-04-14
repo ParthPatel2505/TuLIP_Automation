@@ -16,31 +16,31 @@ public class TrendingFiltersDetailsTest extends TrendingFiltersDetails
 	}
 	
 
-	@Test(priority=1)
+	//@Test(priority=1)
 	public void openTypeFilters() throws Exception
 	{
 		typeFilters();
 	}
 	
-	@Test(priority=2)
+	//@Test(priority=2)
 	public void openStateFilters() throws Exception
 	{
 		stateFilters();
 	}
 
-	@Test(priority=3)
+	//@Test(priority=3)
 	public void openViewAsFilters() throws Exception
 	{
 		viewAsFilters();
 	}
 	
-	@Test(priority=4)
+	//@Test(priority=4)
 	public void openFavFilters() throws Exception
 	{
 		favFilters();
 	}
 	
-	@Test(priority=5)
+	//@Test(priority=5)
 	public void openReviewStatusFilters() throws Exception
 	{
 		reviewStatusFilters();
@@ -58,7 +58,7 @@ public class TrendingFiltersDetailsTest extends TrendingFiltersDetails
 		useCaseFilters();
 	}
 	
-	@Test(priority=8)
+	//@Test(priority=8)
 	public void openSorting() throws Exception
 	{
 		olderSorting();

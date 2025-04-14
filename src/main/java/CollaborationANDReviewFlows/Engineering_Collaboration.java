@@ -25,7 +25,7 @@ public class Engineering_Collaboration extends TestBase{
 		Thread.sleep(500);
 	}
 
-	@FindBy(xpath = "(//button[@class='ant-btn css-2jq066 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm'])[1]")
+	@FindBy(xpath = "//button[@class='ant-btn css-1uje2j1 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm']")
 	WebElement add_Engineering;
 
 	@FindBy(xpath = "(//input[@id='standard-full-width'])[1]")
