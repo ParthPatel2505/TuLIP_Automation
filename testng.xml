@@ -18,15 +18,15 @@
       <class name="MentorPanelTest.Career_ManagementTest"/>
       <class name="MentorPanelTest.Usecase_ManagementTest"/>
       <class name="LoginModuleTest.LoginpageTest"/>
-      <class name="AutomationAccelerationTest.InnovationDetailsTest"/> 
-      <class name="AutomationAccelerationTest.InnTaskandChallengesTest"/> 
+      <class name="AutomationAccelerationTest.InnovationDetailsTest"/>
+	  <class name="AutomationAccelerationTest.InnTaskandChallengesTest"/>
       <class name="AutomationAccelerationTest.EngineeringDetailsTest"/> 
       <class name="AutomationAccelerationTest.EngTaskandChallengesTest"/>
       <class name="AutomationAccelerationTest.VenturesDetailsTest"/>
-	  <class name="AutomationAccelerationTest.VenTaskandChallengesTest"/>
-	  <class name="AutomationAccelerationTest.AllAccAutoPagesOpenDetailsTest"/>
+      <class name="AutomationAccelerationTest.VenTaskandChallengesTest"/>
+      <class name="AutomationAccelerationTest.MergerAcquisitionDetailsTest"/> 
+      <class name="AutomationAccelerationTest.AllAccAutoPagesOpenDetailsTest"/>
       <class name="AutomationAccelerationTest.TrendingFiltersDetailsTest"/>
-      <class name="AutomationAccelerationTest.MergerAcquisitionDetailsTest"/>
       
     </classes>
   </test> <!-- Test -->

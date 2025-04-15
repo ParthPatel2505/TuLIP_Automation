@@ -15,4 +15,5 @@ public class InnTaskandChallengesDetails extends openInnEngVenCardDetails
 		openCardDetails(prop.getProperty("automationAccelerationInn"));
 		
 	}
+	
 }
