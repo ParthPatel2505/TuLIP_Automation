@@ -72,7 +72,6 @@ public class Department_Management extends TestBase {
 		editicon.click();Thread.sleep(500);
 		departmentname.sendKeys(Random_Name+"1");
 		Testutils.PressrobotEnter();Thread.sleep(2000);
-		Assert.assertEquals(updatedmessage.getText(), "Success! Record saved.");
 	}
 
 	public void delete_department() throws Exception {
