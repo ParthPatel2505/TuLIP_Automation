@@ -2,7 +2,6 @@ package MentorPanel;
 
 import java.util.List;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,7 +9,7 @@ import org.testng.Assert;
 import base.TestBase;
 import utils.Testutils;
 
-public class Themes extends TestBase{
+public class Verticals extends TestBase{
 String Random_Name = Testutils.generateRandomName();
 	
 	@FindBy(xpath = "(//img[@alt='user-profile'])[1]")
@@ -19,8 +18,8 @@ String Random_Name = Testutils.generateRandomName();
 	@FindBy(xpath = "//span[contains(text(),'Switch to')]")
 	WebElement Mentorpanel;
 	
-	@FindBy(xpath = "//p[normalize-space()='Themes']")
-	WebElement themes;
+	@FindBy(xpath = "(//p[normalize-space()='verticals'])[1]")
+	WebElement verticals;
 	
 	@FindBy(xpath = "(//button[normalize-space()='Add'])[1]")
 	WebElement Addbutton;
@@ -112,15 +111,15 @@ String Random_Name = Testutils.generateRandomName();
 	@FindBy(xpath = "//div[contains(@role,'status')]")
 	WebElement updatednessage;
 	
-	public Themes() {
+	public Verticals() {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void navigate_to_themes() throws InterruptedException {
+	public void navigate_to_verticals() throws InterruptedException {
 		Thread.sleep(4000);
 		Profile.click();Thread.sleep(500);
 		Mentorpanel.click();
-		Testutils.waitForElementAndClick(driver, themes);	
+		Testutils.waitForElementAndClick(driver, verticals);	
 	}
 	
 	public void buttons_mandatoryfields() throws InterruptedException {
@@ -146,7 +145,7 @@ String Random_Name = Testutils.generateRandomName();
 	    dateselection.click();Thread.sleep(800);
 	    ok.click();Thread.sleep(800);
 	    Save.click();Thread.sleep(1000);
-	    Assert.assertEquals(Successmessage.getText(), "Success! Theme created.");
+	    Assert.assertEquals(Successmessage.getText(), "Success! Vertical created.");
 	    System.out.println("Themes Details added successfully.");
 
 	}
@@ -157,16 +156,17 @@ String Random_Name = Testutils.generateRandomName();
 		viewicon.click();Thread.sleep(500);
 		List<WebElement> disabled_fields = driver.findElements(By.xpath("//input[@disabled]"));
 	    System.out.println("Total number of disabled fields on page: " + disabled_fields.size());
-	    goback.click();
+	    Thread.sleep(500);
+	    goback.click();Thread.sleep(500);
 	}
 	
 	public void toggleactions() throws InterruptedException {
 		Thread.sleep(800);
 		activetoggle.click();Thread.sleep(1000);
-		Assert.assertEquals(inactivemessage.getText(), "Success! Theme updated.");Thread.sleep(1000);
+		Assert.assertEquals(inactivemessage.getText(), "Success! Vertical updated.");Thread.sleep(1000);
 		//Assert.assertTrue(!disablededit.isEnabled());
 		inactivtoggle.click();Thread.sleep(1000);
-		Assert.assertEquals(activemessage.getText(), "Success! Theme updated.");
+		Assert.assertEquals(activemessage.getText(), "Success! Vertical updated.");
 	    System.out.println("Toggle Actions working properly.");
 	}
 	
@@ -198,7 +198,7 @@ String Random_Name = Testutils.generateRandomName();
 		usecaseinput.sendKeys(Random_Name+"tulip");
 		Description.sendKeys(Random_Name+"tulip");
 		Save.click();Thread.sleep(1000);
-	    Assert.assertEquals(Successmessage.getText(), "Success! Theme updated.");
+	    Assert.assertEquals(Successmessage.getText(), "Success! Vertical updated.");
 	    
 	}
 }
