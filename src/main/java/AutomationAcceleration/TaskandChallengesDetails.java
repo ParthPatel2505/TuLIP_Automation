@@ -86,6 +86,12 @@ public class TaskandChallengesDetails extends TestBase
 	WebElement cancelIconForTasks;
 	@FindBy (xpath = "(//*[@type='button' and @aria-label='Close'])[2]")
 	WebElement cancelIconForChal;
+	@FindBy (xpath = "//button[@type='button' and .//*[contains(@class,'pencil')]]")
+	WebElement editIcon;
+	@FindBy (xpath = "//button[@type='submit']")
+	WebElement saveBtn;
+	@FindBy (xpath = "//span[text()='Details']")
+	WebElement detailsTab;
 	@FindBy (xpath = "//span[text()='Tasks']")
 	WebElement taskTab;
 	@FindBy (xpath = "//span[text()='Challenges']")
@@ -214,6 +220,23 @@ public class TaskandChallengesDetails extends TestBase
 		challengesTab.click();
 		Testutils.waitForElement(3);
 		Assert.assertTrue(validationMessage(tableTitleforChal), "Challenges is not added.");
+	}
+	
+	public void openDetailsTabandClickOnEdit() throws Exception
+	{
+		//openTaskTab.click();
+		//Testutils.waitForElement(2);
+		//Testutils.selectFromMenuList(plusIconList, prop.getProperty("Tasks"));
+		detailsTab.click();
+		Testutils.waitForElement(2);
+		editIcon.click();
+		Testutils.waitForElement(7);
+		Testutils.waitForElement(3);
+		Testutils.scroll_bottom();
+		Testutils.waitForElement(1);
+		Testutils.clickOnElement(saveBtn);
+		//saveBtn.click();
+		Testutils.waitForElement(5);
 	}
 	
 	public void popupforTask() throws Exception

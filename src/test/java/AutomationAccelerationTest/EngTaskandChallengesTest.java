@@ -14,15 +14,31 @@ public class EngTaskandChallengesTest extends EngTaskandChallengesDetails
 		Testutils.ValidateUserLogin();
 	}
 	
-	@Test
+
+	public void openEngCardFromDashboard() throws Exception
+	{
+		movetoFromDashboard();
+	}
+	
+	
+	@Test(priority=1)
 	public void openEngCardDetailsScreen() throws Exception
 	{
 		openEngCardFromDashboard();
 		openEngCard();
 	}
 	
-	public void openEngCardFromDashboard() throws Exception
+
+	@Test(priority=2)
+	public void openAddTaskandChalScreen() throws Exception
 	{
-		movetoFromDashboard();
+		tasks();
+		challenges();
+	}
+	
+	@Test(priority=3)
+	public void checkEditFunctionality() throws Exception
+	{
+		openDetailsTabandClickOnEdit();
 	}
 }
