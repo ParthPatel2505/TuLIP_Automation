@@ -19,9 +19,9 @@ public class Skill extends TestBase {
 
 	@FindBy(xpath = "//span[normalize-space()='Skills']")
 	WebElement Skill_txt;
-	@FindBy(xpath = "//div[@class='d-flex justify-content-between cardHeader']//*[name()='svg']")
+	@FindBy(xpath = "//div[@class='ant-card-extra']//*[name()='svg']")
 	WebElement Edit_icn;
-	@FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/main[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/*[name()='svg'][1]/*[name()='path'][1]")
+	@FindBy(xpath = "//div[@class='react-select__indicator react-select__clear-indicator css-1xc3v61-indicatorContainer']//*[name()='svg']")
 	WebElement Close_icn;
 	@FindBy(xpath = "//input[@class=\"react-select__input\"]")
 	WebElement Skill_ddl;
@@ -31,8 +31,20 @@ public class Skill extends TestBase {
 	WebElement Save_btn;
 	@FindBy(xpath = "//*[@Disabled]")
 	List<WebElement> Disabledfields;
-	@FindBy(xpath = "//*[@Required]")
+	@FindBy(xpath = "//span[@Required]")
 	List<WebElement> Requiredfields;
+	@FindBy(xpath = "//span[@class='error-msg']")
+	WebElement skill_val;
+	@FindBy(xpath = "//div[@role='status']")
+	WebElement suc_msg;
+
+	public void navigateToSkills() throws InterruptedException {
+		Testutils.scrollUsingAction(Skill_txt);
+		Skill_txt.click();
+		Thread.sleep(1000);
+		Edit_icn.click();
+		Testutils.scrollUsingAction(Cancel_btn);
+	}
 
 	public void requiredFields() {
 		for (WebElement Element : Requiredfields) {
@@ -52,33 +64,49 @@ public class Skill extends TestBase {
 		Assert.assertEquals(Disabledfields.size(), 0);
 	}
 
+	public void verifyValidations() throws InterruptedException {
+		Thread.sleep(1000);
+		Save_btn.click();
+
+		String ExpValMySk = "Skill required";
+		String ActValMySk = skill_val.getText();
+		Assert.assertEquals(ActValMySk, ExpValMySk);
+
+		System.out.println("Expected Validation Message for My Skills Field : " + "Skill required");
+		System.out.println("Actual Validation Message for My Skills Field : " + skill_val.getText());
+	}
+
 	public void fillTheSkills() throws InterruptedException {
+		Thread.sleep(2000);
+		Edit_icn.click();
+		Thread.sleep(3000);
+		Close_icn.click();
 		Thread.sleep(2000);
 		Actions actions = new Actions(driver);
 		actions.moveToElement(Skill_ddl).click().perform();
 		Thread.sleep(1000);
 		Skill_ddl.sendKeys("Automation Testing");
 		Testutils.PressEnter();
+		Thread.sleep(2000);
 		Save_btn.click();
-
-	}
-
-	public void navigateToSkills() throws InterruptedException {
-		Testutils.scrollUsingAction(Skill_txt);
-		Skill_txt.click();
 		Thread.sleep(1000);
-		Edit_icn.click();
-		Testutils.scrollUsingAction(Cancel_btn);
+		System.err.println(suc_msg.getText());
+		Thread.sleep(2000);
+		Assert.assertEquals("Success! Record saved.", suc_msg.getText());
+
 	}
-	
+
 	public void editSkills() throws InterruptedException {
 		Thread.sleep(1000);
 		Edit_icn.click();
 		Thread.sleep(1000);
-		Skill_ddl.click();
-		Thread.sleep(2000);
 		Close_icn.click();
+		Thread.sleep(2000);
 		Skill_ddl.sendKeys("Database Testing");
+		Testutils.PressEnter();
+		Thread.sleep(1000);
 		Save_btn.click();
+		Thread.sleep(1000);
+		Assert.assertEquals("Success! Record updated.", suc_msg.getText());
 	}
 }
