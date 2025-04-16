@@ -14,15 +14,30 @@ public class VenTaskandChallengesTest extends VenTaskandChallengesDetails
 		Testutils.ValidateUserLogin();
 	}
 	
-	@Test
+	public void openVenCardFromDashboard() throws Exception
+	{
+		movetoFromDashboard();
+	}
+	
+	
+	@Test(priority=1)
 	public void openVenCardDetailsScreen() throws Exception
 	{
 		openVenCardFromDashboard();
 		openVenCard();
 	}
 	
-	public void openVenCardFromDashboard() throws Exception
+	@Test(priority=2)
+	public void openAddTaskandChalScreen() throws Exception
 	{
-		movetoFromDashboard();
+		tasks();
+		challenges();
 	}
+	
+	@Test(priority=3)
+	public void checkEditFunctionality() throws Exception
+	{
+		openDetailsTabandClickOnEdit();
+	}
+	
 }

@@ -178,13 +178,13 @@ public class Dashboard extends TestBase {
 		Thread.sleep(1000);
 		dropdown_combobox1.click();
 		Gurukula_text.click();Thread.sleep(1000);
-		dropdown_combobox7.click();
-		Drafted_text.click();
-		dropdown_combobox7.click();
-		Inactive_text.click();
-		dropdown_combobox7.click();
-		Upcoming_text.click();
-		dropdown_combobox7.click();
-		Active_text.click();
+		dropdown_combobox7.click();Thread.sleep(500);
+		Drafted_text.click();Thread.sleep(500);
+		dropdown_combobox7.click();Thread.sleep(500);
+		Inactive_text.click();Thread.sleep(500);
+		dropdown_combobox7.click();Thread.sleep(500);
+		Upcoming_text.click();Thread.sleep(500);
+		dropdown_combobox7.click();Thread.sleep(500);
+		Active_text.click();Thread.sleep(500);
 	}
 }
