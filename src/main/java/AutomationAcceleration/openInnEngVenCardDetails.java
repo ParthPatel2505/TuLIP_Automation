@@ -10,11 +10,29 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import utils.Testutils;
 
 public class openInnEngVenCardDetails extends TaskandChallengesDetails
 {
+	@FindBy(xpath = "//li//*[text()='Type']")
+	WebElement type;
+	@FindBy(xpath = "//button[.//*[contains(text(), 'Filters')]]")
+	WebElement openFilter;
+	@FindBy(xpath = "//li[.//span[contains(text(),'Innovation')]]")
+	WebElement innFilterSelection;
+	@FindBy(xpath = "//li[.//span[contains(text(),'Engineering')]]")
+	WebElement engFilterSelection;
+	@FindBy(xpath = "//li[.//span[contains(text(),'Ventures')]]")
+	WebElement venFilterSelection;
+	@FindBy(xpath = "//span[contains(text(),'Innovation')]")
+	WebElement innType;
+	@FindBy(xpath = "//span[contains(text(),'Engineerin..')]")
+	WebElement engType;
+	@FindBy(xpath = "//span[contains(text(),'Ventures')]")
+	WebElement venType;
+	
 	@FindBy(xpath = "//p[text()='Innovation']")
 	WebElement typeofInnFavTrending;
 	public static String strTypeofInnFavTrending = "//p[text()='Innovation']";
@@ -184,17 +202,19 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 //			}
 //			
 //			}
-//		}
+//		} 
 //		
 	}
 	
 	public void selectTile(String typeOfTrend, String projectName) throws Exception
 	{
-		WebElement element = driver.findElement(By.xpath("(//div[.//h5[contains(text(), '"+projectName+"')]])[9]"));
+		System.out.println(projectName);
+		Testutils.waitForElement(5);
+		WebElement element = driver.findElement(By.xpath("(//div[.//h5[text()='"+projectName+"']])[8]"));
 		try
 		{
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
+			Testutils.waitForElement(5);
 			try {
 			    // Wait until the element is visible
 			    wait.until(ExpectedConditions.visibilityOf(element));
@@ -220,6 +240,7 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 		catch(Exception e)
 		{
 			Testutils.bottomScrollUsingJS();
+			System.out.println(e);
 			showMore.click();
 			Testutils.waitForElement(10);
 		}
@@ -252,6 +273,7 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 		//Testutils.waitForElement(5);
 		
 	}
+
 	
 	public void openCardDetails(String screenName) throws Exception
 	{
@@ -268,8 +290,8 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 			Testutils.waitForElement(5);
 			selectTile(prop.getProperty("automationAccelerationInn"), prop.getProperty("Title"));
 			Testutils.waitForElement(3);
-			tasks();
-			challenges();
+			//tasks();
+			//challenges();
 			//favTab.click();
 			Testutils.waitForElement(3);
 		}
@@ -284,8 +306,8 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 			Testutils.waitForElement(8);
 			selectTile(prop.getProperty("automationAccelerationEng"), prop.getProperty("Title"));
 			Testutils.waitForElement(3);
-			tasks();
-			challenges();
+			//tasks();
+			//challenges();
 			//favTab.click();
 			Testutils.waitForElement(3);
 			
@@ -300,8 +322,8 @@ public class openInnEngVenCardDetails extends TaskandChallengesDetails
 			Testutils.waitForElement(8);
 			selectTile(prop.getProperty("automationAccelerationVen"), prop.getProperty("VenComp"));
 			Testutils.waitForElement(3);
-			tasks();
-			challenges();
+			//tasks();
+			//challenges();
 			//favTab.click();
 			Testutils.waitForElement(3);
 		} 

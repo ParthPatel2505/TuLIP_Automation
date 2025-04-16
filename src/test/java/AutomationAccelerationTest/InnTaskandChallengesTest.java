@@ -14,15 +14,31 @@ public class InnTaskandChallengesTest extends InnTaskandChallengesDetails
 		Testutils.ValidateUserLogin();
 	}
 	
-	@Test
+	public void openInnCardFromDashboard() throws Exception
+	{
+		movetoFromDashboard();
+	}
+	
+	
+	@Test(priority=1)
 	public void openInnCardDetailsScreen() throws Exception
 	{
 		openInnCardFromDashboard();
 		openInnCard();
 	}
 	
-	public void openInnCardFromDashboard() throws Exception
+	@Test(priority=2)
+	public void openAddTaskandChalScreen() throws Exception
 	{
-		movetoFromDashboard();
+		tasks();
+		challenges();
 	}
+	
+	@Test(priority=3)
+	public void checkEditFunctionality() throws Exception
+	{
+		openDetailsTabandClickOnEdit();
+	}
+	
+	
 }

@@ -173,7 +173,6 @@ public class MergerAcquisitionDetails extends TestBase
 		compRegulatory.sendKeys(prop.getProperty("Description"));
 		businessModel.sendKeys(prop.getProperty("Description"));
 		
-		
 		uploadInput.sendKeys(System.getProperty("user.dir")+"\\Files\\dummy.pdf");
 		Testutils.waitForElement(2);
 		
@@ -183,7 +182,7 @@ public class MergerAcquisitionDetails extends TestBase
 		Testutils.clickOnElement(saveBtn);
 		Testutils.waitForElement(20);
 		
-		//Assert.assertTrue(Testutils.checkRedirection("innovation"), "User is redirected on wrong url after completion of the Innovation form");
+		//Assert.assertTrue(Testutils.checkRedirection("merge"), "User is redirected on wrong url after completion of the Innovation form");
 		
 	}
 	
