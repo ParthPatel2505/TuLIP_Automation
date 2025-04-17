@@ -79,7 +79,7 @@ public class Education extends TestBase {
 	public void navigateToEducation() throws InterruptedException {
 		Thread.sleep(2000);
 		Education_txt.click();
-		
+
 	}
 
 	public void closeAndCancel() throws InterruptedException {
@@ -98,9 +98,9 @@ public class Education extends TestBase {
 		Thread.sleep(1000);
 		Testutils.scrollUsingAction(Save_btn);
 	}
-	
+
 	public void disabledFields() throws InterruptedException {
-		
+
 		List<WebElement> disabledfields = driver.findElements(By.xpath("//*[@disabled]"));
 		for (WebElement Element : disabledfields) {
 			System.out.println("Tag: " + Element.getTagName() + ", Name: " + Element.getAttribute("name") + ", ID: "
@@ -140,37 +140,33 @@ public class Education extends TestBase {
 		System.out.println(
 				"Expected Validation Message for Institution Name Field : " + "Please select Institution Name");
 		System.out.println("Actual Validation Message for Institution Name Field : " + InsVal_txt.getText());
-		
+
 		String ExpvalFos = "Please select Field Of Study";
 		String ActvalFos = fosVal_txt.getText();
 		Assert.assertEquals(ActvalFos, ExpvalFos);
 
-		System.out.println(
-				"Expected Validation Message for Field Of Study Field : " + "Please select Field Of Study");
+		System.out.println("Expected Validation Message for Field Of Study Field : " + "Please select Field Of Study");
 		System.out.println("Actual Validation Message for Field Of Study Field : " + fosVal_txt.getText());
-		
+
 		String ExpvalST = "Please select Start Date";
 		String ActvalST = stVal_txt.getText();
 		Assert.assertEquals(ActvalST, ExpvalST);
 
-		System.out.println(
-				"Expected Validation Message for Start Date Field : " + "Please select Start Date");
+		System.out.println("Expected Validation Message for Start Date Field : " + "Please select Start Date");
 		System.out.println("Actual Validation Message for Start Date Field : " + stVal_txt.getText());
-		
+
 		String ExpvalET = "Please select End Date";
 		String ActvalET = etVal_txt.getText();
 		Assert.assertEquals(ActvalET, ExpvalET);
 
-		System.out.println(
-				"Expected Validation Message for End Date Field : " + "Please select End Date");
+		System.out.println("Expected Validation Message for End Date Field : " + "Please select End Date");
 		System.out.println("Actual Validation Message for End Date Field : " + etVal_txt.getText());
-		
+
 		String Expvalgd = "Please enter Grade";
 		String Actvalgd = gdVal_txt.getText();
 		Assert.assertEquals(Actvalgd, Expvalgd);
 
-		System.out.println(
-				"Expected Validation Message for Grade Field : " + "Please enter Grade");
+		System.out.println("Expected Validation Message for Grade Field : " + "Please enter Grade");
 		System.out.println("Actual Validation Message for Grade Field : " + gdVal_txt.getText());
 
 	}
