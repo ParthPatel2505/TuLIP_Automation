@@ -22,32 +22,36 @@ public class Personal_Information_Test extends TestBase {
 		Testutils.logindetails("chand.patel@tntra.io", "Brijesh@05042003");
 	}
 
-	@Test(priority=1)
+	@Test(priority = 1)
 	public void navigatetoprofile() throws InterruptedException {
 		PI.NavigatetoProfile();
 	}
-	@Test(priority=2) 
+
+	@Test(priority = 2)
 	public void verifydisabledfields() throws InterruptedException {
 		PI.NavigatetoPersonalInformation();
 		PI.verifyDisabledFields();
 	}
-	@Test(priority=3)
+
+	@Test(priority = 3)
 	public void verifyrequiredfields() throws InterruptedException {
 		PI.verifyRequiredFields();
 	}
-	@Test(priority=4)
+
+	@Test(priority = 4)
 	public void verifyValidations() throws InterruptedException {
 		PI.verifyValidations();
 	}
-	@Test(priority=5)
+
+	@Test(priority = 5)
 	public void verifyPersonalInformation() throws InterruptedException {
 		PI.fillPersonalInformation();
 	}
-	@Test(priority=6)
+
+	@Test(priority = 6)
 	public void verifyUpdatedDetails() throws InterruptedException {
 		PI.NavigatetoPersonalInformation();
 		PI.updateDetails();
 	}
-	
 
 }
