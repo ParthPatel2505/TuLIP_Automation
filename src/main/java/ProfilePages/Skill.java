@@ -37,19 +37,23 @@ public class Skill extends TestBase {
 	WebElement skill_val;
 	@FindBy(xpath = "//div[@role='status']")
 	WebElement suc_msg;
+	@FindBy(xpath = "//img[@alt='user-1']")
+	WebElement image_img;
 
 	public void navigateToSkills() throws InterruptedException {
 		Testutils.scrollUsingAction(Skill_txt);
 		Skill_txt.click();
+
+	}
+
+	public void requiredFields() throws InterruptedException {
+		Testutils.scrollUsingAction(Edit_icn);
 		Thread.sleep(1000);
 		Edit_icn.click();
 		Testutils.scrollUsingAction(Cancel_btn);
-	}
-
-	public void requiredFields() {
 		for (WebElement Element : Requiredfields) {
 			System.out.println("Tag :" + Element.getTagName() + "ID : " + Element.getAttribute("id") + "Name : "
-					+ Element.getAttribute("name") + Element.getAttribute(null));
+					+ Element.getAttribute("name"));
 		}
 		System.out.println("Total Requiredfields Found : " + Requiredfields.size());
 		Assert.assertEquals(Requiredfields.size(), 1);
@@ -58,13 +62,14 @@ public class Skill extends TestBase {
 	public void disabledFields() {
 		for (WebElement Element : Disabledfields) {
 			System.out.println("Tag :" + Element.getTagName() + "ID : " + Element.getAttribute("id") + "Name : "
-					+ Element.getAttribute("name") + Element.getAttribute(null));
+					+ Element.getAttribute("name"));
 		}
 		System.out.println("Total Disabledfields Found : " + Disabledfields.size());
 		Assert.assertEquals(Disabledfields.size(), 0);
 	}
 
 	public void verifyValidations() throws InterruptedException {
+		Testutils.scrollUsingAction(Cancel_btn);
 		Thread.sleep(1000);
 		Save_btn.click();
 
@@ -74,13 +79,24 @@ public class Skill extends TestBase {
 
 		System.out.println("Expected Validation Message for My Skills Field : " + "Skill required");
 		System.out.println("Actual Validation Message for My Skills Field : " + skill_val.getText());
+		Testutils.scrollUsingAction(Cancel_btn);
+		Thread.sleep(1000);
+		Cancel_btn.click();
 	}
 
 	public void fillTheSkills() throws InterruptedException {
+		Testutils.scrollUsingAction(image_img);
 		Thread.sleep(2000);
 		Edit_icn.click();
 		Thread.sleep(3000);
-		Close_icn.click();
+		try {
+			if (Close_icn.isDisplayed()) {
+				Close_icn.click();
+				Thread.sleep(2000);
+			}
+		} catch (Exception e) {
+			System.out.println("Close icon not present, proceeding further.");
+		}
 		Thread.sleep(2000);
 		Actions actions = new Actions(driver);
 		actions.moveToElement(Skill_ddl).click().perform();
@@ -92,7 +108,7 @@ public class Skill extends TestBase {
 		Thread.sleep(1000);
 		System.err.println(suc_msg.getText());
 		Thread.sleep(2000);
-		Assert.assertEquals("Success! Record saved.", suc_msg.getText());
+		Assert.assertEquals(suc_msg.getText(), "Success! Record saved.");
 
 	}
 

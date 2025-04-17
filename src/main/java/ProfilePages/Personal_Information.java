@@ -74,6 +74,8 @@ public class Personal_Information extends TestBase {
 	WebElement dob_val;
 	@FindBy(xpath = "(//span[@class=\"error-msg\"])[3]")
 	WebElement AboutMe_val;
+	@FindBy(xpath = "//img[@alt='user-1']")
+	WebElement image_img;
 
 	public void NavigatetoProfile() throws InterruptedException {
 		Thread.sleep(4000);
@@ -111,9 +113,15 @@ public class Personal_Information extends TestBase {
 		}
 		System.out.println("Total required fields found: " + requiredElements.size());
 		Assert.assertEquals(requiredElements.size(), 2);
+		Testutils.scrollUsingAction(Cancel_btn);
+		Thread.sleep(1000);
+		Cancel_btn.click();
 	}
 
 	public void verifyValidations() throws InterruptedException {
+		Testutils.scrollUsingAction(image_img);
+		Thread.sleep(2000);
+		Edit_icn.click();
 		Thread.sleep(1000);
 		Testutils.scrollUsingAction(Gender_txt);
 		dob_txt.click();
@@ -144,9 +152,15 @@ public class Personal_Information extends TestBase {
 		System.out.println("Expected Validation Message for About Me Field : " + "Please enter About Me.");
 		System.out.println("Actual Validation Message for About Me Field : " + AboutMe_val.getText());
 
+		Testutils.scrollUsingAction(Cancel_btn);
+		Thread.sleep(1000);
+		Cancel_btn.click();
 	}
 
 	public void fillPersonalInformation() throws InterruptedException {
+		Testutils.scrollUsingAction(image_img);
+		Thread.sleep(2000);
+		Edit_icn.click();
 		Thread.sleep(2000);
 		Testutils.scrollUsingAction(dob_txt);
 		Thread.sleep(2000);

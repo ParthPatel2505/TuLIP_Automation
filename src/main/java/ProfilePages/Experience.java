@@ -63,7 +63,7 @@ public class Experience extends TestBase {
 	WebElement closeInSkill_icn;
 	@FindBy(xpath = "(//*[name()='svg'][@class='pointer actionIcon undefined'])[2]")
 	WebElement delete_icn;
-	
+
 	public void navigateToExperience() throws InterruptedException {
 		Thread.sleep(1000);
 		Testutils.scrollUsingAction(Experience_txt);
@@ -100,16 +100,25 @@ public class Experience extends TestBase {
 		Assert.assertEquals(Disabled_fields.size(), 0);
 	}
 
-	public void requiredFields() {
+	public void requiredFields() throws InterruptedException {
 		for (WebElement Element : Required_fields) {
 			System.out.println("Tag: " + Element.getTagName() + ", Name: " + Element.getAttribute("name") + ", ID: "
 					+ Element.getAttribute("id"));
 		}
 		System.out.println("Total required fields found : " + Required_fields.size());
 		Assert.assertEquals(Required_fields.size(), 5);
+		Thread.sleep(1000);
+		Testutils.scrollUsingAction(Cancel_btn);
+		Thread.sleep(1000);
+		Cancel_btn.click();
 	}
 
 	public void fillTheDetails() throws InterruptedException {
+		Testutils.scrollUsingAction(image_img);
+		Thread.sleep(1000);
+		Plus_icn.click();
+		Thread.sleep(1000);
+		Testutils.scrollUsingAction(Chk_box);
 		emyStatus_ddl.click();
 		selectFromDdl("(//div[@class=\"react-select__menu-list css-qr46ko\"]/div)", "Employed");
 		Thread.sleep(2000);
@@ -163,7 +172,7 @@ public class Experience extends TestBase {
 		Save_btn.click();
 		Thread.sleep(1000);
 		Assert.assertEquals(succMsg_txt.getText(), "Success! Record updated.");
-		
+
 	}
 
 	public void deleteRecord() throws InterruptedException {
@@ -172,6 +181,7 @@ public class Experience extends TestBase {
 		Thread.sleep(1000);
 		Assert.assertEquals(succMsg_txt.getText(), "Removed! Record deleted.");
 	}
+
 	public static void selectFromDdl(String xpath, String Value) {
 		List<WebElement> list = driver.findElements(By.xpath(xpath));
 
