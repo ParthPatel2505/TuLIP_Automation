@@ -77,6 +77,7 @@ public class Education extends TestBase {
 	WebElement image_img;
 
 	public void navigateToEducation() throws InterruptedException {
+		Testutils.scrollUsingAction(Education_txt);
 		Thread.sleep(2000);
 		Education_txt.click();
 
@@ -169,9 +170,18 @@ public class Education extends TestBase {
 		System.out.println("Expected Validation Message for Grade Field : " + "Please enter Grade");
 		System.out.println("Actual Validation Message for Grade Field : " + gdVal_txt.getText());
 
+		Thread.sleep(1000);
+		Testutils.scrollUsingAction(Cancel_btn);
+		Thread.sleep(1000);
+		Cancel_btn.click();
+		Thread.sleep(1000);
 	}
 
 	public void fillTheDetails() throws Exception {
+		Thread.sleep(1000);
+		Testutils.scrollUsingAction(image_img);
+		Thread.sleep(1000);
+		Plus_icn.click();
 		Thread.sleep(2000);
 		HigQual_ddl.click();
 		Thread.sleep(1000);
