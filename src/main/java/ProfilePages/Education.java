@@ -215,6 +215,7 @@ public class Education extends TestBase {
 		Thread.sleep(1000);
 		Save_btn.click();
 		Assert.assertEquals(SuccessonCreate_txt.getText(), "Success! Record saved.");
+		System.out.println("Education has been filled successfully.");
 	}
 
 	public void editDetails() throws InterruptedException {
