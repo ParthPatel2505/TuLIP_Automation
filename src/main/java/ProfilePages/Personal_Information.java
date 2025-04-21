@@ -199,6 +199,7 @@ public class Personal_Information extends TestBase {
 		Testutils.scrollUsingAction(Save_btn);
 		Save_btn.click();
 		Assert.assertEquals(success_txt.getText(), "Success! Record updated.");
+		System.out.println("Personal information has been filled successfully.");
 
 	}
 

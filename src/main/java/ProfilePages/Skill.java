@@ -109,6 +109,7 @@ public class Skill extends TestBase {
 		System.err.println(suc_msg.getText());
 		Thread.sleep(2000);
 		Assert.assertEquals(suc_msg.getText(), "Success! Record saved.");
+		System.out.println("Skill has been filled successfully.");
 
 	}
 
