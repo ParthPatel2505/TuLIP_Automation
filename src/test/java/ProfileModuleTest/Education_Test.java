@@ -32,37 +32,41 @@ public class Education_Test extends TestBase {
 
 	@Test(priority = 2)
 	public void navigatetoEducation() throws InterruptedException {
-
 		Thread.sleep(2000);
 		ET.navigateToEducation();
 	}
 
 	@Test(priority = 3)
+	public void verifycloseAndCancel() throws InterruptedException {
+		ET.closeAndCancel();
+	}
+
+	@Test(priority = 4)
 	public void verifyDisabledFields() throws InterruptedException {
 		ET.disabledFields();
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 5)
 	public void verifyrequiredFields() throws InterruptedException {
 		ET.requiredFields();
 	}
 
-	@Test(priority = 5)
+	@Test(priority = 6)
 	public void verifyValidations() throws InterruptedException {
 		ET.verifyValidations();
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 7)
 	public void verifyFillTheDetails() throws Exception {
 		ET.fillTheDetails();
 	}
 
-	@Test(priority = 7)
+	@Test(priority = 8)
 	public void verifyEditTheDetails() throws Exception {
 		ET.editDetails();
 	}
 
-	@Test(priority = 8)
+	@Test(priority = 9)
 	public void verifyDeleteRecord() throws Exception {
 		ET.deleteRecord();
 	}

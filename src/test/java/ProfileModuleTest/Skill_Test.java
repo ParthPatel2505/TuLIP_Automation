@@ -32,14 +32,14 @@ public class Skill_Test extends TestBase {
 	}
 
 	@Test(priority = 2)
-	public void navigatetoEducation() throws InterruptedException {
+	public void navigatetoskill() throws InterruptedException {
 
 		Thread.sleep(2000);
 		Sk.navigateToSkills();
 	}
 
 	@Test(priority = 3)
-	public void verifyRequiredFields() {
+	public void verifyRequiredFields() throws InterruptedException {
 		Sk.requiredFields();
 	}
 
