@@ -1,6 +1,8 @@
 package utils;
 
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -13,6 +15,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.openqa.selenium.By;
@@ -442,4 +445,28 @@ public class Testutils<switchToFrame> extends TestBase {
 			}
 		}
 	}
+
+	// Clear directory
+	public static void cleanFolder() throws IOException {
+		File folder = new File(prop.getProperty("downloadPath"));
+		FileUtils.cleanDirectory(folder);
+	}
+
+	// verify Downloaded file
+	public static boolean verifyDownloadedFile(String expectedFileName) {
+		File folder = new File(prop.getProperty("downloadPath"));
+		File[] fileList = folder.listFiles();
+		boolean isFilePresent = false;
+		for (File file : fileList) {
+			if (file.isFile()) {
+				String fileName = file.getName();
+				System.out.println(fileName);
+				if (fileName.matches(expectedFileName)) {
+					isFilePresent = true;
+				}
+			}
+		}
+		return isFilePresent;
+	}
+
 }
