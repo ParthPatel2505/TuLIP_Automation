@@ -15,7 +15,7 @@ import utils.Testutils;
 
 public class candidate_Management extends TestBase {
 
-	String randomEmail1;
+	public static String randomEmail1;
 	String randomEmail2;
 	String randomPass;
 

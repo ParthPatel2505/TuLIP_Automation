@@ -41,6 +41,10 @@ public class Experience extends TestBase {
 	WebElement StartMonth_ddl;
 	@FindBy(xpath = "(//div[@class='react-select__value-container css-f0ja12'])[2]")
 	WebElement StartYear_ddl;
+	@FindBy(xpath = "(//div[@class='react-select__value-container react-select__value-container--has-value css-f0ja12'])[6]")
+	WebElement endMonth_ddl;
+	@FindBy(xpath = "(//div[@class='react-select__value-container css-f0ja12'])[2]")
+	WebElement endYear_ddl;
 	@FindBy(xpath = "//span[@required or normalize-space()='End Date required']")
 	List<WebElement> Required_fields;
 	@FindBy(xpath = "//*[@Disabled]")
@@ -130,12 +134,20 @@ public class Experience extends TestBase {
 		Thread.sleep(2000);
 		StartYear_ddl.click();
 		Thread.sleep(2000);
-		selectFromDdl("//div[@class=\"react-select__menu css-1nmdiq5-menu\"]/div/div", "2024");
+		selectFromDdl("//div[@class=\"react-select__menu css-1nmdiq5-menu\"]/div/div", "2023");
 		Thread.sleep(2000);
 		StartMonth_ddl.click();
 		Thread.sleep(2000);
 		selectFromDdl("//div[@class=\"react-select__menu css-1nmdiq5-menu\"]/div/div", "February");
-		Chk_box.click();
+		Thread.sleep(2000);
+		endYear_ddl.click();
+		Thread.sleep(2000);
+		selectFromDdl("//div[@class=\"react-select__menu css-1nmdiq5-menu\"]/div/div", "2024");
+		Thread.sleep(2000);
+		endMonth_ddl.click();
+		Thread.sleep(2000);
+		selectFromDdl("//div[@class=\"react-select__menu css-1nmdiq5-menu\"]/div/div", "February");
+		//Chk_box.click();
 		Location_ddl.sendKeys("Australia");
 		Testutils.PressEnter();
 		Skills_ddl.sendKeys("Selenium with Java");
@@ -151,6 +163,7 @@ public class Experience extends TestBase {
 		Save_btn.click();
 		Thread.sleep(1000);
 		Assert.assertEquals(succMsg_txt.getText(), "Success! Record saved.");
+		System.out.println("Experience has been filled successfully.");
 
 	}
 
