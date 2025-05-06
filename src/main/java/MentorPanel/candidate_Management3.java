@@ -31,7 +31,24 @@ public class candidate_Management3 extends TestBase {
 	WebElement skillAndInt_txt;
 	@FindBy(xpath = "//a[normalize-space()='Resume/CV']")
 	WebElement resume_txt;
-	// div[@class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-4xkoi8"]/span
+	@FindBy(xpath = "(//button[normalize-space()='Cancel'])[1]")
+	WebElement cancel_btn;
+	@FindBy(xpath = "(//button[normalize-space()='Reset'])[1]")
+	WebElement reset_btn;
+	@FindBy(xpath = "(//button[normalize-space()='Update'])[1]")
+	WebElement update_btn;
+	@FindBy(xpath = "//input[@id='firstname']")
+	WebElement firstName_txt;
+	@FindBy(xpath = "//input[@id='lastname']")
+	WebElement lastName_txt;
+	@FindBy(xpath = "//input[@id='email']")
+	WebElement email_txt;
+	@FindBy(xpath = "//input[@id='country']")
+	WebElement country_ddl;
+	@FindBy(xpath = "//input[@id='state']")
+	WebElement state_ddl;
+	@FindBy(xpath = "//input[@class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-3g8nu5\"]")
+	WebElement dob_ddl;
 
 	public void logoutToLogin() throws InterruptedException {
 		Testutils.logout();
@@ -140,6 +157,107 @@ public class candidate_Management3 extends TestBase {
 
 		Testutils.scrollUsingAction(back_btn);
 		back_btn.click();
+		System.out.println("The user was successfully redirected to the Candidate Management module.");
+	}
+
+	public void redirectToEditPage() throws InterruptedException {
+		Testutils.scrollUsingAction(cm.searchbox_txt);
+		cm.searchbox_txt.sendKeys(candidate_Management.randomEmail1);
+		Thread.sleep(1000);
+		cm.edit_icn.click();
+		System.out.println("You have been successfully redirected to the Edit Page.");
+		Thread.sleep(1000);
+		cancel_btn.click();
+		System.out.println("Cancel button is functioning as expected.");
+		Thread.sleep(1000);
+	}
+
+	public void resetButton() throws InterruptedException {
+		Testutils.scrollUsingAction(cm.searchbox_txt);
+		cm.searchbox_txt.sendKeys(candidate_Management.randomEmail1);
+		Thread.sleep(1000);
+		cm.edit_icn.click();
+		System.out.println("You have been successfully redirected to the Edit Page.");
+		Thread.sleep(1000);
+		System.out.println("Before resetting Data : ");
+		System.out.println("First Name : " + firstName_txt.getAttribute("value") + "\nLast Name : "
+				+ lastName_txt.getAttribute("value") + "\nEmail : " + email_txt.getAttribute("value") + "\nState : "
+				+ state_ddl.getAttribute("value") + "\nCountry : " + country_ddl.getAttribute("value") + "\nDOB : "
+				+ dob_ddl.getAttribute("value"));
+		Thread.sleep(1000);
+		String firstName, lastName, email, state, country, dob;
+		firstName = firstName_txt.getAttribute("value");
+		lastName = lastName_txt.getAttribute("value");
+		email = email_txt.getAttribute("value");
+		state = state_ddl.getAttribute("value");
+		country = country_ddl.getAttribute("value");
+		dob = dob_ddl.getAttribute("value");
+		Thread.sleep(1000);
+		reset_btn.click();
+		Thread.sleep(1000);
+		System.out.println("First Name : " + firstName_txt.getAttribute("value") + "\nLast Name : "
+				+ lastName_txt.getAttribute("value") + "\nEmail : " + email_txt.getAttribute("value") + "\nState : "
+				+ state_ddl.getAttribute("value") + "\nCountry : " + country_ddl.getAttribute("value") + "\nDOB : "
+				+ dob_ddl.getAttribute("value"));
+
+		if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || state.isEmpty() || country.isEmpty()
+				|| dob.isEmpty()) {
+			System.out.println("Reset button is functionaning as expected");
+		} else {
+			System.out.println("Reset button did not clear all the fields.");
+
+		}
+
+		Thread.sleep(1000);
+		cancel_btn.click();
+	}
+
+	public void editpage() throws InterruptedException {
+		Testutils.scrollUsingAction(cm.searchbox_txt);
+		cm.searchbox_txt.sendKeys(candidate_Management.randomEmail1);
+		Thread.sleep(1000);
+		cm.edit_icn.click();
+		System.out.println("You have been successfully redirected to the Edit Page.");
+		Thread.sleep(1000);
+		Testutils.selectAllValue(firstName_txt);
+		Testutils.removeAllValue(firstName_txt);
+		String randomFirstName = cm.randomString(6);
+		firstName_txt.sendKeys(randomFirstName);
+		System.out.println("Updated First Name : " + randomFirstName);
+		Thread.sleep(1000);
+		Testutils.selectAllValue(lastName_txt);
+		Testutils.removeAllValue(lastName_txt);
+		String randomLastName = cm.randomString(6);
+		lastName_txt.sendKeys(randomLastName);
+		System.out.println("Updated Last Name : " + randomFirstName);
+		Thread.sleep(1000);
+		Testutils.selectAllValue(email_txt);
+		Testutils.removeAllValue(email_txt);
+		String randomEmail = cm.generateRandomemail();
+		email_txt.sendKeys(randomLastName);
+		System.out.println("Updated Email : " + randomEmail);
+		Thread.sleep(1000);
+		Testutils.selectAllValue(country_ddl);
+		Testutils.removeAllValue(country_ddl);
+		country_ddl.sendKeys("India");
+		Testutils.PressDown();
+		Testutils.PressEnter();
+		System.out.println("Updated Country : " + country_ddl.getAttribute("value"));
+		Thread.sleep(1000);
+		Testutils.selectAllValue(state_ddl);
+		Testutils.removeAllValue(state_ddl);
+		state_ddl.sendKeys("Gujarat");
+		Testutils.PressDown();
+		Testutils.PressEnter();
+		System.out.println("Updated State : " + state_ddl.getAttribute("value"));
+		Thread.sleep(1000);
+		Testutils.selectAllValue(dob_ddl);
+		Testutils.removeAllValue(dob_ddl);
+		dob_ddl.sendKeys("05042003");
+		Testutils.PressEnter();
+		System.out.println("Updated State : " + dob_ddl.getAttribute("value"));
+		Thread.sleep(1000);
+		Assert.assertEquals(cm.succ_txt.getText(), "Success! Record updated.");
 		System.out.println("The user was successfully redirected to the Candidate Management module.");
 	}
 

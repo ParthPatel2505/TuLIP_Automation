@@ -153,4 +153,16 @@ public class candidate_Management3_Test extends TestBase {
 	public void verifySkillAndInterest() throws InterruptedException {
 		CM3.skillAndInterest();
 	}
+
+	@Test(priority = 24)
+	public void verifyRedirectToEditPage() throws InterruptedException {
+		Thread.sleep(1000);
+		CM3.redirectToEditPage();
+	}
+
+	@Test(priority = 25)
+	public void verifyResetButton() throws InterruptedException {
+		Thread.sleep(1000);
+		CM3.resetButton();
+	}
 }
