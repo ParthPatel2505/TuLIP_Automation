@@ -41,6 +41,7 @@ public class Skill extends TestBase {
 	WebElement image_img;
 
 	public void navigateToSkills() throws InterruptedException {
+		Thread.sleep(1500);
 		Testutils.scrollUsingAction(Skill_txt);
 		Skill_txt.click();
 

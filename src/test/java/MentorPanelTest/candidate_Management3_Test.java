@@ -41,44 +41,36 @@ public class candidate_Management3_Test extends TestBase {
 
 	@Test(priority = 1)
 	public void navigatetoMentorPanel() throws InterruptedException {
-		Thread.sleep(2000);
-		CM.navigatetoMentorPanel();
-		Thread.sleep(2000);
+			CM.navigatetoMentorPanel();	
 	}
 
 	@Test(priority = 2)
 	public void navigatetoCandidateManagement() throws InterruptedException {
-		Thread.sleep(1000);
 		CM.navigateToCandidateManagement();
 	}
 
 	@Test(priority = 3)
 	public void verifySendInvite() throws InterruptedException {
-		Thread.sleep(1000);
 		CM.sendInvite();
 	}
 
 	@Test(priority = 4)
 	public void emailVerification() throws InterruptedException {
-		Thread.sleep(1000);
 		CM.emailVerification();
 	}
 
 	@Test(priority = 5)
 	public void verifyFillSignupForm() throws InterruptedException {
-		Thread.sleep(1000);
 		CM.fillSignupForm();
 	}
 
 	@Test(priority = 6)
 	public void emailVerify() throws InterruptedException {
-		Thread.sleep(1000);
 		CM.emailVerify();
 	}
 
 	@Test(priority = 7)
 	public void verifyLogin() throws InterruptedException {
-		Thread.sleep(1000);
 		CM.login();
 	}
 
@@ -94,7 +86,6 @@ public class candidate_Management3_Test extends TestBase {
 
 	@Test(priority = 10)
 	public void navigatetoEducation() throws InterruptedException {
-		Thread.sleep(2000);
 		ET.navigateToEducation();
 	}
 
@@ -105,20 +96,16 @@ public class candidate_Management3_Test extends TestBase {
 
 	@Test(priority = 12)
 	void verifyNavigateToExperience() throws InterruptedException {
-		Thread.sleep(2000);
 		EP.navigateToExperience();
 	}
 
 	@Test(priority = 13)
 	void verifyFilledTheDetails() throws InterruptedException {
-		Thread.sleep(1000);
 		EP.fillTheDetails();
 	}
 
 	@Test(priority = 14)
 	public void navigatetoskill() throws InterruptedException {
-
-		Thread.sleep(2000);
 		Sk.navigateToSkills();
 	}
 
@@ -135,42 +122,35 @@ public class candidate_Management3_Test extends TestBase {
 	@Test(priority = 17)
 	public void navigatetoMentorPanelSecond() throws InterruptedException {
 		CM.navigatetoMentorPanel();
-		Thread.sleep(2000);
 	}
 
 	@Test(priority = 18)
 	public void navigatetoCandidateManagementSecond() throws InterruptedException {
-		Thread.sleep(1000);
 		CM.navigateToCandidateManagement();
 	}
 
 	@Test(priority = 19)
 	public void verifyRedirection() throws InterruptedException {
-		Thread.sleep(1000);
 		CM3.redirectToViewPage();
 	}
 
 	@Test(priority = 20)
 	public void verifyPersonalDetails() throws InterruptedException {
-		Thread.sleep(1000);
 		CM3.personalDetails();
 	}
 
 	@Test(priority = 21)
 	public void verifyEducationBackground() throws InterruptedException {
-		Thread.sleep(1000);
 		CM3.educationBackground();
 	}
 
 	@Test(priority = 22)
 	public void verifyWorkExperience() throws InterruptedException, IOException {
-		Thread.sleep(1000);
 		CM3.workExperience();
 	}
 
 	@Test(priority = 23)
 	public void verifySkillAndInterest() throws InterruptedException {
-		Thread.sleep(1000);
 		CM3.skillAndInterest();
 	}
 

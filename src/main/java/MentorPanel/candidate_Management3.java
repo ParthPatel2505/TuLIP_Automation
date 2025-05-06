@@ -1,6 +1,5 @@
 package MentorPanel;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
-
 import base.TestBase;
 import utils.Testutils;
 
@@ -55,29 +52,31 @@ public class candidate_Management3 extends TestBase {
 
 	public void logoutToLogin() throws InterruptedException {
 		Testutils.logout();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		Testutils.logindetails("Chand.Patel@tntra.io", "Brijesh@05042003");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 	}
 
 	public void redirectToViewPage() throws InterruptedException {
+		Thread.sleep(1000);
 		Testutils.scrollUsingAction(cm.searchbox_txt);
 		cm.searchbox_txt.sendKeys(candidate_Management.randomEmail1);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		cm.view_icn.click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		System.out.println("You have been successfully redirected to the View Page.");
 		back_btn.click();
 		System.out.println("Back button is functioning as expected.");
 		Testutils.scrollUsingAction(cm.searchbox_txt);
 		cm.searchbox_txt.sendKeys(candidate_Management.randomEmail1);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		cm.view_icn.click();
 	}
 
 	public void personalDetails() throws InterruptedException {
-		System.out.println("For Personal Details : ");
 		Thread.sleep(1000);
+		System.out.println("For Personal Details : ");
+		Thread.sleep(500);
 		System.out.println(personalDetail_tbl.isEnabled());
 		List<String> fieldTexts = getAllElementTexts(
 				"//div[@class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3 css-4xkoi8\"]/span");
@@ -93,6 +92,7 @@ public class candidate_Management3 extends TestBase {
 	}
 
 	public void educationBackground() throws InterruptedException {
+		Thread.sleep(1000);
 		System.out.println("For Educational Background : ");
 		Thread.sleep(1000);
 		System.out.println(edu_tbl.isEnabled());
@@ -112,7 +112,7 @@ public class candidate_Management3 extends TestBase {
 	}
 
 	public void workExperience() throws InterruptedException, IOException {
-		Thread.sleep(1000);
+		Thread.sleep(1200);
 		Testutils.cleanFolder();
 		Thread.sleep(1000);
 		System.out.println("For Work Experience : ");
@@ -138,6 +138,7 @@ public class candidate_Management3 extends TestBase {
 	}
 
 	public void skillAndInterest() throws InterruptedException {
+		Thread.sleep(1000);
 		System.out.println("For Skills & Interests : ");
 		Thread.sleep(1000);
 		System.out.println(skillAndInt_txt.isEnabled());

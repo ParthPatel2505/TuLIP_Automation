@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 import base.TestBase;
 import utils.Testutils;
@@ -25,7 +27,7 @@ public class Innovation_Collaboration extends TestBase {
 		Thread.sleep(500);
 	}
 
-	@FindBy(xpath = "//button[@class='ant-btn css-1uje2j1 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm']")
+	@FindBy(xpath = "//button[@class='ant-btn css-1c1xt6l ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm']")
 	WebElement add_innovation;
 
 	@FindBy(xpath = "(//input[@id='ideas.ideaTitle'])[1]")
@@ -63,12 +65,19 @@ public class Innovation_Collaboration extends TestBase {
 
 	@FindBy(xpath = "(//div[@class='jodit-wysiwyg'])[4]")
 	WebElement d_availability;
+	
+	@FindBy(xpath = "//span[contains(text(),'Describe the Technology Requirements or Availabili')]")
+	WebElement d_availability_text;
 
 	@FindBy(xpath = "(//div[@class='jodit-wysiwyg'])[5]")
 	WebElement d_compliance;
 
+	
 	@FindBy(xpath = "(//div[@class='jodit-wysiwyg'])[6]")
 	WebElement d_model;
+	
+	@FindBy(xpath = "//span[normalize-space()='Describe the Business Model (Max 50 words)']")
+	WebElement d_model_text;
 
 	@FindBy(xpath = "(//span[normalize-space()='Supporting Documents'])[1]")
 	WebElement document;
@@ -76,7 +85,7 @@ public class Innovation_Collaboration extends TestBase {
 	@FindBy(xpath = "(//span[normalize-space()='Save'])[1]")
 	WebElement save_buttom;
 
-	public void add_innovation() throws InterruptedException {
+	public void add_innovation() throws InterruptedException, AWTException {
 		Thread.sleep(2500);
 		Testutils.scrollUsingAction(add_innovation);
 		add_innovation.click();Thread.sleep(800);
@@ -102,26 +111,57 @@ public class Innovation_Collaboration extends TestBase {
 		Thread.sleep(1000);
 		Testutils.PressEnter();
 		Testutils.PressALT();
-		radio_private.click();
+		radio_private.click();Thread.sleep(1000);
+
+		d_innovation.click(); Thread.sleep(500);
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_P);
+		robot.keyRelease(KeyEvent.VK_P);
+		Thread.sleep(500);
+		Testutils.scrollUsingAction(d_availability_text);Thread.sleep(500);		
+		d_Mpotential.click(); Thread.sleep(500);
+		robot.keyPress(KeyEvent.VK_P);
+		robot.keyRelease(KeyEvent.VK_P);
+		Thread.sleep(500);
+		d_Ppotential.click(); Thread.sleep(500);
+		robot.keyPress(KeyEvent.VK_P);
+		robot.keyRelease(KeyEvent.VK_P);
+		Testutils.scrollUsingAction(d_model_text);Thread.sleep(500);
+		Thread.sleep(500);
+		d_availability.click(); Thread.sleep(500);
+		robot.keyPress(KeyEvent.VK_P);
+		robot.keyRelease(KeyEvent.VK_P);
+		Thread.sleep(1500);
+		d_compliance.click(); Thread.sleep(500);
+		robot.keyPress(KeyEvent.VK_P);
+		robot.keyRelease(KeyEvent.VK_P);
+		Thread.sleep(500);
+		d_model.click(); Thread.sleep(500);
+		robot.keyPress(KeyEvent.VK_P);
+		robot.keyRelease(KeyEvent.VK_P);
+		Thread.sleep(500);
+		
+		/*
 		d_innovation.sendKeys(Random_Name);
-		Thread.sleep(500);
+		Thread.sleep(3500);
 		d_Mpotential.sendKeys(Random_Name);
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		d_Ppotential.sendKeys(Random_Name);
-		Thread.sleep(500);
+		Thread.sleep(1500);
+		Testutils.scrollUsingAction(d_model_text);Thread.sleep(1000);
 		d_availability.sendKeys(Random_Name);
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		d_compliance.sendKeys(Random_Name);
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		d_model.sendKeys(Random_Name);
-		Thread.sleep(500);
+		Thread.sleep(500);  */
 		Testutils.scrollUsingAction(save_buttom);
 		document.click();
 		save_buttom.click();
 		Thread.sleep(3000);
 	}
 
-	public void add_innovation2() throws InterruptedException {
+	public void add_innovation2() throws InterruptedException, AWTException {
 		Thread.sleep(2500);
 		Testutils.scrollUsingAction(add_innovation);
 		add_innovation.click();Thread.sleep(800);
@@ -147,19 +187,50 @@ public class Innovation_Collaboration extends TestBase {
 		Thread.sleep(1000);
 		Testutils.PressEnter();
 		Testutils.PressALT();
-		radio_private.click();
-		d_innovation.sendKeys(Random_Name2);
+		radio_private.click();Thread.sleep(1000);
+
+		d_innovation.click(); Thread.sleep(500);
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_P);
+		robot.keyRelease(KeyEvent.VK_P);
 		Thread.sleep(500);
-		d_Mpotential.sendKeys(Random_Name2);
+		Testutils.scrollUsingAction(d_availability_text);Thread.sleep(500);		
+		d_Mpotential.click(); Thread.sleep(500);
+		robot.keyPress(KeyEvent.VK_P);
+		robot.keyRelease(KeyEvent.VK_P);
 		Thread.sleep(500);
-		d_Ppotential.sendKeys(Random_Name2);
+		d_Ppotential.click(); Thread.sleep(500);
+		robot.keyPress(KeyEvent.VK_P);
+		robot.keyRelease(KeyEvent.VK_P);
+		Testutils.scrollUsingAction(d_model_text);Thread.sleep(500);
 		Thread.sleep(500);
-		d_availability.sendKeys(Random_Name2);
+		d_availability.click(); Thread.sleep(500);
+		robot.keyPress(KeyEvent.VK_P);
+		robot.keyRelease(KeyEvent.VK_P);
+		Thread.sleep(1500);
+		d_compliance.click(); Thread.sleep(500);
+		robot.keyPress(KeyEvent.VK_P);
+		robot.keyRelease(KeyEvent.VK_P);
 		Thread.sleep(500);
-		d_compliance.sendKeys(Random_Name2);
+		d_model.click(); Thread.sleep(500);
+		robot.keyPress(KeyEvent.VK_P);
+		robot.keyRelease(KeyEvent.VK_P);
 		Thread.sleep(500);
-		d_model.sendKeys(Random_Name2);
-		Thread.sleep(500);
+		
+		/*
+		d_innovation.sendKeys(Random_Name);
+		Thread.sleep(3500);
+		d_Mpotential.sendKeys(Random_Name);
+		Thread.sleep(1500);
+		d_Ppotential.sendKeys(Random_Name);
+		Thread.sleep(1500);
+		Testutils.scrollUsingAction(d_model_text);Thread.sleep(1000);
+		d_availability.sendKeys(Random_Name);
+		Thread.sleep(1500);
+		d_compliance.sendKeys(Random_Name);
+		Thread.sleep(1500);
+		d_model.sendKeys(Random_Name);
+		Thread.sleep(500);  */
 		Testutils.scrollUsingAction(save_buttom);
 		document.click();
 		save_buttom.click();
@@ -209,7 +280,7 @@ public class Innovation_Collaboration extends TestBase {
 	@FindBy(xpath = "(//div[@class='ant-card-body'])[1]")
 	WebElement first_iteam;
 
-	@FindBy(xpath = "//button[@class='ant-btn css-1uje2j1 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid']")
+	@FindBy(xpath = "//button[@class='ant-btn css-1c1xt6l ant-btn-primary ant-btn-color-primary ant-btn-variant-solid']")
 	WebElement request_button;
 
 	@FindBy(xpath = "(//textarea[@id='Remark'])[1]")
@@ -229,7 +300,7 @@ public class Innovation_Collaboration extends TestBase {
 
 	}
 	
-	@FindBy(xpath = "(//span[@class='ant-avatar ant-avatar-sm ant-avatar-circle slate-bg-3 pointer css-1uje2j1'])[last()] | (//span[@class='ant-avatar ant-avatar-circle slate-bg-3 pointer css-1uje2j1'])[last()]")
+	@FindBy(xpath = "//span[@class='ant-avatar ant-avatar-sm ant-avatar-circle slate-bg-3 pointer css-1c1xt6l']")
 	WebElement collaboration_request;
 
 	@FindBy(xpath = "//button[@disabled]")

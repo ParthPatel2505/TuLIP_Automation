@@ -69,7 +69,7 @@ public class Experience extends TestBase {
 	WebElement delete_icn;
 
 	public void navigateToExperience() throws InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		Testutils.scrollUsingAction(Experience_txt);
 		Thread.sleep(2000);
 		Experience_txt.click();
@@ -118,6 +118,7 @@ public class Experience extends TestBase {
 	}
 
 	public void fillTheDetails() throws InterruptedException {
+		Thread.sleep(1000);
 		Testutils.scrollUsingAction(image_img);
 		Thread.sleep(1000);
 		Plus_icn.click();
