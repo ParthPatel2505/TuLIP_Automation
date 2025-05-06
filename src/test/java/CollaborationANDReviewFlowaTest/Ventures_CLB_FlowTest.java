@@ -62,7 +62,7 @@ public class Ventures_CLB_FlowTest extends TestBase{
 		public void Verify_reject_request_functionality() throws InterruptedException {
 			driver.manage().deleteAllCookies();
 			driver.get("https://tulip-uat.tntra.io/tntra");
-			Testutils.logindetails("parth.patel@tntra.io", "Parth@123");
+			Testutils.logindetails("parth.patel@tntra.io", "ParthPatel@2505");
 			VC.navigate_to_ventures();
 			IC.filter();
 			IC.reject_request();
@@ -94,7 +94,7 @@ public class Ventures_CLB_FlowTest extends TestBase{
 		public void Verify_accept_request_functionality() throws InterruptedException {
 			driver.manage().deleteAllCookies();
 			driver.get("https://tulip-uat.tntra.io/tntra");
-			Testutils.logindetails("parth.patel@tntra.io", "Parth@123");
+			Testutils.logindetails("parth.patel@tntra.io", "ParthPatel@2505");
 			VC.navigate_to_ventures();
 			IC.filter();
 			IC.accept_request();

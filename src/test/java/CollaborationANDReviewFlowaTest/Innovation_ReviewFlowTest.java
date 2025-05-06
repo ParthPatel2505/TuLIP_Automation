@@ -1,5 +1,7 @@
 package CollaborationANDReviewFlowaTest;
 
+import java.awt.AWTException;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -30,7 +32,7 @@ public class Innovation_ReviewFlowTest extends TestBase{
 	}
 	
 	@Test(priority = 2)
-	public void Verify_add_innovation_functionality() throws InterruptedException {
+	public void Verify_add_innovation_functionality() throws InterruptedException, AWTException {
 		IC.add_innovation();
 		System.out.println("First Innovation details added successfully.");
 		IC.add_innovation2();
@@ -81,7 +83,7 @@ public class Innovation_ReviewFlowTest extends TestBase{
 	public void Verify_approved_rejected_functionality() throws InterruptedException {
 		driver.manage().deleteAllCookies();
 		driver.get("https://tulip-uat.tntra.io/tntra");
-		Testutils.logindetails("parth.patel@tntra.io", "Parth@123");
+		Testutils.logindetails("parth.patel@tntra.io", "ParthPatel@2505");
 		IC.navigate_to_innovation();
 		IR.sort();
 		IR.verify_approved_request();

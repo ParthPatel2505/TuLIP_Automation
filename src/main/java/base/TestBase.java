@@ -34,6 +34,7 @@ public class TestBase {
 			throw new RuntimeException("Failed to load properties file.");
 		}
 	}
+	
 
 	// Browser Initialization
 	public static void initialization() {

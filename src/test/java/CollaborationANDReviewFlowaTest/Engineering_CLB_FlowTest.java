@@ -63,7 +63,7 @@ Engineering_Collaboration EC;
 	public void Verify_reject_request_functionality() throws InterruptedException {
 		driver.manage().deleteAllCookies();
 		driver.get("https://tulip-uat.tntra.io/tntra");
-		Testutils.logindetails("parth.patel@tntra.io", "Parth@123");
+		Testutils.logindetails("parth.patel@tntra.io", "ParthPatel@2505");
 		EC.navigate_to_engineering();
 		IC.filter();
 		IC.reject_request();
@@ -95,7 +95,7 @@ Engineering_Collaboration EC;
 	public void Verify_accept_request_functionality() throws InterruptedException {
 		driver.manage().deleteAllCookies();
 		driver.get("https://tulip-uat.tntra.io/tntra");
-		Testutils.logindetails("parth.patel@tntra.io", "Parth@123");
+		Testutils.logindetails("parth.patel@tntra.io", "ParthPatel@2505");
 		EC.navigate_to_engineering();
 		IC.filter();
 		IC.accept_request();

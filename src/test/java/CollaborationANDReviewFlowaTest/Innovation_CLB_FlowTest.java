@@ -1,5 +1,7 @@
 package CollaborationANDReviewFlowaTest;
 
+import java.awt.AWTException;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -28,7 +30,7 @@ public class Innovation_CLB_FlowTest extends TestBase{
 	}
 	
 	@Test(priority = 2)
-	public void Verify_add_innovation_functionality() throws InterruptedException {
+	public void Verify_add_innovation_functionality() throws InterruptedException, AWTException {
 		IC.add_innovation();
 		System.out.println("Innovation details added successfully.");
 		Testutils.logout();
@@ -59,7 +61,7 @@ public class Innovation_CLB_FlowTest extends TestBase{
 	public void Verify_reject_request_functionality() throws InterruptedException {
 		driver.manage().deleteAllCookies();
 		driver.get("https://tulip-uat.tntra.io/tntra");
-		Testutils.logindetails("parth.patel@tntra.io", "Parth@123");
+		Testutils.logindetails("parth.patel@tntra.io", "ParthPatel@2505");
 		IC.navigate_to_innovation();
 		IC.filter();
 		IC.reject_request();
@@ -91,7 +93,7 @@ public class Innovation_CLB_FlowTest extends TestBase{
 	public void Verify_accept_request_functionality() throws InterruptedException {
 		driver.manage().deleteAllCookies();
 		driver.get("https://tulip-uat.tntra.io/tntra");
-		Testutils.logindetails("parth.patel@tntra.io", "Parth@123");
+		Testutils.logindetails("parth.patel@tntra.io", "ParthPatel@2505");
 		IC.navigate_to_innovation();
 		IC.filter();
 		IC.accept_request();

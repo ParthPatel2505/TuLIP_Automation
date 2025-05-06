@@ -125,7 +125,7 @@ public class Innovation_Review extends TestBase{
 	@FindBy(xpath = "(//textarea[@id='dashboard.curation.stageGateProcessTab.noteLabel'])[last()]")
 	WebElement reject_text;
 	
-	@FindBy(xpath = "(//button[@class='ant-btn css-1uje2j1 ant-btn-default-fill'])[1]")
+	@FindBy(xpath = "//button[@class='ant-btn css-1c1xt6l ant-btn-default-fill']")
 	WebElement reject_button;
 	
 	@FindBy(xpath = "(//button[@type='button'])[9]")
