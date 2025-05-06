@@ -119,55 +119,56 @@ public class candidate_Management extends TestBase {
 	public void navigatetoMentorPanel() throws InterruptedException {
 		Thread.sleep(3000);
 		Profile_Icn.click();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		mentorPanel_txt.click();
 	}
 
 	public void navigateToCandidateManagement() throws InterruptedException {
+		Thread.sleep(1000);
 		Testutils.scrollUsingAction(canMng_txt);
 		canMng_txt.click();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 	}
 
 	public void verifyTitle() throws InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		Assert.assertEquals(canMng_Title.isDisplayed(), true);
 	}
 
 	public void verifyPagination() throws InterruptedException {
 		Thread.sleep(1000);
 		Testutils.scrollUsingAction(bottom_part);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		rpp_ddl.click();
 		selectFromDdl("(//ul[@class=\"MuiList-root MuiList-padding MuiMenu-list css-r8u8y9\"]/li)", "10");
 		System.out.println("Rows Per Page is : 10 And Size is :" + total_records_text.getText());
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		Testutils.scrollUsingAction(bottom_part);
 		rpp_ddl.click();
 		selectFromDdl("(//ul[@class=\"MuiList-root MuiList-padding MuiMenu-list css-r8u8y9\"]/li)", "25");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		System.out.println("Rows Per Page is : 25 And Size is :" + total_records_text.getText());
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		Testutils.scrollUsingAction(bottom_part);
 		rpp_ddl.click();
 		selectFromDdl("(//ul[@class=\"MuiList-root MuiList-padding MuiMenu-list css-r8u8y9\"]/li)", "50");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		System.out.println("Rows Per Page is : 50 And Size is :" + total_records_text.getText());
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		Testutils.scrollUsingAction(bottom_part);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		rpp_ddl.click();
 		selectFromDdl("(//ul[@class=\"MuiList-root MuiList-padding MuiMenu-list css-r8u8y9\"]/li)", "75");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		System.out.println("Rows Per Page is : 75 And Size is :" + total_records_text.getText());
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		Testutils.scrollUsingAction(bottom_part);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		rpp_ddl.click();
 		selectFromDdl("(//ul[@class=\"MuiList-root MuiList-padding MuiMenu-list css-r8u8y9\"]/li)", "100");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		System.out.println("Rows Per Page is : 100 And Size is :" + total_records_text.getText());
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		System.out.println("Pagination working as expected.");
 	}
 
@@ -215,26 +216,26 @@ public class candidate_Management extends TestBase {
 
 	public void viewAllTheRcords() throws InterruptedException {
 		Testutils.scrollUsingAction(bottom_part);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		rpp_ddl.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		selectFromDdl("(//ul[@class=\"MuiList-root MuiList-padding MuiMenu-list css-r8u8y9\"]/li)", "50");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 
 		do {
 			Testutils.scrollUsingAction(bottom_part);
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			nextPage_txt.click();
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 
 		} while (!nextPage_txt.isEnabled());
 		System.out.println("Next button not found or page fully loaded.");
 
 		do {
 			Testutils.scrollUsingAction(bottom_part);
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			prevPage_txt.click();
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 
 		} while (!prevPage_txt.isEnabled());
 		System.out.println("Prev button not found or page fully loaded.");
@@ -263,42 +264,42 @@ public class candidate_Management extends TestBase {
 		Thread.sleep(1000);
 
 		searchbox_txt.sendKeys(tulipId + "11");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		System.out.println("Search functionality is working as expected for TulipId column");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.navigate().refresh();
 		searchbox_txt.sendKeys(fullname + "11");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		System.out.println("Search functionality is working as expected for FullName column");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.navigate().refresh();
 		searchbox_txt.sendKeys(email + "11");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		System.out.println("Search functionality is working as expected for Email column");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.navigate().refresh();
 	}
 
 	public void sendInvite() throws InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(1500);
 		inviteCan_btn.click();
 		Thread.sleep(1000);
 		sendInvite_box.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		randomEmail1 = generateRandomemail();
 		System.out.println("Random generated first Email : " + randomEmail1);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		sendInvite_txt.sendKeys(randomEmail1);
 		Testutils.PressEnter();
 		Thread.sleep(1000);
 		randomEmail2 = generateRandomemail();
 		System.out.println("Random generated Second Email : " + randomEmail2);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		sendInvite_txt.sendKeys(randomEmail2);
 		Testutils.PressEnter();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		send_btn.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		Assert.assertEquals(succ_txt.getText(), "Email sent successfully.");
 		Thread.sleep(1000);
 		System.out.println(succ_txt.getText());
@@ -323,7 +324,7 @@ public class candidate_Management extends TestBase {
 		emailinput_txt.sendKeys(usernameOnly);
 		Thread.sleep(1000);
 		gotobutton_btn.click();
-		Thread.sleep(2000);
+		Thread.sleep(1200);
 		driver.switchTo().frame(mailSidebar_iframe);
 		Thread.sleep(1000);
 		firstMail_box.click();
@@ -342,70 +343,70 @@ public class candidate_Management extends TestBase {
 	}
 
 	public void fillSignupForm() throws InterruptedException {
-
+		Thread.sleep(1000);
 		Testutils.scrollUsingAction(register_btn);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		Assert.assertEquals(false, !register_btn.isEnabled());
 		String randomname = randomString(5);
 		firstName_txt.sendKeys(randomname);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		lastName_txt.sendKeys(randomname);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		email_txt.sendKeys(randomEmail1);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		randomPass = randomString(10);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		passward_txt.sendKeys(randomPass + "@Aa123");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		confirmPass_txt.sendKeys(randomPass + "@Aa123");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		checkbox_chk.click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		register_btn.click();
-		Thread.sleep(2000);
-		Assert.assertEquals(succ_txt.getText(), "Success! Record saved.");
 		Thread.sleep(1000);
+		Assert.assertEquals(succ_txt.getText(), "Success! Record saved.");
+		Thread.sleep(500);
 		System.out.println("Email Verification sent Successfully.");
 
 	}
 
 	public void emailVerify() throws InterruptedException {
 
-		Thread.sleep(2000);
+		Thread.sleep(2500);
 		driver.get("https://yopmail.com");
 		Thread.sleep(1000);
 		closeInInput_txt.click();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		String usernameOnly = randomEmail1.split("@")[0];
 		System.out.println("Username : " + usernameOnly);
 		emailinput_txt.sendKeys(usernameOnly);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		gotobutton_btn.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.switchTo().frame(mailSidebar_iframe);
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		firstMail_box.click();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		driver.switchTo().defaultContent();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		driver.switchTo().frame(mailFormat_iframe);
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		verifyEmail_txt.click();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		List<String> windowHandles = new ArrayList<>(driver.getWindowHandles());
 		driver.switchTo().window(windowHandles.get(2));
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		Assert.assertEquals(succ_txt.getText(), "Success! Email verified.");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		System.out.println("New Email Verification Successfully.");
 	}
 
 	public void login() throws InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(1200);
 		tpId_txt.sendKeys(randomEmail1);
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		pass_txt.sendKeys(randomPass + "@Aa123");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		login_btn.click();
 		Thread.sleep(1000);
 		Assert.assertEquals(succ_txt.getText(), "Success! You have Logged-In.");

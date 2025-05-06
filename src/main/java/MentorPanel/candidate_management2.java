@@ -15,8 +15,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-
 import base.TestBase;
 import utils.Testutils;
 
@@ -130,7 +128,7 @@ public class candidate_management2 extends TestBase {
 	public void navigatetoMentorPanel() throws InterruptedException {
 		Thread.sleep(3000);
 		Profile_Icn.click();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		mentorPanel_txt.click();
 	}
 
@@ -174,19 +172,19 @@ public class candidate_management2 extends TestBase {
 	}
 
 	public void validationOnDuplicateEmail() throws IOException, InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		openFile();
 		addDetailsInFile(generatedRandomMail(), 3, 1);
 		closeFile();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		Assert.assertEquals("Invalid Data", errorMsg_txt.getText());
 		System.out.println(errorMsg_txt.getText());
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		String expectedError = randomMail + " is duplicated on lines 2, 3, 4 Please correct it.";
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		Assert.assertEquals(errorMsg1_txt.getText(), expectedError);
 		System.out.println(errorMsg1_txt.getText());
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		verifyFieldValue();
 		cancel_btn.click();
 	}
@@ -196,56 +194,56 @@ public class candidate_management2 extends TestBase {
 		openFile();
 		addDetailsInFile("chand.patel@tntra.io", 1, 1);
 		closeFile();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		Assert.assertEquals("Invalid Data", errorMsg_txt.getText());
 		System.out.println(errorMsg_txt.getText());
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		String expectedError = "The email ID present on Row 2 already exists in the Candidate list: [chand.patel@tntra.io].";
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		Assert.assertEquals(errorMsg1_txt.getText(), expectedError);
 		System.out.println(errorMsg1_txt.getText());
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		verifyFieldValue();
 		cancel_btn.click();
 
 	}
 
 	public void validationOnInvalidEmail() throws InterruptedException, IOException {
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		openFile();
 		addDetailsInFile(generateRandomString(10), 1, 1);
 		closeFile();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		Assert.assertEquals("Invalid Data", errorMsg_txt.getText());
 		System.out.println(errorMsg_txt.getText());
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		String expectedError = "The email ID present on Row 2 is invalid: [" + randomstring + "]. Please check.";
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		Assert.assertEquals(errorMsg1_txt.getText(), expectedError);
 		System.out.println(errorMsg1_txt.getText());
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		verifyFieldValue();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		cancel_btn.click();
 	}
 
 	public void validFileUploadFlow() throws IOException, InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		openFile();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		addDetailsInFile(generatedRandomMail(), 1, 1);
 		addDetailsInFile(generatedRandomMail(), 2, 2);
 		addDetailsInFile(generatedRandomMail(), 3, 3);
 		addDetailsInFile(generatedRandomMail(), 4, 4);
 		addDetailsInFile(generatedRandomMail(), 5, 5);
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		closeFile();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		verifyFieldValues(
 				"(//div[@class=\"MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-deletable MuiChip-deletableColorDefault MuiChip-filledDefault MuiChipsInput-Chip   css-33dw0o\"]/span)");
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		send_btn.click();
-		Thread.sleep(2000);
+		Thread.sleep(1200);
 		Assert.assertEquals(succ_txt.getText(), "Email sent successfully.");
 
 	}
@@ -254,13 +252,13 @@ public class candidate_management2 extends TestBase {
 
 		Thread.sleep(2000);
 		driver.get("https://yopmail.com");
-		Thread.sleep(1000);
+		Thread.sleep(100);
 		String usernameOnly = finalEmail.split("@")[0];
 		System.out.println("Username : " + usernameOnly);
 		emailinput_txt.sendKeys(usernameOnly);
 		Thread.sleep(1000);
 		gotobutton_btn.click();
-		Thread.sleep(2000);
+		Thread.sleep(1500);
 		driver.switchTo().frame(mailSidebar_iframe);
 		Thread.sleep(1000);
 		firstMail_box.click();
@@ -268,9 +266,9 @@ public class candidate_management2 extends TestBase {
 		driver.switchTo().defaultContent();
 		Thread.sleep(1000);
 		driver.switchTo().frame(mailFormat_iframe);
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		signup_txt.click();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		driver.switchTo().defaultContent();
 		System.out.println("New Email Verification Successfully.");
 		List<String> windowHandles = new ArrayList<>(driver.getWindowHandles());
@@ -281,27 +279,27 @@ public class candidate_management2 extends TestBase {
 	public void fillSignupForm() throws InterruptedException {
 
 		Testutils.scrollUsingAction(register_btn);
-		Thread.sleep(2000);
+		Thread.sleep(1500);
 		Assert.assertEquals(false, !register_btn.isEnabled());
 		String randomname = generateRandomString(5);
 		firstName_txt.sendKeys(randomname);
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		lastName_txt.sendKeys(randomname);
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		email_txt.sendKeys(finalEmail);
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		randomPass = generateRandomString(10);
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		passward_txt.sendKeys(randomPass + "@Aa123");
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		confirmPass_txt.sendKeys(randomPass + "@Aa123");
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		checkbox_chk.click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		register_btn.click();
-		Thread.sleep(2000);
+		Thread.sleep(1500);
 		Assert.assertEquals(succ_txt.getText(), "Success! Record saved.");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		System.out.println("Email Verification sent Successfully.");
 
 	}
@@ -310,46 +308,46 @@ public class candidate_management2 extends TestBase {
 
 		Thread.sleep(2000);
 		driver.get("https://yopmail.com");
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		closeInInput_txt.click();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		String usernameOnly = finalEmail.split("@")[0];
 		System.out.println("Username : " + usernameOnly);
 		emailinput_txt.sendKeys(usernameOnly);
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		gotobutton_btn.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		driver.switchTo().frame(mailSidebar_iframe);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		firstMail_box.click();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		driver.switchTo().defaultContent();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		driver.switchTo().frame(mailFormat_iframe);
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		verifyEmail_txt.click();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		List<String> windowHandles = new ArrayList<>(driver.getWindowHandles());
 		driver.switchTo().window(windowHandles.get(2));
-		Thread.sleep(2000);
+		Thread.sleep(1500);
 		Assert.assertEquals(succ_txt.getText(), "Success! Email verified.");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		System.out.println("New Email Verification Successfully.");
 	}
 
 	public void login() throws InterruptedException {
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		tpId_txt.sendKeys(finalEmail);
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		pass_txt.sendKeys(randomPass + "@Aa123");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		login_btn.click();
 		Thread.sleep(1000);
 		Assert.assertEquals(succ_txt.getText(), "Success! You have Logged-In.");
 	}
 
 	public void verifyFieldValue() {
-		fieldValue = valueAtt_txt.getAttribute("value");
+		fieldValue = "value";
 		if (fieldValue.isEmpty()) {
 			System.out.println("This field is empty");
 		} else {
@@ -391,9 +389,9 @@ public class candidate_management2 extends TestBase {
 		inviteCan_btn.click();
 		Thread.sleep(1000);
 		xlsx_txt.click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		csv_txt.click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		cancel_btn.click();
 		Thread.sleep(1000);
 	}

@@ -77,6 +77,7 @@ public class Education extends TestBase {
 	WebElement image_img;
 
 	public void navigateToEducation() throws InterruptedException {
+		Thread.sleep(2000);
 		Testutils.scrollUsingAction(Education_txt);
 		Thread.sleep(2000);
 		Education_txt.click();

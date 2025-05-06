@@ -159,24 +159,24 @@ public class Personal_Information extends TestBase {
 
 	public void fillPersonalInformation() throws InterruptedException {
 		Testutils.scrollUsingAction(image_img);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		Edit_icn.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		Testutils.scrollUsingAction(dob_txt);
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		dob_txt.click();
 		year_ddl.click();
 		selectFromStaticList(
 				"//div[@class=\"react-datepicker__header react-datepicker__header--custom\"]//select[1]//option",
 				"2003");
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		month_ddl.click();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		selectFromStaticList(
 				"//div[@class=\"react-datepicker__header react-datepicker__header--custom\"]//select[2]//option",
 				"April");
 		date_txt.click();
-		Thread.sleep(1000);
+		Thread.sleep(800);
 		selectFromStaticList("//div[@class=\"react-datepicker__month\"]", "5");
 		Testutils.scrollUsingAction(AboutMe_txt);
 		Country_ddl.sendKeys("Australia");
@@ -185,10 +185,10 @@ public class Personal_Information extends TestBase {
 		Testutils.PressEnter();
 		City_ddl.sendKeys("Ascot");
 		Testutils.PressEnter();
-		Thread.sleep(2000);
+		Thread.sleep(1500);
 		Gender_txt.click();
 		selectFromStaticList("//div[@class=\"react-select__menu-list css-qr46ko\"]//div", "Male");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		Language_ddl.sendKeys("Basaa");
 		Testutils.PressEnter();
 		AboutMe_txt.click();
