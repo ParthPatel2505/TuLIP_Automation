@@ -67,7 +67,7 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>5.4.0</version> <!-- Update to the latest version -->
+			<version>6.1.0</version> <!-- Update to the latest version -->
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
